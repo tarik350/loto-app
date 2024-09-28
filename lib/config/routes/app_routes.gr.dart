@@ -19,7 +19,7 @@ abstract class $AppRouter extends _i2.RootStackRouter {
     EdilAppRoute.name: (routeData) {
       return _i2.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.EdilAppScreen(),
+        child: _i1.EdilAppScreen(),
       );
     }
   };
