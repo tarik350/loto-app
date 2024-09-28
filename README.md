@@ -1,4 +1,4 @@
-# Agazh app
+# loto app
 
 A new Flutter project.
 
