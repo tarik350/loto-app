@@ -4,6 +4,8 @@ import 'package:mobile_app/config/routes/app_routes.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends $AppRouter {
   @override
-  List<AutoRoute> get routes =>
-      [AutoRoute(page: EdilAppRoute.page, initial: true)];
+  List<AutoRoute> get routes => [
+        AutoRoute(page: EdilAppRoute.page, initial: true),
+        AutoRoute(page: GameDetailRoute.page)
+      ];
 }

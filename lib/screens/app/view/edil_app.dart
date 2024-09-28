@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/config/constants/app_colors.dart';
-import 'package:mobile_app/screens/home/home_scree.dart';
+import 'package:mobile_app/screens/home/home_screen.dart';
+import 'package:mobile_app/utils/dialogue/language_change_dialogue.dart';
 
 @RoutePage()
 class EdilAppScreen extends StatefulWidget {
@@ -14,9 +16,9 @@ class EdilAppScreen extends StatefulWidget {
 
 class _EdilAppScreenState extends State<EdilAppScreen> {
   List<Map<String, dynamic>> icons = [
-    {"icon": Icons.home, "title": "Home"},
-    {"icon": Icons.queue, "title": "Tickets"},
-    {"icon": Icons.settings, "title": "Settings"}
+    {"icon": Icons.home, "title": "home"},
+    {"icon": Icons.queue, "title": "ticket"},
+    {"icon": Icons.settings, "title": "settings"}
   ];
 
   int _currentIndex = 0;
@@ -79,7 +81,7 @@ class _EdilAppScreenState extends State<EdilAppScreen> {
                                 fontWeight: index == _currentIndex
                                     ? FontWeight.bold
                                     : FontWeight.w400),
-                          )
+                          ).tr()
                         ],
                       ));
                 }).toList(),

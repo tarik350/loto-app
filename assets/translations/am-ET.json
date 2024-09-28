@@ -1,3 +1,19 @@
 {
-  "title": "እድል መተግበርያ"
+  "hourly": "በሰአት",
+  "daily": "በቀን",
+  "weekly": "በሳምንት",
+  "holiday": "የበአል",
+  "pocket": "የኪስ",
+  "life": "ጓዝ",
+  "home": "ዋና ገፅ",
+  "ticket": "ትኬት",
+  "settings": "ሴቲንግ",
+  "jackpots": "እጣዎች",
+  "numbers_left": "{} ቁጠሮች ቀርተዋል",
+  "odds": "እድል",
+  "ticket_price": "የቁጥር ዋጋ {} ",
+  "select_lottery_number": "ማሸነፍያ ቁጥር ይምረጡ",
+  "select_upto_ten": "እስከ 5 ቁጥሮችን ይምረጡ",
+  "get_ticket": "ትኬቱን የግዙ",
+  "random": "ገምት"
 }

@@ -1,3 +1,19 @@
 {
-  "title": "Edil App"
+  "title": "Edil App",
+  "hourly": "Hourly",
+  "daily": "Daily",
+  "weekly": "Weekly",
+  "holiday": "Holiday Maker",
+  "pocket": "Pocket Money",
+  "life": "Life Changer",
+  "home": "Home",
+  "ticket": "Ticket",
+  "settings": "Settings",
+  "jackpots": "jackpots",
+  "numbers_left": "{} Numbers Left",
+  "odds": "Odds",
+  "ticket_price": "Ticket Price {}",
+  "select_lottery_number": "Select Lottery Numbers",
+  "select_upto_ten": "Select Upto 5 Numbers",
+  "get_ticket": "Get Ticket"
 }
