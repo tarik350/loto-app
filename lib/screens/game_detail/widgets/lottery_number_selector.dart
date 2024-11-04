@@ -1,7 +1,13 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
+import 'package:dart_pusher_channels/dart_pusher_channels.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mobile_app/data/models/TicketLockedEventResponse.dart';
 
 class LotteryNumberSelector extends StatefulWidget {
   final Color selectedColor;
@@ -15,6 +21,86 @@ class LotteryNumberSelector extends StatefulWidget {
 class LotteryNumberSelectorState extends State<LotteryNumberSelector> {
   final List<int> takenNumbers = [5, 18, 28, 50];
   final Set<int> selectedNumbers = {};
+
+  TicketLockedResponse handleEvent(String jsonString) {
+    try {
+      // Decode the JSON string into a Map
+      Map<String, dynamic> jsonData = jsonDecode(jsonString);
+
+      // Create a TicketLockedResponse instance from the JSON data
+      TicketLockedResponse response = TicketLockedResponse.fromJson(jsonData);
+
+      // Now you can access the parsed data
+      print("Ticket ID: ${response.ticket.id}");
+      print("User Name: ${response.user.fullName}");
+      print("Game Name: ${response.game.name}");
+      return response;
+    } catch (e) {
+      print("Error parsing JSON: $e");
+      rethrow;
+    }
+  }
+
+  void connectToPusher() async {
+    try {
+      PusherChannelsPackageLogger.enableLogs();
+      const hostOptions = PusherChannelsOptions.fromHost(
+        scheme: 'ws', // wss for ssl
+        host: '192.168.3.102',
+        key: 'app-key', // default is app-key, change in production!
+        shouldSupplyMetadataQueries: true,
+        metadata: PusherChannelsOptionsMetadata.byDefault(),
+        port: 6001,
+      );
+
+      final client = PusherChannelsClient.websocket(
+          options: hostOptions,
+          connectionErrorHandler: (exception, trace, refresh) async {
+            print(exception);
+            refresh();
+          });
+
+      final ticketLockedChannel =
+          client.publicChannel('ticket-lock'); // Corrected channel name
+
+      final StreamSubscription connectionSubs =
+          client.onConnectionEstablished.listen((_) {
+        ticketLockedChannel.subscribeIfNotUnsubscribed();
+      });
+
+      ticketLockedChannel.whenSubscriptionSucceeded().listen((_) {
+        print("Subscription succeded to the channel ");
+      });
+
+      // unawaited(client.connect());
+      await client.connect();
+
+      // Handle incoming event
+      StreamSubscription<ChannelReadEvent> somePrivateChannelEventSubs =
+          ticketLockedChannel.bind('ticket.locked').listen((event) {
+        final data = handleEvent(event.data);
+        Fluttertoast.showToast(
+            msg:
+                "${data.user.fullName} has bought a ticket ${data.ticket.ticketNumber} in the game ${data.game.name} ",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 5,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0);
+        print(event.data);
+        print(event.channel.name);
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    connectToPusher();
+    super.initState();
+  }
 
   // Select one random number
   void selectRandomNumber() {
