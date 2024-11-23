@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_app/config/routes/app_routes.dart';
-import 'package:mobile_app/services/init_app.dart';
+import 'package:mobile_app/src/core/router/app_route.dart';
+import 'package:mobile_app/src/core/utils/injections.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await initAppService();
+  await initInjection();
 
   runApp(EasyLocalization(
       supportedLocales: const [Locale('am', 'ET'), Locale('en', 'US')],
