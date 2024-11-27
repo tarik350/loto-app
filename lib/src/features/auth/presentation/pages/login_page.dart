@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_app/src/core/router/app_route.gr.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
-import 'package:mobile_app/src/features/auth/domain/models/user/user.dart';
 import 'package:mobile_app/src/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 
 @RoutePage()
 class LoginScreen extends StatelessWidget {
@@ -96,6 +96,14 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                color: Colors.black,
+                              );
+                            },
+                          );
                           context.read<AuthBloc>().add(
                                 AuthEvent.login(
                                   phone: phone.text,

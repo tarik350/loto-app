@@ -1,9 +1,9 @@
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobile_app/src/core/constants/storage_keys/auth_keys.dart';
-import 'package:mobile_app/src/features/auth/data/data_source%20/local/abstract_auth_local_api.dart';
+import 'package:mobile_app/src/features/login/data/data_source/local/abstract_local_login_api.dart';
 import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 
-class AuthLocalApiImpl extends AbstractAuthLocalApi {
+class LocalLoginApiImpl implements AbstractLocalLoginApi {
   static final _userBox = Hive.box<User>('userBox');
   static final _authBox = Hive.box('authBox');
 

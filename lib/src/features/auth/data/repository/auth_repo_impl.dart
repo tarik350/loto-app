@@ -3,7 +3,7 @@ import 'package:mobile_app/src/core/exceptions/exceptions.dart';
 import 'package:mobile_app/src/core/exceptions/failures.dart';
 import 'package:mobile_app/src/features/auth/data/data_source%20/local/abstract_auth_local_api.dart';
 import 'package:mobile_app/src/features/auth/data/data_source%20/remote/abstract_auth_remote_api.dart';
-import 'package:mobile_app/src/features/auth/domain/models/user/user.dart';
+import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 import 'package:mobile_app/src/features/auth/domain/repository/abstract_auth_repository.dart';
 import 'package:mobile_app/src/shared/models/api_response_dto/api_response.dart';
 

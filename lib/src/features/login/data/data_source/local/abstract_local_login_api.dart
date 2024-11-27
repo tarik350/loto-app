@@ -1,6 +1,6 @@
 import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 
-abstract class AbstractAuthLocalApi {
+abstract class AbstractLocalLoginApi {
   Future<void> saveUserModel(User user);
 
   User? getUserModel();

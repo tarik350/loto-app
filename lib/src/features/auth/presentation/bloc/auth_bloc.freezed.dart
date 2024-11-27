@@ -244,8 +244,6 @@ abstract class _$$SignupEventImplCopyWith<$Res> {
       __$$SignupEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({RegisterRequest request});
-
-  $RegisterRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
@@ -261,24 +259,14 @@ class __$$SignupEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = null,
+    Object? request = freezed,
   }) {
     return _then(_$SignupEventImpl(
-      null == request
+      freezed == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as RegisterRequest,
     ));
-  }
-
-  /// Create a copy of AuthEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $RegisterRequestCopyWith<$Res> get request {
-    return $RegisterRequestCopyWith<$Res>(_value.request, (value) {
-      return _then(_value.copyWith(request: value));
-    });
   }
 }
 
@@ -308,11 +296,12 @@ class _$SignupEventImpl with DiagnosticableTreeMixin implements SignupEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignupEventImpl &&
-            (identical(other.request, request) || other.request == request));
+            const DeepCollectionEquality().equals(other.request, request));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, request);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(request));
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -891,8 +880,6 @@ abstract class _$$AuthSuccessStateImplCopyWith<$Res> {
       __$$AuthSuccessStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({User user});
-
-  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -908,24 +895,14 @@ class __$$AuthSuccessStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
+    Object? user = freezed,
   }) {
     return _then(_$AuthSuccessStateImpl(
-      null == user
+      freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User,
     ));
-  }
-
-  /// Create a copy of AuthState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
   }
 }
 
@@ -957,11 +934,12 @@ class _$AuthSuccessStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthSuccessStateImpl &&
-            (identical(other.user, user) || other.user == user));
+            const DeepCollectionEquality().equals(other.user, user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.

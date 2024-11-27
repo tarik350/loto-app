@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mobile_app/src/features/auth/domain/models/register_request/register_request.dart';
-import 'package:mobile_app/src/features/auth/domain/models/user/user.dart';
+import 'package:mobile_app/src/features/login/domain/models/register_request/register_request.dart';
+import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 import 'package:mobile_app/src/features/auth/domain/repository/abstract_auth_repository.dart';
 
 part 'auth_bloc.freezed.dart';

@@ -4,7 +4,7 @@ import 'package:mobile_app/src/core/exceptions/exceptions.dart';
 import 'package:mobile_app/src/core/utils/helper/helper.dart';
 import 'package:mobile_app/src/core/network/error/dio_error_handler.dart';
 import 'package:mobile_app/src/features/auth/data/data_source%20/remote/abstract_auth_remote_api.dart';
-import 'package:mobile_app/src/features/auth/domain/models/user/user.dart';
+import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 import 'package:mobile_app/src/shared/models/api_response_dto/api_response.dart';
 
 class AuthRemoteApiImpl extends AbstractAuthRemoteApi {
