@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 
 class CustomTextField extends StatefulWidget {
   final String? title;
+  final String fieldKey;
   final String? hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType keyboardType;
   final Function(String)? onChanged;
+  final String? initialValue;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final bool isPassword;
-  final double? maxHeight;
+  final double? height;
   final EdgeInsetsGeometry? contentPadding;
   final TextStyle? style;
+  final bool readOnly;
 
   const CustomTextField({
     super.key,
@@ -27,9 +31,12 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     this.controller,
     this.isPassword = false,
-    this.maxHeight,
+    this.readOnly = false,
+    this.initialValue,
     this.contentPadding,
     this.style,
+    required this.fieldKey,
+    this.height,
   });
 
   @override
@@ -37,7 +44,7 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  bool _obscureText = true;
+  bool _obscureText = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,26 +59,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
           SizedBox(height: AppDimensions.spacingXS),
         ],
         TextFormField(
+          key: Key(widget.fieldKey),
           controller: widget.controller,
           obscureText: widget.isPassword ? _obscureText : false,
           keyboardType: widget.keyboardType,
           onChanged: widget.onChanged,
+          initialValue: widget.initialValue,
           validator: widget.validator,
           style: widget.style,
           textAlignVertical: TextAlignVertical.center,
+          readOnly: widget.readOnly,
           decoration: InputDecoration(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            isCollapsed: true,
+            errorStyle: const TextStyle(height: 0),
             hintText: widget.hintText,
             filled: true,
             fillColor: AppColors.lightGray.withOpacity(.4),
-            isDense: false,
-            constraints: BoxConstraints(
-              maxHeight: widget.maxHeight ?? AppDimensions.inputHeight,
-            ),
-            contentPadding: widget.contentPadding ??
-                EdgeInsets.symmetric(
-                  vertical: AppDimensions.paddingXS,
-                  horizontal: AppDimensions.paddingM,
-                ),
+            isDense: true,
             suffixIcon: widget.isPassword
                 ? IconButton(
                     splashColor: Colors.transparent,
@@ -105,6 +111,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppDimensions.radiusM),
               borderSide: const BorderSide(color: Colors.red),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppDimensions.radiusM),
+              borderSide: const BorderSide(color: AppColors.lightGray),
             ),
           ),
         ),

@@ -55,14 +55,14 @@
 //     if (!_key.currentState!.validate()) return;
 
 //     setState(() {
-//       _state = _state.copyWith(status: FormzSubmissionStatus.inProgress);
+//       _state = _state.copyWith(status: FormSubmissionStatus.inProgress);
 //     });
 
 //     try {
 //       await _submitForm();
-//       _state = _state.copyWith(status: FormzSubmissionStatus.success);
+//       _state = _state.copyWith(status: FormSubmissionStatus.success);
 //     } catch (_) {
-//       _state = _state.copyWith(status: FormzSubmissionStatus.failure);
+//       _state = _state.copyWith(status: FormSubmissionStatus.failure);
 //     }
 
 //     if (!mounted) return;
@@ -171,18 +171,18 @@
 //   MyFormState({
 //     Email? email,
 //     this.password = const Password.pure(),
-//     this.status = FormzSubmissionStatus.initial,
+//     this.status = FormSubmissionStatus.initial,
 //   }) : email = email ?? Email.pure();
 
 //   final Email email;
 //   final Password password;
 //   @override
-//   final FormzSubmissionStatus status;
+//   final FormSubmissionStatus status;
 
 //   MyFormState copyWith({
 //     Email? email,
 //     Password? password,
-//     FormzSubmissionStatus? status,
+//     FormSubmissionStatus? status,
 //   }) {
 //     return MyFormState(
 //       email: email ?? this.email,

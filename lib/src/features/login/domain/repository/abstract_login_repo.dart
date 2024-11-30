@@ -4,5 +4,5 @@ import 'package:mobile_app/src/features/login/domain/models/login_request/login_
 import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
 
 abstract class AbstractLoginRepository {
-  Future<Either<AppFailure, User>> login(LoginRequestModel loginRequestPayload);
+  Future<Either<AppFailure, User>> login(LoginRequestDTO requestPayload);
 }

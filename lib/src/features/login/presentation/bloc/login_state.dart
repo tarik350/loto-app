@@ -5,9 +5,10 @@ class LoginState with _$LoginState {
   const factory LoginState({
     @Default('') String phoneNumber,
     @Default('') String password,
-    @Default(false) bool isLoading,
+    @Default(AutovalidateMode.disabled) AutovalidateMode autovalidateMode,
+    @Default(FormSubmissionStatus.initial)
+    FormSubmissionStatus formSubmissionStatus,
     @Default(null) String? errorMessage,
     @Default(null) User? user,
-    @Default(false) bool isFormValid,
   }) = _LoginState;
 }

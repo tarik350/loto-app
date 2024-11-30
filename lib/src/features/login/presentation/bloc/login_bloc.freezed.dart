@@ -20,6 +20,9 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() submitLogin,
     required TResult Function(String phoneNumber) updatePhone,
+    required TResult Function(AutovalidateMode autovalidateMode)
+        updateAutovalidateMode,
+    required TResult Function() resetForm,
     required TResult Function(String password) updatePassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +30,9 @@ mixin _$LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? submitLogin,
     TResult? Function(String phoneNumber)? updatePhone,
+    TResult? Function(AutovalidateMode autovalidateMode)?
+        updateAutovalidateMode,
+    TResult? Function()? resetForm,
     TResult? Function(String password)? updatePassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +40,8 @@ mixin _$LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitLogin,
     TResult Function(String phoneNumber)? updatePhone,
+    TResult Function(AutovalidateMode autovalidateMode)? updateAutovalidateMode,
+    TResult Function()? resetForm,
     TResult Function(String password)? updatePassword,
     required TResult orElse(),
   }) =>
@@ -42,6 +50,9 @@ mixin _$LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitLogin value) submitLogin,
     required TResult Function(UpdatePhoneNumber value) updatePhone,
+    required TResult Function(UpdateAutovalidateMode value)
+        updateAutovalidateMode,
+    required TResult Function(ResetForm value) resetForm,
     required TResult Function(UpdatePassword value) updatePassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +60,8 @@ mixin _$LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SubmitLogin value)? submitLogin,
     TResult? Function(UpdatePhoneNumber value)? updatePhone,
+    TResult? Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult? Function(ResetForm value)? resetForm,
     TResult? Function(UpdatePassword value)? updatePassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +69,8 @@ mixin _$LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitLogin value)? submitLogin,
     TResult Function(UpdatePhoneNumber value)? updatePhone,
+    TResult Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult Function(ResetForm value)? resetForm,
     TResult Function(UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) =>
@@ -132,6 +147,9 @@ class _$SubmitLoginImpl with DiagnosticableTreeMixin implements SubmitLogin {
   TResult when<TResult extends Object?>({
     required TResult Function() submitLogin,
     required TResult Function(String phoneNumber) updatePhone,
+    required TResult Function(AutovalidateMode autovalidateMode)
+        updateAutovalidateMode,
+    required TResult Function() resetForm,
     required TResult Function(String password) updatePassword,
   }) {
     return submitLogin();
@@ -142,6 +160,9 @@ class _$SubmitLoginImpl with DiagnosticableTreeMixin implements SubmitLogin {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? submitLogin,
     TResult? Function(String phoneNumber)? updatePhone,
+    TResult? Function(AutovalidateMode autovalidateMode)?
+        updateAutovalidateMode,
+    TResult? Function()? resetForm,
     TResult? Function(String password)? updatePassword,
   }) {
     return submitLogin?.call();
@@ -152,6 +173,8 @@ class _$SubmitLoginImpl with DiagnosticableTreeMixin implements SubmitLogin {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitLogin,
     TResult Function(String phoneNumber)? updatePhone,
+    TResult Function(AutovalidateMode autovalidateMode)? updateAutovalidateMode,
+    TResult Function()? resetForm,
     TResult Function(String password)? updatePassword,
     required TResult orElse(),
   }) {
@@ -166,6 +189,9 @@ class _$SubmitLoginImpl with DiagnosticableTreeMixin implements SubmitLogin {
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitLogin value) submitLogin,
     required TResult Function(UpdatePhoneNumber value) updatePhone,
+    required TResult Function(UpdateAutovalidateMode value)
+        updateAutovalidateMode,
+    required TResult Function(ResetForm value) resetForm,
     required TResult Function(UpdatePassword value) updatePassword,
   }) {
     return submitLogin(this);
@@ -176,6 +202,8 @@ class _$SubmitLoginImpl with DiagnosticableTreeMixin implements SubmitLogin {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SubmitLogin value)? submitLogin,
     TResult? Function(UpdatePhoneNumber value)? updatePhone,
+    TResult? Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult? Function(ResetForm value)? resetForm,
     TResult? Function(UpdatePassword value)? updatePassword,
   }) {
     return submitLogin?.call(this);
@@ -186,6 +214,8 @@ class _$SubmitLoginImpl with DiagnosticableTreeMixin implements SubmitLogin {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitLogin value)? submitLogin,
     TResult Function(UpdatePhoneNumber value)? updatePhone,
+    TResult Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult Function(ResetForm value)? resetForm,
     TResult Function(UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
@@ -282,6 +312,9 @@ class _$UpdatePhoneNumberImpl
   TResult when<TResult extends Object?>({
     required TResult Function() submitLogin,
     required TResult Function(String phoneNumber) updatePhone,
+    required TResult Function(AutovalidateMode autovalidateMode)
+        updateAutovalidateMode,
+    required TResult Function() resetForm,
     required TResult Function(String password) updatePassword,
   }) {
     return updatePhone(phoneNumber);
@@ -292,6 +325,9 @@ class _$UpdatePhoneNumberImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? submitLogin,
     TResult? Function(String phoneNumber)? updatePhone,
+    TResult? Function(AutovalidateMode autovalidateMode)?
+        updateAutovalidateMode,
+    TResult? Function()? resetForm,
     TResult? Function(String password)? updatePassword,
   }) {
     return updatePhone?.call(phoneNumber);
@@ -302,6 +338,8 @@ class _$UpdatePhoneNumberImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitLogin,
     TResult Function(String phoneNumber)? updatePhone,
+    TResult Function(AutovalidateMode autovalidateMode)? updateAutovalidateMode,
+    TResult Function()? resetForm,
     TResult Function(String password)? updatePassword,
     required TResult orElse(),
   }) {
@@ -316,6 +354,9 @@ class _$UpdatePhoneNumberImpl
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitLogin value) submitLogin,
     required TResult Function(UpdatePhoneNumber value) updatePhone,
+    required TResult Function(UpdateAutovalidateMode value)
+        updateAutovalidateMode,
+    required TResult Function(ResetForm value) resetForm,
     required TResult Function(UpdatePassword value) updatePassword,
   }) {
     return updatePhone(this);
@@ -326,6 +367,8 @@ class _$UpdatePhoneNumberImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SubmitLogin value)? submitLogin,
     TResult? Function(UpdatePhoneNumber value)? updatePhone,
+    TResult? Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult? Function(ResetForm value)? resetForm,
     TResult? Function(UpdatePassword value)? updatePassword,
   }) {
     return updatePhone?.call(this);
@@ -336,6 +379,8 @@ class _$UpdatePhoneNumberImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitLogin value)? submitLogin,
     TResult Function(UpdatePhoneNumber value)? updatePhone,
+    TResult Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult Function(ResetForm value)? resetForm,
     TResult Function(UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
@@ -357,6 +402,316 @@ abstract class UpdatePhoneNumber implements LoginEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdatePhoneNumberImplCopyWith<_$UpdatePhoneNumberImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateAutovalidateModeImplCopyWith<$Res> {
+  factory _$$UpdateAutovalidateModeImplCopyWith(
+          _$UpdateAutovalidateModeImpl value,
+          $Res Function(_$UpdateAutovalidateModeImpl) then) =
+      __$$UpdateAutovalidateModeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AutovalidateMode autovalidateMode});
+}
+
+/// @nodoc
+class __$$UpdateAutovalidateModeImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$UpdateAutovalidateModeImpl>
+    implements _$$UpdateAutovalidateModeImplCopyWith<$Res> {
+  __$$UpdateAutovalidateModeImplCopyWithImpl(
+      _$UpdateAutovalidateModeImpl _value,
+      $Res Function(_$UpdateAutovalidateModeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? autovalidateMode = freezed,
+  }) {
+    return _then(_$UpdateAutovalidateModeImpl(
+      autovalidateMode: freezed == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateAutovalidateModeImpl
+    with DiagnosticableTreeMixin
+    implements UpdateAutovalidateMode {
+  const _$UpdateAutovalidateModeImpl({required this.autovalidateMode});
+
+  @override
+  final AutovalidateMode autovalidateMode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginEvent.updateAutovalidateMode(autovalidateMode: $autovalidateMode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LoginEvent.updateAutovalidateMode'))
+      ..add(DiagnosticsProperty('autovalidateMode', autovalidateMode));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateAutovalidateModeImpl &&
+            const DeepCollectionEquality()
+                .equals(other.autovalidateMode, autovalidateMode));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(autovalidateMode));
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateAutovalidateModeImplCopyWith<_$UpdateAutovalidateModeImpl>
+      get copyWith => __$$UpdateAutovalidateModeImplCopyWithImpl<
+          _$UpdateAutovalidateModeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitLogin,
+    required TResult Function(String phoneNumber) updatePhone,
+    required TResult Function(AutovalidateMode autovalidateMode)
+        updateAutovalidateMode,
+    required TResult Function() resetForm,
+    required TResult Function(String password) updatePassword,
+  }) {
+    return updateAutovalidateMode(autovalidateMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitLogin,
+    TResult? Function(String phoneNumber)? updatePhone,
+    TResult? Function(AutovalidateMode autovalidateMode)?
+        updateAutovalidateMode,
+    TResult? Function()? resetForm,
+    TResult? Function(String password)? updatePassword,
+  }) {
+    return updateAutovalidateMode?.call(autovalidateMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitLogin,
+    TResult Function(String phoneNumber)? updatePhone,
+    TResult Function(AutovalidateMode autovalidateMode)? updateAutovalidateMode,
+    TResult Function()? resetForm,
+    TResult Function(String password)? updatePassword,
+    required TResult orElse(),
+  }) {
+    if (updateAutovalidateMode != null) {
+      return updateAutovalidateMode(autovalidateMode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SubmitLogin value) submitLogin,
+    required TResult Function(UpdatePhoneNumber value) updatePhone,
+    required TResult Function(UpdateAutovalidateMode value)
+        updateAutovalidateMode,
+    required TResult Function(ResetForm value) resetForm,
+    required TResult Function(UpdatePassword value) updatePassword,
+  }) {
+    return updateAutovalidateMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SubmitLogin value)? submitLogin,
+    TResult? Function(UpdatePhoneNumber value)? updatePhone,
+    TResult? Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult? Function(ResetForm value)? resetForm,
+    TResult? Function(UpdatePassword value)? updatePassword,
+  }) {
+    return updateAutovalidateMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SubmitLogin value)? submitLogin,
+    TResult Function(UpdatePhoneNumber value)? updatePhone,
+    TResult Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult Function(ResetForm value)? resetForm,
+    TResult Function(UpdatePassword value)? updatePassword,
+    required TResult orElse(),
+  }) {
+    if (updateAutovalidateMode != null) {
+      return updateAutovalidateMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateAutovalidateMode implements LoginEvent {
+  const factory UpdateAutovalidateMode(
+          {required final AutovalidateMode autovalidateMode}) =
+      _$UpdateAutovalidateModeImpl;
+
+  AutovalidateMode get autovalidateMode;
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateAutovalidateModeImplCopyWith<_$UpdateAutovalidateModeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetFormImplCopyWith<$Res> {
+  factory _$$ResetFormImplCopyWith(
+          _$ResetFormImpl value, $Res Function(_$ResetFormImpl) then) =
+      __$$ResetFormImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetFormImplCopyWithImpl<$Res>
+    extends _$LoginEventCopyWithImpl<$Res, _$ResetFormImpl>
+    implements _$$ResetFormImplCopyWith<$Res> {
+  __$$ResetFormImplCopyWithImpl(
+      _$ResetFormImpl _value, $Res Function(_$ResetFormImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetFormImpl with DiagnosticableTreeMixin implements ResetForm {
+  const _$ResetFormImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LoginEvent.resetForm()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'LoginEvent.resetForm'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetFormImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitLogin,
+    required TResult Function(String phoneNumber) updatePhone,
+    required TResult Function(AutovalidateMode autovalidateMode)
+        updateAutovalidateMode,
+    required TResult Function() resetForm,
+    required TResult Function(String password) updatePassword,
+  }) {
+    return resetForm();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? submitLogin,
+    TResult? Function(String phoneNumber)? updatePhone,
+    TResult? Function(AutovalidateMode autovalidateMode)?
+        updateAutovalidateMode,
+    TResult? Function()? resetForm,
+    TResult? Function(String password)? updatePassword,
+  }) {
+    return resetForm?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitLogin,
+    TResult Function(String phoneNumber)? updatePhone,
+    TResult Function(AutovalidateMode autovalidateMode)? updateAutovalidateMode,
+    TResult Function()? resetForm,
+    TResult Function(String password)? updatePassword,
+    required TResult orElse(),
+  }) {
+    if (resetForm != null) {
+      return resetForm();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SubmitLogin value) submitLogin,
+    required TResult Function(UpdatePhoneNumber value) updatePhone,
+    required TResult Function(UpdateAutovalidateMode value)
+        updateAutovalidateMode,
+    required TResult Function(ResetForm value) resetForm,
+    required TResult Function(UpdatePassword value) updatePassword,
+  }) {
+    return resetForm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SubmitLogin value)? submitLogin,
+    TResult? Function(UpdatePhoneNumber value)? updatePhone,
+    TResult? Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult? Function(ResetForm value)? resetForm,
+    TResult? Function(UpdatePassword value)? updatePassword,
+  }) {
+    return resetForm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SubmitLogin value)? submitLogin,
+    TResult Function(UpdatePhoneNumber value)? updatePhone,
+    TResult Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult Function(ResetForm value)? resetForm,
+    TResult Function(UpdatePassword value)? updatePassword,
+    required TResult orElse(),
+  }) {
+    if (resetForm != null) {
+      return resetForm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetForm implements LoginEvent {
+  const factory ResetForm() = _$ResetFormImpl;
 }
 
 /// @nodoc
@@ -441,6 +796,9 @@ class _$UpdatePasswordImpl
   TResult when<TResult extends Object?>({
     required TResult Function() submitLogin,
     required TResult Function(String phoneNumber) updatePhone,
+    required TResult Function(AutovalidateMode autovalidateMode)
+        updateAutovalidateMode,
+    required TResult Function() resetForm,
     required TResult Function(String password) updatePassword,
   }) {
     return updatePassword(password);
@@ -451,6 +809,9 @@ class _$UpdatePasswordImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? submitLogin,
     TResult? Function(String phoneNumber)? updatePhone,
+    TResult? Function(AutovalidateMode autovalidateMode)?
+        updateAutovalidateMode,
+    TResult? Function()? resetForm,
     TResult? Function(String password)? updatePassword,
   }) {
     return updatePassword?.call(password);
@@ -461,6 +822,8 @@ class _$UpdatePasswordImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitLogin,
     TResult Function(String phoneNumber)? updatePhone,
+    TResult Function(AutovalidateMode autovalidateMode)? updateAutovalidateMode,
+    TResult Function()? resetForm,
     TResult Function(String password)? updatePassword,
     required TResult orElse(),
   }) {
@@ -475,6 +838,9 @@ class _$UpdatePasswordImpl
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitLogin value) submitLogin,
     required TResult Function(UpdatePhoneNumber value) updatePhone,
+    required TResult Function(UpdateAutovalidateMode value)
+        updateAutovalidateMode,
+    required TResult Function(ResetForm value) resetForm,
     required TResult Function(UpdatePassword value) updatePassword,
   }) {
     return updatePassword(this);
@@ -485,6 +851,8 @@ class _$UpdatePasswordImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SubmitLogin value)? submitLogin,
     TResult? Function(UpdatePhoneNumber value)? updatePhone,
+    TResult? Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult? Function(ResetForm value)? resetForm,
     TResult? Function(UpdatePassword value)? updatePassword,
   }) {
     return updatePassword?.call(this);
@@ -495,6 +863,8 @@ class _$UpdatePasswordImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitLogin value)? submitLogin,
     TResult Function(UpdatePhoneNumber value)? updatePhone,
+    TResult Function(UpdateAutovalidateMode value)? updateAutovalidateMode,
+    TResult Function(ResetForm value)? resetForm,
     TResult Function(UpdatePassword value)? updatePassword,
     required TResult orElse(),
   }) {
@@ -522,10 +892,11 @@ abstract class UpdatePassword implements LoginEvent {
 mixin _$LoginState {
   String get phoneNumber => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
+  AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
+  FormSubmissionStatus get formSubmissionStatus =>
+      throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   User? get user => throw _privateConstructorUsedError;
-  bool get isFormValid => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -543,10 +914,10 @@ abstract class $LoginStateCopyWith<$Res> {
   $Res call(
       {String phoneNumber,
       String password,
-      bool isLoading,
+      AutovalidateMode autovalidateMode,
+      FormSubmissionStatus formSubmissionStatus,
       String? errorMessage,
-      User? user,
-      bool isFormValid});
+      User? user});
 
   $UserCopyWith<$Res>? get user;
 }
@@ -568,10 +939,10 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   $Res call({
     Object? phoneNumber = null,
     Object? password = null,
-    Object? isLoading = null,
+    Object? autovalidateMode = freezed,
+    Object? formSubmissionStatus = freezed,
     Object? errorMessage = freezed,
     Object? user = freezed,
-    Object? isFormValid = null,
   }) {
     return _then(_value.copyWith(
       phoneNumber: null == phoneNumber
@@ -582,10 +953,14 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      autovalidateMode: freezed == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
+      formSubmissionStatus: freezed == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -594,10 +969,6 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
-      isFormValid: null == isFormValid
-          ? _value.isFormValid
-          : isFormValid // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 
@@ -627,10 +998,10 @@ abstract class _$$LoginStateImplCopyWith<$Res>
   $Res call(
       {String phoneNumber,
       String password,
-      bool isLoading,
+      AutovalidateMode autovalidateMode,
+      FormSubmissionStatus formSubmissionStatus,
       String? errorMessage,
-      User? user,
-      bool isFormValid});
+      User? user});
 
   @override
   $UserCopyWith<$Res>? get user;
@@ -651,10 +1022,10 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   $Res call({
     Object? phoneNumber = null,
     Object? password = null,
-    Object? isLoading = null,
+    Object? autovalidateMode = freezed,
+    Object? formSubmissionStatus = freezed,
     Object? errorMessage = freezed,
     Object? user = freezed,
-    Object? isFormValid = null,
   }) {
     return _then(_$LoginStateImpl(
       phoneNumber: null == phoneNumber
@@ -665,10 +1036,14 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      autovalidateMode: freezed == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
+      formSubmissionStatus: freezed == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -677,10 +1052,6 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
-      isFormValid: null == isFormValid
-          ? _value.isFormValid
-          : isFormValid // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -691,10 +1062,10 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
   const _$LoginStateImpl(
       {this.phoneNumber = '',
       this.password = '',
-      this.isLoading = false,
+      this.autovalidateMode = AutovalidateMode.disabled,
+      this.formSubmissionStatus = FormSubmissionStatus.initial,
       this.errorMessage = null,
-      this.user = null,
-      this.isFormValid = false});
+      this.user = null});
 
   @override
   @JsonKey()
@@ -704,20 +1075,20 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
   final String password;
   @override
   @JsonKey()
-  final bool isLoading;
+  final AutovalidateMode autovalidateMode;
+  @override
+  @JsonKey()
+  final FormSubmissionStatus formSubmissionStatus;
   @override
   @JsonKey()
   final String? errorMessage;
   @override
   @JsonKey()
   final User? user;
-  @override
-  @JsonKey()
-  final bool isFormValid;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginState(phoneNumber: $phoneNumber, password: $password, isLoading: $isLoading, errorMessage: $errorMessage, user: $user, isFormValid: $isFormValid)';
+    return 'LoginState(phoneNumber: $phoneNumber, password: $password, autovalidateMode: $autovalidateMode, formSubmissionStatus: $formSubmissionStatus, errorMessage: $errorMessage, user: $user)';
   }
 
   @override
@@ -727,10 +1098,10 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
       ..add(DiagnosticsProperty('type', 'LoginState'))
       ..add(DiagnosticsProperty('phoneNumber', phoneNumber))
       ..add(DiagnosticsProperty('password', password))
-      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('autovalidateMode', autovalidateMode))
+      ..add(DiagnosticsProperty('formSubmissionStatus', formSubmissionStatus))
       ..add(DiagnosticsProperty('errorMessage', errorMessage))
-      ..add(DiagnosticsProperty('user', user))
-      ..add(DiagnosticsProperty('isFormValid', isFormValid));
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
@@ -742,18 +1113,24 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other.autovalidateMode, autovalidateMode) &&
+            const DeepCollectionEquality()
+                .equals(other.formSubmissionStatus, formSubmissionStatus) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.user, user) || other.user == user) &&
-            (identical(other.isFormValid, isFormValid) ||
-                other.isFormValid == isFormValid));
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, phoneNumber, password, isLoading,
-      errorMessage, user, isFormValid);
+  int get hashCode => Object.hash(
+      runtimeType,
+      phoneNumber,
+      password,
+      const DeepCollectionEquality().hash(autovalidateMode),
+      const DeepCollectionEquality().hash(formSubmissionStatus),
+      errorMessage,
+      user);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -768,23 +1145,23 @@ abstract class _LoginState implements LoginState {
   const factory _LoginState(
       {final String phoneNumber,
       final String password,
-      final bool isLoading,
+      final AutovalidateMode autovalidateMode,
+      final FormSubmissionStatus formSubmissionStatus,
       final String? errorMessage,
-      final User? user,
-      final bool isFormValid}) = _$LoginStateImpl;
+      final User? user}) = _$LoginStateImpl;
 
   @override
   String get phoneNumber;
   @override
   String get password;
   @override
-  bool get isLoading;
+  AutovalidateMode get autovalidateMode;
+  @override
+  FormSubmissionStatus get formSubmissionStatus;
   @override
   String? get errorMessage;
   @override
   User? get user;
-  @override
-  bool get isFormValid;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

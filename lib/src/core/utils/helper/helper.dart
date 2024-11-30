@@ -7,14 +7,9 @@ import 'package:mobile_app/src/shared/models/api_response_dto/api_response.dart'
 class Helper {
   static Future<Either<AppException, ApiResponse<T>>> handleSuccessResponse<T>(
     Response response,
-    //to make this method trully generic it should work no matter the response succes status is
-    //some endpoint may reutrn 201 or 204 as a success
-    //so this function by itself is not aware of what success mean
-    //so it relies on the caller function to provide the success condition
-    int successCode,
-    T Function(Object?) fromTJson,
-  ) async {
-    // Check if the response data is null
+    int successCode, {
+    T Function(Object?)? fromTJson,
+  }) async {
     if (response.data == null) {
       return left(UnexpectedException(
         message: "Empty response body from the server.",
@@ -25,7 +20,7 @@ class Helper {
       if (response.statusCode == successCode) {
         final ApiResponse<T> data = ApiResponse<T>.fromJson(
           response.data,
-          fromTJson,
+          fromTJson ?? ((json) => null as T),
         );
         return right(data);
       } else {
@@ -36,5 +31,13 @@ class Helper {
         message: "Error parsing response data: ${e.toString()}",
       ));
     }
+  }
+
+  static String normalizePhoneNumber(String phone) {
+    if (!RegExp(r'^[97]\d{8}$').hasMatch(phone)) {
+      throw const FormatException(
+          'Phone number must start with 9 or 7 and be 9 digits long');
+    }
+    return '+251$phone';
   }
 }

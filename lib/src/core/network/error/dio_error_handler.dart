@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:mobile_app/src/core/exceptions/exceptions.dart';
+import 'package:mobile_app/src/core/exceptions/failures.dart';
 
 AppException handleDioException(DioException e) {
   final dioExceptionMap = {
@@ -56,4 +58,18 @@ AppException handleServerException(
     statusCode: statusCode ?? 500,
     responseBody: response?.data,
   );
+}
+
+Left<AppFailure, T> mapExceptionToFailure<T>(AppException exception) {
+  if (exception is ValidationException) {
+    return Left(ValidationFailure(
+        message: exception.message,
+        validationErrors: exception.validationErrors));
+  } else if (exception is ServerException) {
+    return Left(ServerFailure(message: exception.message));
+  } else if (exception is NetworkException) {
+    return Left(NetworkFailure(message: exception.message));
+  } else {
+    return Left(UnexpectedFailure(message: exception.message));
+  }
 }
