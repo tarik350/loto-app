@@ -1,13 +1,38 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobile_app/src/features/home/domain/usecases/home_usecase.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mobile_app/src/core/exceptions/failures.dart';
+import 'package:mobile_app/src/features/home/domain/models/game/game.dart';
+import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
+import 'package:mobile_app/src/features/home/domain/repositories/abstract_home_repository.dart';
+import 'package:mobile_app/src/shared/models/paginated_response/paginated_response.dart';
 
+part 'home_bloc.freezed.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final HomeUsecase usecase;
-  HomeBloc(this.usecase) : super(HomeInitial()) {
-    on<HomeEvent>((event, emit) {});
+  final AbstractHomeRepository homeRepository;
+  HomeBloc(this.homeRepository) : super(const HomeState()) {
+    on<HomeEvent>((event, emit) => _handleEvent(event, emit));
+  }
+
+  Future<void> _handleEvent(HomeEvent event, Emitter<HomeState> emit) async {
+    switch (event) {
+      case GetAllGamesWithCategoryEvent():
+        await _handleGetAllGamesWithCategory(emit);
+    }
+  }
+
+  Future<void> _handleGetAllGamesWithCategory(Emitter<HomeState> emit) async {
+    emit(const HomeState.loading());
+    final result = await homeRepository.getAllGamesWithCategory();
+    result.fold((AppFailure l) {
+      if (l is ValidationFailure) {
+        emit(HomeState.error(l.validationErrors.toString()));
+      }
+      emit(HomeState.error(l.message));
+    }, (List<GameCategory> r) {
+      emit(HomeState.loaded(r));
+    });
   }
 }

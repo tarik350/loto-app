@@ -6,7 +6,7 @@ part of 'game.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Game _$GameFromJson(Map<String, dynamic> json) => Game(
+_$GameImpl _$$GameImplFromJson(Map<String, dynamic> json) => _$GameImpl(
       id: (json['id'] as num?)?.toInt(),
       createdAt: json['created_at'] == null
           ? null
@@ -24,7 +24,8 @@ Game _$GameFromJson(Map<String, dynamic> json) => Game(
       winningVideoUrl: json['winning_video_url'] as String?,
     );
 
-Map<String, dynamic> _$GameToJson(Game instance) => <String, dynamic>{
+Map<String, dynamic> _$$GameImplToJson(_$GameImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt?.toIso8601String(),
       'updated_at': instance.updatedAt?.toIso8601String(),

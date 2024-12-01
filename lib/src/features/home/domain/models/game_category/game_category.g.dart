@@ -6,7 +6,8 @@ part of 'game_category.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GameCategory _$GameCategoryFromJson(Map<String, dynamic> json) => GameCategory(
+_$GameCategoryImpl _$$GameCategoryImplFromJson(Map<String, dynamic> json) =>
+    _$GameCategoryImpl(
       id: (json['id'] as num?)?.toInt(),
       createdAt: json['created_at'] == null
           ? null
@@ -28,7 +29,7 @@ GameCategory _$GameCategoryFromJson(Map<String, dynamic> json) => GameCategory(
           .toList(),
     );
 
-Map<String, dynamic> _$GameCategoryToJson(GameCategory instance) =>
+Map<String, dynamic> _$$GameCategoryImplToJson(_$GameCategoryImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt?.toIso8601String(),

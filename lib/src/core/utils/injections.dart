@@ -9,8 +9,8 @@ import 'package:mobile_app/src/shared/services/services_injections.dart';
 final sl = GetIt.instance;
 
 Future<void> initInjection() async {
-  await initNetworkInjection();
   await initHive();
+  await initNetworkInjection();
   await initServicesInjection();
   await initLoginInjection();
   await initRegisterInjection();

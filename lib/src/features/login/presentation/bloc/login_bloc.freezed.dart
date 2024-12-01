@@ -428,10 +428,10 @@ class __$$UpdateAutovalidateModeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? autovalidateMode = freezed,
+    Object? autovalidateMode = null,
   }) {
     return _then(_$UpdateAutovalidateModeImpl(
-      autovalidateMode: freezed == autovalidateMode
+      autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
@@ -467,13 +467,12 @@ class _$UpdateAutovalidateModeImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateAutovalidateModeImpl &&
-            const DeepCollectionEquality()
-                .equals(other.autovalidateMode, autovalidateMode));
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                other.autovalidateMode == autovalidateMode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(autovalidateMode));
+  int get hashCode => Object.hash(runtimeType, autovalidateMode);
 
   /// Create a copy of LoginEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -939,8 +938,8 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   $Res call({
     Object? phoneNumber = null,
     Object? password = null,
-    Object? autovalidateMode = freezed,
-    Object? formSubmissionStatus = freezed,
+    Object? autovalidateMode = null,
+    Object? formSubmissionStatus = null,
     Object? errorMessage = freezed,
     Object? user = freezed,
   }) {
@@ -953,11 +952,11 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      autovalidateMode: freezed == autovalidateMode
+      autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      formSubmissionStatus: freezed == formSubmissionStatus
+      formSubmissionStatus: null == formSubmissionStatus
           ? _value.formSubmissionStatus
           : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
               as FormSubmissionStatus,
@@ -1022,8 +1021,8 @@ class __$$LoginStateImplCopyWithImpl<$Res>
   $Res call({
     Object? phoneNumber = null,
     Object? password = null,
-    Object? autovalidateMode = freezed,
-    Object? formSubmissionStatus = freezed,
+    Object? autovalidateMode = null,
+    Object? formSubmissionStatus = null,
     Object? errorMessage = freezed,
     Object? user = freezed,
   }) {
@@ -1036,11 +1035,11 @@ class __$$LoginStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      autovalidateMode: freezed == autovalidateMode
+      autovalidateMode: null == autovalidateMode
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
-      formSubmissionStatus: freezed == formSubmissionStatus
+      formSubmissionStatus: null == formSubmissionStatus
           ? _value.formSubmissionStatus
           : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
               as FormSubmissionStatus,
@@ -1113,24 +1112,18 @@ class _$LoginStateImpl with DiagnosticableTreeMixin implements _LoginState {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            const DeepCollectionEquality()
-                .equals(other.autovalidateMode, autovalidateMode) &&
-            const DeepCollectionEquality()
-                .equals(other.formSubmissionStatus, formSubmissionStatus) &&
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                other.autovalidateMode == autovalidateMode) &&
+            (identical(other.formSubmissionStatus, formSubmissionStatus) ||
+                other.formSubmissionStatus == formSubmissionStatus) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      phoneNumber,
-      password,
-      const DeepCollectionEquality().hash(autovalidateMode),
-      const DeepCollectionEquality().hash(formSubmissionStatus),
-      errorMessage,
-      user);
+  int get hashCode => Object.hash(runtimeType, phoneNumber, password,
+      autovalidateMode, formSubmissionStatus, errorMessage, user);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

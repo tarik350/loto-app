@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -12,6 +10,12 @@ class AppColors {
   static const Color primaryColor10Opacity = Color(0x1AF45C43);
   static const Color secondaryColor10Opacity = Color(0x1AEB3349);
   static const Color tertiaryColor10Opacity = Color(0x1ACA0018);
+
+  static const Color lavenderPurple = Color(0xFF784DC3);
+  static const Color skyBlue = Color(0xFF3BBDDF);
+  static const Color mintGreen = Color(0xFF43BA7F);
+
+  static const Color goldenYellow = Color(0xFFF4BC35);
 
   static const LinearGradient buttonGradient = LinearGradient(
     colors: [
@@ -30,4 +34,8 @@ class AppColors {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+
+  static const Color lightTransparentGray = Color(0x61E0E061);
+
+  static const Color transparentWhite = Color(0x50FFFFFF); // 50% opacity
 }

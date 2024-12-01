@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/router/app_route.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
+import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
 import 'package:mobile_app/src/features/login/presentation/bloc/login_bloc.dart';
 import 'package:mobile_app/src/features/register/presentation/bloc/register_bloc.dart';
 
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => sl<RegisterBloc>()),
         BlocProvider(create: (_) => sl<LoginBloc>()),
+        BlocProvider(
+            create: (_) =>
+                sl<HomeBloc>()..add(const GetAllGamesWithCategoryEvent())),
       ],
       child: MaterialApp(
         key: UniqueKey(),
