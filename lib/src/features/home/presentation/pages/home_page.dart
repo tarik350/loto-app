@@ -100,23 +100,38 @@ class GameCategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (category.gamesCount == 0) {
-      return Text('no game for this category');
-    }
     return SizedBox(
-      height: 300.h,
-      child: ListView.builder(
-          itemCount: category.games?.length,
-          itemBuilder: (context, index) {
-            final game = category.games![index];
-            return GameCard(
-              backgroundColor: AppColors.mintGreen,
-              ticketPrice: category.ticketPrice.toString(),
-              ticketsLeft: category.ticketCount.toString(),
-              gameName: game.name ?? "",
-              winningPrice: category.winningPrize.toString(),
-            );
-          }),
+      height: 255.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${category.titleAm} Games',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: AppDimensions.fontL),
+          ),
+          category.gamesCount == 0
+              ? Expanded(
+                  child: Center(
+                      child: Text(
+                          'no game for this category ${category.titleEn}')))
+              : Expanded(
+                  child: ListView.builder(
+                      itemCount: category.games?.length,
+                      itemBuilder: (context, index) {
+                        final game = category.games![index];
+                        return GameCard(
+                          backgroundColor: AppColors.mintGreen,
+                          ticketPrice: category.ticketPrice.toString(),
+                          ticketsLeft: category.ticketCount.toString(),
+                          gameName: game.name ?? "",
+                          winningPrice: category.winningPrize.toString(),
+                        );
+                      }),
+                ),
+        ],
+      ),
     );
   }
 }
