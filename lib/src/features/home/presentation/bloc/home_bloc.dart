@@ -1,10 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mobile_app/src/core/exceptions/failures.dart';
-import 'package:mobile_app/src/features/home/domain/models/game/game.dart';
 import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
 import 'package:mobile_app/src/features/home/domain/repositories/abstract_home_repository.dart';
-import 'package:mobile_app/src/shared/models/paginated_response/paginated_response.dart';
 
 part 'home_bloc.freezed.dart';
 part 'home_event.dart';

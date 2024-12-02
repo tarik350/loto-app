@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mobile_app/src/features/home/domain/models/game/game.dart';
-import 'package:mobile_app/src/shared/models/paginated_response/paginated_response.dart';
 
 part 'game_category.freezed.dart';
 part 'game_category.g.dart';
