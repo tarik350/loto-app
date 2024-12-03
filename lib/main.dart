@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/router/app_route.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
@@ -12,6 +14,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await initInjection();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: AppColors.tertiaryColor, // Set the status bar color to red
+  ));
 
   runApp(EasyLocalization(
       supportedLocales: const [Locale('am', 'ET'), Locale('en', 'US')],

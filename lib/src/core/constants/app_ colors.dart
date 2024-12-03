@@ -38,4 +38,16 @@ class AppColors {
   static const Color lightTransparentGray = Color(0x61E0E061);
 
   static const Color transparentWhite = Color(0x50FFFFFF); // 50% opacity
+
+  static const Color backgroundGreen =
+      Color(0xFF4DD784); // Light green for background
+  static const Color foregroundGreen =
+      Color(0xFF078E3D); // Dark green for foreground
+  static const Color backgroundYellow = Color(0xFFFFDE90);
+  static const Color foregroundOrange = Color(0xFFF4BC35);
+  // Define color variables
+  static const Color backgroundBlue = Color(0xFF619CF9);
+  static const Color foregroundBlue = Color(0xFF1E69E1);
+  static const Color backgroundCoral = Color(0xFFFF8B78);
+  static const Color foregroundRed = Color(0xFFF45C43);
 }

@@ -1,5 +1,9 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/exceptions/exceptions.dart';
 import 'package:mobile_app/src/core/network/error/dio_error_handler.dart';
 import 'package:mobile_app/src/shared/models/api_response_dto/api_response.dart';
@@ -39,5 +43,16 @@ class Helper {
           'Phone number must start with 9 or 7 and be 9 digits long');
     }
     return '+251$phone';
+  }
+
+// Function to get a random color
+  static Color getRandomColor() {
+    List<Color> availableColors = [
+      AppColors.lavenderPurple,
+      AppColors.skyBlue,
+      AppColors.mintGreen
+    ];
+    final random = Random();
+    return availableColors[random.nextInt(availableColors.length)];
   }
 }
