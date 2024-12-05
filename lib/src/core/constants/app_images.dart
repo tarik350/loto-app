@@ -23,19 +23,21 @@ class AppImages {
 
   static final SvgPicture ticketIcon = SvgPicture.asset(
     '$_basePath/ticket_icon.svg',
-    colorFilter: const ColorFilter.mode(
-      Colors.black,
-      BlendMode.srcIn,
-    ),
   );
   static final SvgPicture historyIcon =
       SvgPicture.asset('$_basePath/history_icon.svg');
   static final SvgPicture videoIcon =
       SvgPicture.asset('$_basePath/video_icon.svg');
 
+  //bottom nav bar icons path
   static const String homeIconPath = '$_basePath/home_icon.svg';
   static const String profileIconPath = '$_basePath/profile_icon.svg';
   static const String ticketIconPath = '$_basePath/ticket_icon.svg';
   static const String historyIconPath = '$_basePath/history_icon.svg';
   static const String videoIconPath = '$_basePath/video_icon.svg';
+
+  //onboarding icons
+  static final SvgPicture silver = SvgPicture.asset('$_basePath/silver.svg');
+  static final SvgPicture bronze = SvgPicture.asset('$_basePath/bronze.svg');
+  static final SvgPicture gold = SvgPicture.asset('$_basePath/gold.svg');
 }

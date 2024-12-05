@@ -7,8 +7,7 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
-        // AutoRoute(page: LoginRoute.page, path: "/login"),
-
         AutoRoute(page: HomeRoute.page, path: '/home', initial: true),
+        AutoRoute(page: GameRoute.page, path: '/game'),
       ];
 }

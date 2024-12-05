@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
-import 'package:mobile_app/src/features/authentication_bottom_sheet/presentation/cubit/auth_bottom_sheet_cubit.dart';
+import 'package:mobile_app/src/shared/features/authentication_bottom_sheet/presentation/cubit/auth_bottom_sheet_cubit.dart';
 import 'package:mobile_app/src/features/login/presentation/pages/login_page.dart';
 import 'package:mobile_app/src/features/register/presentation/pages/register_page.dart';
 import 'package:mobile_app/src/shared/widgets/custom_elevated_button.dart';

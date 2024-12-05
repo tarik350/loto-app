@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
-import 'package:mobile_app/src/features/authentication_bottom_sheet/presentation/cubit/auth_bottom_sheet_cubit.dart';
-import 'package:mobile_app/src/features/authentication_bottom_sheet/presentation/widgets/auth_bottom_sheet_content.dart';
+import 'package:mobile_app/src/shared/features/authentication_bottom_sheet/presentation/cubit/auth_bottom_sheet_cubit.dart';
+import 'package:mobile_app/src/shared/features/authentication_bottom_sheet/presentation/widgets/auth_bottom_sheet_content.dart';
 import 'package:mobile_app/src/features/register/presentation/bloc/register_bloc.dart';
 
-import '../../../../core/utils/injections.dart';
+import '../../../../../core/utils/injections.dart';
 
 class AuthenticationBottomSheetPage {
   static void show(BuildContext context) {
