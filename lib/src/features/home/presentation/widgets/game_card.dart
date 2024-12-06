@@ -25,7 +25,7 @@ class GameCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.router.push(const GameRoute()),
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: AppDimensions.paddingS),
+        margin: EdgeInsets.only(bottom: AppDimensions.paddingS),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
