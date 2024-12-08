@@ -182,6 +182,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.1"
+  clip_shadowx:
+    dependency: "direct main"
+    description:
+      name: clip_shadowx
+      sha256: "854d59c719aad7428a26a7170e955dbc452d75041635ea4c444ab9a23a05e01a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   clock:
     dependency: transitive
     description:
@@ -384,6 +392,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_polygon_clipper:
+    dependency: "direct main"
+    description:
+      name: flutter_polygon_clipper
+      sha256: "18834977e499cd426a99872ee0f1bdf45e662584f6cc47803d2d6ffe1d4e3241"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -967,6 +983,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stroke_text:
+    dependency: "direct main"
+    description:
+      name: stroke_text
+      sha256: "783fee071e3a3c5d3fe24011d7d776ce3cd64792e01b650c6b727ac3f38cb37b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   term_glyph:
     dependency: transitive
     description:

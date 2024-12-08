@@ -50,46 +50,47 @@ class HomePageFilterAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      toolbarHeight: 120.h,
+      toolbarHeight: 80.h,
       shape: ContinuousRectangleBorder(
-        side: const BorderSide(color: AppColors.tertiaryColor),
+        side: const BorderSide(color: AppColors.primaryColor),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(AppDimensions.radiusL),
           bottomRight: Radius.circular(AppDimensions.radiusL),
         ),
       ),
-      backgroundColor: AppColors.tertiaryColor,
+      backgroundColor: AppColors.primaryColor,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.zero,
         centerTitle: true,
         title: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppDimensions.paddingXS,
-          ),
+          padding: EdgeInsets.only(top: AppDimensions.spacingS),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.filter_list,
-                    color: Colors.white,
-                    size: AppDimensions.iconS,
-                  ),
-                  SizedBox(
-                    width: AppDimensions.spacingXS,
-                  ),
-                  Text(
-                    'Filters',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: AppDimensions.fontS,
-                    ),
-                  ),
-                ],
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(
+              //       right: AppDimensions.paddingXS,
+              //       left: AppDimensions.paddingXS,
+              //       top: AppDimensions.paddingL),
+              //   child: Row(
+              //     children: [
+              //       Icon(
+              //         Icons.filter_list,
+              //         color: Colors.white,
+              //         size: AppDimensions.iconS,
+              //       ),
+              //       Text(
+              //         'AllFilters',
+              //         style: TextStyle(
+              //           color: Colors.white,
+              //           fontWeight: FontWeight.bold,
+              //           fontSize: AppDimensions.fontS,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -98,9 +99,9 @@ class HomePageFilterAppBar extends StatelessWidget {
                   children: List.generate(games.length, (index) {
                     final category = games[index];
                     return Container(
-                      margin: EdgeInsets.only(
-                          top: AppDimensions.paddingXS,
-                          right: AppDimensions.paddingS),
+                      margin: EdgeInsets.symmetric(
+                          vertical: AppDimensions.spacingS,
+                          horizontal: AppDimensions.spacingS),
                       width: 60.w,
                       height: 70.h,
                       decoration: BoxDecoration(

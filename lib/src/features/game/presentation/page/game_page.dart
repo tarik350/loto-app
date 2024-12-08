@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
@@ -19,198 +18,363 @@ class GameScreen extends StatelessWidget {
       body: Container(
         // padding: EdgeInsets.symmetric(horizontal: 16.w),
         decoration: const BoxDecoration(
-          gradient: AppColors.buttonGradient,
+          gradient: AppColors.primaryGradient,
         ),
         child: Column(
           children: [
             SizedBox(
-              height: 44.h,
+              height: 20.h,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM),
-              child: Column(
-                children: [
-                  Row(
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Container(
+                  height: 200.h,
+                  width: double.maxFinite,
+                  margin: EdgeInsets.symmetric(
+                      horizontal: AppDimensions.paddingM,
+                      vertical: AppDimensions.paddingXS),
+                  decoration: const BoxDecoration(
+                    // color: Colors.red,
+                    image: DecorationImage(
+                        image: AssetImage(
+                      AppImages.pentagonBgImagePath,
+                    )),
+                  ),
+                ),
+                Positioned(
+                  top: 20.h,
+                  left: 45.w,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: 40.h,
-                        width: 40.h,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            border: Border.all(color: Colors.white)),
-                        child: Center(
-                          child: IconButton(
-                              onPressed: () => Navigator.pop(context),
-                              icon: const Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                                size: 20,
-                              )),
-                        ),
-                      ),
-                      Expanded(
-                          child: Padding(
-                        padding: EdgeInsets.only(right: 24.w),
-                        child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'Asea_E1',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                            padding: EdgeInsets.all(6.h),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                    AppDimensions.radiusCircular),
+                                border:
+                                    Border.all(width: 2, color: Colors.white)),
+                            child: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              size: 18,
                             )),
-                      ))
+                      ),
+                      SizedBox(width: 50.w),
+                      Stack(
+                        children: <Widget>[
+                          // Stroked text as border.
+                          Text(
+                            'Asbeza01',
+                            style: TextStyle(
+                              fontSize: AppDimensions.fontXXL,
+                              shadows: [
+                                BoxShadow(
+                                    spreadRadius: .3,
+                                    blurRadius: 8,
+                                    color: Colors.black.withOpacity(.8),
+                                    offset: const Offset(0, 5))
+                              ],
+                              fontWeight: FontWeight.bold,
+                              foreground: Paint()
+                                ..shader = const LinearGradient(
+                                  colors: [
+                                    Color(0xFF9C84FC),
+                                    Color(0xFF9C84FC),
+                                    Color(0xFF9C84FC),
+                                    Color(0xFFD50DD5)
+                                  ],
+                                ).createShader(
+                                    const Rect.fromLTWH(0, 0, 200, 50))
+                                ..style = PaintingStyle.stroke
+                                ..strokeWidth = 8,
+                            ),
+                          ),
+                          Text(
+                            'Asbeza01',
+                            style: TextStyle(
+                              // letterSpacing: 0,
+                              fontSize: AppDimensions.fontXXL,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[300],
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
-                  SizedBox(
-                    height: 22.h,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius:
-                            BorderRadius.circular(AppDimensions.radiusL)),
-                    height: 100.h,
-                    width: double.infinity,
-                    child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(AppDimensions.radiusL),
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                              child: Image.asset(
-                            AppImages.grainTexture,
-                            fit: BoxFit.cover,
-                            color: Colors.black.withOpacity(0.12),
-                            colorBlendMode: BlendMode.darken,
-                          )),
-                          Positioned(
-                              child: Row(
+                ),
+                Positioned(
+                    top: 48.h,
+                    left: 55,
+                    right: 60,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          // color: Colors.white,
+                          width: 300,
+                          height: 120,
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
+                                  const Text(
+                                    '100,000',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                   SizedBox(
-                                    height: 50.h,
-                                    width: 50.w,
+                                    height: 60.h,
+                                    width: 60.h,
                                     child: AppImages.gold,
                                   ),
-                                  RichText(
-                                    textAlign: TextAlign.center,
-                                    text: TextSpan(
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                          fontSize: AppDimensions.fontS),
-                                      children: [
-                                        TextSpan(
-                                          text: "100000\n",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: AppDimensions.fontM),
-                                        ),
-                                        TextSpan(
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: AppDimensions.fontXS),
-                                          text: "BIRR",
-                                        )
-                                      ],
-                                    ),
-                                  )
                                 ],
                               ),
-                              Container(
-                                width: 2.h,
-                                margin: EdgeInsets.symmetric(vertical: 12.h),
-                                color: AppColors.lightGray,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 40.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      '10,000',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 60.h,
+                                      width: 60.h,
+                                      child: AppImages.bronze,
+                                    ),
+                                  ],
+                                ),
                               ),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  SizedBox(
-                                    height: 50.h,
-                                    width: 50.w,
-                                    child: AppImages.bronze,
+                                  const Text(
+                                    '1,000',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                  RichText(
-                                    textAlign: TextAlign.center,
-                                    text: TextSpan(
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                          fontSize: AppDimensions.fontS),
-                                      children: [
-                                        TextSpan(
-                                          text: "100000\n",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: AppDimensions.fontM),
-                                        ),
-                                        TextSpan(
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: AppDimensions.fontXS),
-                                          text: "BIRR",
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Container(
-                                width: 2.h,
-                                margin: EdgeInsets.symmetric(vertical: 12.h),
-                                color: AppColors.lightGray,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
                                   SizedBox(
-                                    height: 50.h,
-                                    width: 50.w,
+                                    height: 60.h,
+                                    width: 60.h,
                                     child: AppImages.silver,
                                   ),
-                                  RichText(
-                                    textAlign: TextAlign.center,
-                                    text: TextSpan(
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                          fontSize: AppDimensions.fontS),
-                                      children: [
-                                        TextSpan(
-                                          text: "100000\n",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: AppDimensions.fontM),
-                                        ),
-                                        TextSpan(
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: AppDimensions.fontXS),
-                                          text: "BIRR",
-                                        )
-                                      ],
-                                    ),
-                                  )
                                 ],
                               ),
                             ],
-                          ))
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                          ),
+                        )
+                      ],
+                    )),
+              ],
             ),
-            SizedBox(
-              height: AppDimensions.spacingL,
-            ),
+
+            // Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM),
+            //   child: Column(
+            //     children: [
+            //       Row(
+            //         children: [
+            //           Container(
+            //             height: 40.h,
+            //             width: 40.h,
+            //             decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(100),
+            //                 border: Border.all(color: Colors.white)),
+            //             child: Center(
+            //               child: IconButton(
+            //                   onPressed: () => Navigator.pop(context),
+            //                   icon: const Icon(
+            //                     Icons.arrow_back,
+            //                     color: Colors.white,
+            //                     size: 20,
+            //                   )),
+            //             ),
+            //           ),
+            //           Expanded(
+            //               child: Padding(
+            //             padding: EdgeInsets.only(right: 24.w),
+            //             child: Align(
+            //                 alignment: Alignment.center,
+            //                 child: Text(
+            //                   'Asea_E1',
+            //                   style: TextStyle(
+            //                     color: Colors.white,
+            //                     fontSize: 16.sp,
+            //                     fontWeight: FontWeight.w600,
+            //                   ),
+            //                 )),
+            //           ))
+            //         ],
+            //       ),
+            //       SizedBox(
+            //         height: 22.h,
+            //       ),
+            //       Container(
+            //         decoration: BoxDecoration(
+            //             color: Colors.white,
+            //             borderRadius:
+            //                 BorderRadius.circular(AppDimensions.radiusL)),
+            //         height: 100.h,
+            //         width: double.infinity,
+            //         child: ClipRRect(
+            //           borderRadius:
+            //               BorderRadius.circular(AppDimensions.radiusL),
+            //           child: Stack(
+            //             children: [
+            //               Positioned.fill(
+            //                   child: Image.asset(
+            //                 AppImages.grainTexture,
+            //                 fit: BoxFit.cover,
+            //                 color: Colors.black.withOpacity(0.12),
+            //                 colorBlendMode: BlendMode.darken,
+            //               )),
+            //               Positioned(
+            //                   child: Row(
+            //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //                 children: [
+            //                   Column(
+            //                     mainAxisAlignment: MainAxisAlignment.center,
+            //                     children: [
+            //                       SizedBox(
+            //                         height: 50.h,
+            //                         width: 50.w,
+            //                         child: AppImages.gold,
+            //                       ),
+            //                       RichText(
+            //                         textAlign: TextAlign.center,
+            //                         text: TextSpan(
+            //                           style: TextStyle(
+            //                               fontWeight: FontWeight.w600,
+            //                               color: Colors.black,
+            //                               fontSize: AppDimensions.fontS),
+            //                           children: [
+            //                             TextSpan(
+            //                               text: "100000\n",
+            //                               style: TextStyle(
+            //                                   fontWeight: FontWeight.w600,
+            //                                   fontSize: AppDimensions.fontM),
+            //                             ),
+            //                             TextSpan(
+            //                               style: TextStyle(
+            //                                   fontWeight: FontWeight.w400,
+            //                                   fontSize: AppDimensions.fontXS),
+            //                               text: "BIRR",
+            //                             )
+            //                           ],
+            //                         ),
+            //                       )
+            //                     ],
+            //                   ),
+            //                   Container(
+            //                     width: 2.h,
+            //                     margin: EdgeInsets.symmetric(vertical: 12.h),
+            //                     color: AppColors.lightGray,
+            //                   ),
+            //                   Column(
+            //                     mainAxisAlignment: MainAxisAlignment.center,
+            //                     children: [
+            //                       SizedBox(
+            //                         height: 50.h,
+            //                         width: 50.w,
+            //                         child: AppImages.bronze,
+            //                       ),
+            //                       RichText(
+            //                         textAlign: TextAlign.center,
+            //                         text: TextSpan(
+            //                           style: TextStyle(
+            //                               fontWeight: FontWeight.w600,
+            //                               color: Colors.black,
+            //                               fontSize: AppDimensions.fontS),
+            //                           children: [
+            //                             TextSpan(
+            //                               text: "100000\n",
+            //                               style: TextStyle(
+            //                                   fontWeight: FontWeight.w600,
+            //                                   fontSize: AppDimensions.fontM),
+            //                             ),
+            //                             TextSpan(
+            //                               style: TextStyle(
+            //                                   fontWeight: FontWeight.w400,
+            //                                   fontSize: AppDimensions.fontXS),
+            //                               text: "BIRR",
+            //                             )
+            //                           ],
+            //                         ),
+            //                       )
+            //                     ],
+            //                   ),
+            //                   Container(
+            //                     width: 2.h,
+            //                     margin: EdgeInsets.symmetric(vertical: 12.h),
+            //                     color: AppColors.lightGray,
+            //                   ),
+            //                   Column(
+            //                     mainAxisAlignment: MainAxisAlignment.center,
+            //                     children: [
+            //                       SizedBox(
+            //                         height: 50.h,
+            //                         width: 50.w,
+            //                         child: AppImages.silver,
+            //                       ),
+            //                       RichText(
+            //                         textAlign: TextAlign.center,
+            //                         text: TextSpan(
+            //                           style: TextStyle(
+            //                               fontWeight: FontWeight.w600,
+            //                               color: Colors.black,
+            //                               fontSize: AppDimensions.fontS),
+            //                           children: [
+            //                             TextSpan(
+            //                               text: "100000\n",
+            //                               style: TextStyle(
+            //                                   fontWeight: FontWeight.w600,
+            //                                   fontSize: AppDimensions.fontM),
+            //                             ),
+            //                             TextSpan(
+            //                               style: TextStyle(
+            //                                   fontWeight: FontWeight.w400,
+            //                                   fontSize: AppDimensions.fontXS),
+            //                               text: "BIRR",
+            //                             )
+            //                           ],
+            //                         ),
+            //                       )
+            //                     ],
+            //                   ),
+            //                 ],
+            //               ))
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: AppDimensions.spacingL,
+            // ),
             Expanded(
                 child: Container(
               height: double.infinity,
@@ -279,7 +443,7 @@ class GameScreen extends StatelessWidget {
                             height: 20.h,
                             width: 20.h,
                             decoration: BoxDecoration(
-                                color: AppColors.foregroundGreen,
+                                color: AppColors.availableColor,
                                 borderRadius: BorderRadius.circular(
                                     AppDimensions.radiusXS)),
                           ),
@@ -299,7 +463,7 @@ class GameScreen extends StatelessWidget {
                             height: 20.h,
                             width: 20.h,
                             decoration: BoxDecoration(
-                                color: AppColors.foregroundBlue,
+                                color: AppColors.lockedColor,
                                 borderRadius: BorderRadius.circular(
                                     AppDimensions.radiusXS)),
                           ),
@@ -319,7 +483,7 @@ class GameScreen extends StatelessWidget {
                             height: 20.h,
                             width: 20.h,
                             decoration: BoxDecoration(
-                                color: AppColors.foregroundOrange,
+                                color: AppColors.reservedColor,
                                 borderRadius: BorderRadius.circular(
                                     AppDimensions.radiusXS)),
                           ),
@@ -342,7 +506,7 @@ class GameScreen extends StatelessWidget {
                     height: 60.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.amber.withOpacity(.3),
+                        color: AppColors.secondaryColor.withOpacity(.5),
                         borderRadius:
                             BorderRadius.circular(AppDimensions.radiusS)),
                     child: Center(
@@ -350,6 +514,7 @@ class GameScreen extends StatelessWidget {
                         'No ticket locked yet!',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
+                            color: Colors.white,
                             fontSize: AppDimensions.fontS),
                       ),
                     ),
@@ -379,19 +544,71 @@ class GameScreen extends StatelessWidget {
                                         fontSize: AppDimensions.fontL))
                               ]),
                         ),
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.foregroundOrange,
-                                foregroundColor: Colors.white,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: AppDimensions.paddingXL),
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: AppDimensions.fontM),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(100))),
-                            child: const Text('Buy Ticket'))
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimensions.paddingXL),
+                          height: 50,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                AppColors.lightenColor(AppColors.darkBlue, .6),
+                                AppColors.lightenColor(AppColors.darkBlue, .4),
+                                AppColors.darkBlue,
+                                AppColors.lightenColor(AppColors.darkBlue, .2),
+                              ],
+                              stops: const [0, .1, .85, 1],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                AppDimensions.radiusM), // Rounded corners
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 4),
+                                blurRadius: 6,
+                              ),
+                            ],
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Buy Ticket',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.5),
+                                    offset: const Offset(1, 2),
+                                    blurRadius: 2,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                        // SizedBox(
+                        //   width: 140.w,
+                        //   height: 50.h,
+                        //   child: CustomGameButton(
+                        //       label: 'Buy Ticket',
+                        //       baseColor: AppColors.secondaryColor,
+                        //       onPressed: () {}),
+                        // )
+                        // ElevatedButton(
+                        //     onPressed: () {},
+                        //     style: ElevatedButton.styleFrom(
+                        //         backgroundColor: AppColors.foregroundOrange,
+                        //         foregroundColor: Colors.white,
+                        //         padding: EdgeInsets.symmetric(
+                        //             horizontal: AppDimensions.paddingXL),
+                        //         textStyle: TextStyle(
+                        //             fontWeight: FontWeight.bold,
+                        //             fontSize: AppDimensions.fontM),
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius: BorderRadius.circular(100))),
+                        //     child: const Text('Buy Ticket'))
                       ],
                     ),
                   )
@@ -491,7 +708,7 @@ class _FilterDropdownState extends State<FilterDropdown> {
             padding: EdgeInsets.zero,
             selectedMenuItemBuilder: (context, child) {
               return Container(
-                color: AppColors.tertiaryColor,
+                color: AppColors.primaryColor,
                 child: child,
               );
             },
@@ -499,11 +716,11 @@ class _FilterDropdownState extends State<FilterDropdown> {
           iconStyleData: const IconStyleData(
             icon: Icon(
               Icons.arrow_drop_down,
-              color: AppColors.tertiaryColor,
+              color: AppColors.secondaryColor,
             ),
             openMenuIcon: Icon(
               Icons.arrow_drop_up,
-              color: AppColors.tertiaryColor,
+              color: AppColors.secondaryColor,
             ),
           ),
           underline: Container(
@@ -515,7 +732,7 @@ class _FilterDropdownState extends State<FilterDropdown> {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: AppDimensions.fontS,
-              color: AppColors.primaryColor,
+              color: AppColors.secondaryColor,
             ),
           ),
           selectedItemBuilder: (BuildContext context) {
@@ -524,7 +741,7 @@ class _FilterDropdownState extends State<FilterDropdown> {
                 item,
                 style: TextStyle(
                   color: item == _selectedValue
-                      ? AppColors.primaryColor
+                      ? AppColors.secondaryColor
                       : Colors.grey,
                   fontWeight: FontWeight.w600,
                   fontSize: AppDimensions.fontS,
@@ -537,7 +754,7 @@ class _FilterDropdownState extends State<FilterDropdown> {
             padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXS),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white, width: 1),
-              color: AppColors.gradientColor,
+              color: AppColors.secondaryColor,
             ),
           ),
           buttonStyleData: ButtonStyleData(
@@ -668,7 +885,7 @@ class PaginatedGrid extends StatelessWidget {
                   children: pages[pageIndex].map((item) {
                     return Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
+                          // border: Border.all(color: Colors.white, width: 1),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
@@ -677,7 +894,7 @@ class PaginatedGrid extends StatelessWidget {
                               offset: const Offset(0, 1),
                             ),
                           ],
-                          color: AppColors.foregroundGreen,
+                          color: AppColors.lockedColor,
                           borderRadius:
                               BorderRadius.circular(AppDimensions.radiusS)),
                       child: Center(

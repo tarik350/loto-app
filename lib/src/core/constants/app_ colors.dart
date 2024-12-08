@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primaryColor = Color(0xFFF45C43);
-  static const Color gradientColor = Color(0xFFFF6A03);
-
-  static const Color secondaryColor = Color(0xFFEB3349);
+  static const Color secondaryColor = Color(0xFF6240C5);
+  static const Color primaryColor = Color(0xFFD50DD5);
   static const Color tertiaryColor = Color(0xFFCA0018);
   static const Color fourthColor = Color(0xFFFCC434);
+  static const Color gradientColor = Color(0xFFFF6A03);
+  // static const Color secondaryColor = Color(0xFFEB3349);
+  // static const Color primaryColor = Color(0xFFF45C43);
 
   static const Color backgroundGray = Color(0xFFF6F6F6);
   static const Color lightGray = Color(0xFFE1E1E1);
@@ -21,15 +22,24 @@ class AppColors {
 
   static const Color goldenYellow = Color(0xFFF4BC35);
 
-  static const LinearGradient buttonGradient = LinearGradient(
+  // static const LinearGradient primaryGradient = LinearGradient(
+  //   colors: [
+  //     primaryColor,
+  //     secondaryColor,
+  //   ],
+  //   begin: Alignment.topLeft,
+  //   end: Alignment.bottomRight,
+  // );
+  static const LinearGradient primaryGradient = LinearGradient(
     colors: [
-      primaryColor,
-      secondaryColor,
+      Color(0xFF9C84FC),
+      Color(0xFFD50DD5), // Second color
+      Color(0xFFD50DD5), // Second color
     ],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
+    stops: [0.0, 0.4, 1.0], // Adjusted stops for a spread effect
+    begin: Alignment.topCenter, // Start at the top center
+    end: Alignment.bottomCenter, // End at the bottom center
   );
-
   static const LinearGradient buttonGradient10Opacity = LinearGradient(
     colors: [
       primaryColor10Opacity,
@@ -41,12 +51,14 @@ class AppColors {
 
   static const LinearGradient backgroundGradient = LinearGradient(
     colors: [
-      Color(0xFFFF6A00), // First color
-      Color(0xFFEE0979), // Second color
+      Color(0xFF9C84FC),
+      Color(0xFF9C84FC),
+      Color(0xFFD50DD5),
+      Color(0xFFD50DD5),
     ],
     begin: Alignment.topCenter, // Start at the top center
-    end: Alignment.bottomRight, // End at the bottom right
-    stops: [0.6, 1],
+    end: Alignment.bottomCenter, // End at the bottom right
+    stops: [0, .3, .8, 1],
   );
 
   static const Color lightTransparentGray = Color(0x61E0E061);
@@ -64,4 +76,20 @@ class AppColors {
   static const Color foregroundBlue = Color(0xFF1E69E1);
   static const Color backgroundCoral = Color(0xFFFF8B78);
   static const Color foregroundRed = Color(0xFFF45C43);
+
+  static const Color availableColor = Colors.white;
+  static const Color lockedColor = Color(0xFFFF9800);
+  static const Color reservedColor = Color(0xFFDC3545);
+
+  static const Color darkBlue = Color(0xFF265DC7); // Dark blue color
+
+  static Color lightenColor(Color color, [double amount = 0.2]) {
+    assert(amount >= 0 && amount <= 1);
+    return Color.fromARGB(
+      color.alpha,
+      (color.red + ((255 - color.red) * amount)).toInt(),
+      (color.green + ((255 - color.green) * amount)).toInt(),
+      (color.blue + ((255 - color.blue) * amount)).toInt(),
+    );
+  }
 }

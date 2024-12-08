@@ -5,6 +5,7 @@ import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/features/home/presentation/widgets/cash_home_page.dart';
+import 'package:mobile_app/src/features/home/presentation/widgets/goods_home_page.dart';
 import 'package:mobile_app/src/features/home/presentation/widgets/home_page_filter_appbar.dart';
 
 // Define color variables
@@ -24,15 +25,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            toolbarHeight: 80.h,
-            floating: false,
-            pinned: currentIndex == 1,
-            backgroundColor: AppColors.tertiaryColor,
-            flexibleSpace: FlexibleSpaceBar(
+        body: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          // toolbarHeight: 80.h,
+          floating: false,
+          pinned: currentIndex == 1,
+          // backgroundColor: AppColors.tertiaryColor,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: AppColors.primaryGradient,
+            ),
+            child: FlexibleSpaceBar(
               titlePadding: EdgeInsets.zero,
               centerTitle: true,
               title: Row(
@@ -93,16 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          if (currentIndex == 0) HomePageFilterAppBar(),
-          if (currentIndex == 0) CashGamesScreen(),
-          if (currentIndex == 1)
-            const SliverFillRemaining(
-              child: Center(
-                child: Text("No Goods Game for now."),
-              ),
-            )
-        ],
-      ),
+        ),
+        if (currentIndex == 0) HomePageFilterAppBar(),
+        if (currentIndex == 0) CashGamesScreen(),
+        if (currentIndex == 1) const GoodsHomePage()
+      ],
     ));
   }
 }

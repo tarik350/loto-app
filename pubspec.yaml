@@ -54,6 +54,9 @@ dependencies:
   dropdown_button2: ^2.3.9
   smooth_page_indicator: ^1.2.0+3
   animation_wrappers: ^3.0.0
+  flutter_polygon_clipper: ^1.0.4
+  clip_shadowx: ^0.0.1
+  stroke_text: ^0.0.3
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

@@ -33,7 +33,7 @@ class AuthBottomSheetContent extends StatelessWidget {
                         height: AppDimensions.buttonL,
                         borderRadius: BorderRadius.all(Radius.circular(50.r)),
                         gradient: state.maybeWhen(
-                            login: () => AppColors.buttonGradient,
+                            login: () => AppColors.primaryGradient,
                             orElse: () => AppColors.buttonGradient10Opacity),
                         // Optional: match button's border radius
                         onPressed: () {
@@ -57,7 +57,7 @@ class AuthBottomSheetContent extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(
                             50.r)), // Optional: match button's border radius
                         gradient: state.maybeWhen(
-                            register: () => AppColors.buttonGradient,
+                            register: () => AppColors.primaryGradient,
                             orElse: () => AppColors.buttonGradient10Opacity),
                         onPressed: () {
                           context.read<AuthBottomSheetCubit>().showRegister();

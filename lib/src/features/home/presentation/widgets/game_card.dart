@@ -28,10 +28,10 @@ class GameCard extends StatelessWidget {
         margin: EdgeInsets.only(bottom: AppDimensions.paddingS),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10.0,
-            spreadRadius: 1.0,
-            offset: const Offset(0, 5),
+            color: Colors.black.withOpacity(.4),
+            blurRadius: 3.0,
+            spreadRadius: 1,
+            offset: const Offset(1, 1),
           )
         ], borderRadius: BorderRadius.circular(AppDimensions.radiusL)),
         child: ClipRRect(
@@ -40,7 +40,7 @@ class GameCard extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 100.h, // Set your desired height
+                height: 78.h,
                 color: backgroundColor, // Use the sky blue color
                 child: Stack(
                   children: [
@@ -122,9 +122,10 @@ class GameCard extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                height: 100.h,
                 color: backgroundColor,
-                padding: EdgeInsets.all(AppDimensions.paddingL),
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppDimensions.paddingS,
+                    vertical: AppDimensions.paddingS),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,

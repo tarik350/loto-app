@@ -39,4 +39,8 @@ class AppImages {
   static final SvgPicture silver = SvgPicture.asset('$_basePath/silver.svg');
   static final SvgPicture bronze = SvgPicture.asset('$_basePath/bronze.svg');
   static final SvgPicture gold = SvgPicture.asset('$_basePath/gold.svg');
+
+  static final SvgPicture pentagonBg =
+      SvgPicture.asset('$_basePath/pentagon_bg.svg');
+  static const String pentagonBgImagePath = '$_basePath/pentagon_bg.png';
 }

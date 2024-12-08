@@ -38,10 +38,22 @@ class AppScreen extends StatelessWidget {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           shape: const CircleBorder(),
-          backgroundColor: AppColors.tertiaryColor,
-          child: SvgPicture.asset(
-            AppImages.videoIconPath,
-            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          // backgroundColor: AppColors.tertiaryColor,
+          backgroundColor: Colors.transparent,
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: AppColors.primaryGradient,
+                borderRadius:
+                    BorderRadius.circular(AppDimensions.radiusCircular)),
+            width: double.maxFinite,
+            height: double.maxFinite,
+            child: Center(
+              child: SvgPicture.asset(
+                AppImages.videoIconPath,
+                colorFilter:
+                    const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              ),
+            ),
           ),
           onPressed: () {},
         ),
@@ -85,8 +97,9 @@ class AppScreen extends StatelessWidget {
                     ],
                   );
                 },
-                // shadow: const Shadow(color: Colors.black, offset: Offset(0, 1)),
-                backgroundColor: AppColors.tertiaryColor,
+                shadow: const Shadow(color: Colors.black, offset: Offset(0, 1)),
+                // backgroundColor: AppColors.tertiaryColor,
+                backgroundGradient: AppColors.primaryGradient,
                 gapLocation: GapLocation.center,
                 notchMargin: 0,
                 leftCornerRadius: AppDimensions.radiusS,

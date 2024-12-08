@@ -47,26 +47,26 @@ class CashGamesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // SizedBox(
+            //   height: AppDimensions.spacingS,
+            // ),
+            // Row(
+            //   children: [
+            //     Icon(
+            //       Icons.list,
+            //       size: AppDimensions.iconL,
+            //     ),
+            //     Text(
+            //       'All Cash Games',
+            //       style: TextStyle(
+            //           color: Colors.black,
+            //           fontWeight: FontWeight.w600,
+            //           fontSize: AppDimensions.fontL),
+            //     ),
+            //   ],
+            // ),
             SizedBox(
-              height: AppDimensions.spacingS,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.list,
-                  size: AppDimensions.iconL,
-                ),
-                Text(
-                  'All Cash Games',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: AppDimensions.fontL),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: AppDimensions.spacingXS,
+              height: AppDimensions.paddingS,
             ),
             ...List.generate(gameCards.length, (index) {
               final game = gameCards[index];

@@ -71,7 +71,7 @@ class RegisterPage extends StatelessWidget with RegisterValidator {
                 },
                 builder: (context, state) {
                   return CustomElevatedButton(
-                      gradient: AppColors.buttonGradient,
+                      gradient: AppColors.primaryGradient,
                       width: MediaQuery.sizeOf(context).width,
                       borderRadius:
                           BorderRadius.circular(AppDimensions.radiusXL),
