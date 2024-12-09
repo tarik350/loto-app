@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/expandable_search.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/filter_dropdown.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/ticket_grid.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/ticket_status_indicator.dart';
 
 @RoutePage()
 class GameScreen extends StatelessWidget {
@@ -16,7 +19,6 @@ class GameScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        // padding: EdgeInsets.symmetric(horizontal: 16.w),
         decoration: const BoxDecoration(
           gradient: AppColors.primaryGradient,
         ),
@@ -26,24 +28,19 @@ class GameScreen extends StatelessWidget {
               height: 20.h,
             ),
             Stack(
-              alignment: Alignment.topCenter,
               children: [
                 Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: 14.w, vertical: AppDimensions.paddingS),
                   height: 200.h,
                   width: double.maxFinite,
-                  margin: EdgeInsets.symmetric(
-                      horizontal: AppDimensions.paddingM,
-                      vertical: AppDimensions.paddingXS),
                   decoration: const BoxDecoration(
-                    // color: Colors.red,
                     image: DecorationImage(
-                        image: AssetImage(
-                      AppImages.pentagonBgImagePath,
-                    )),
+                        image: AssetImage(AppImages.pentagonBgImagePath)),
                   ),
                 ),
                 Positioned(
-                  top: 20.h,
+                  top: 24.h,
                   left: 45.w,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -60,13 +57,13 @@ class GameScreen extends StatelessWidget {
                                     AppDimensions.radiusCircular),
                                 border:
                                     Border.all(width: 2, color: Colors.white)),
-                            child: const Icon(
+                            child: Icon(
                               Icons.arrow_back,
                               color: Colors.white,
-                              size: 18,
+                              size: AppDimensions.iconS,
                             )),
                       ),
-                      SizedBox(width: 50.w),
+                      SizedBox(width: 45.w),
                       Stack(
                         children: <Widget>[
                           // Stroked text as border.
@@ -111,65 +108,43 @@ class GameScreen extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                    top: 48.h,
+                    top: 52.h,
                     left: 55,
                     right: 60,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          // color: Colors.white,
-                          width: 300,
-                          height: 120,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    '100,000',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  '100,000',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  SizedBox(
-                                    height: 60.h,
-                                    width: 60.h,
-                                    child: AppImages.gold,
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 40.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      '10,000',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 60.h,
-                                      width: 60.h,
-                                      child: AppImages.bronze,
-                                    ),
-                                  ],
                                 ),
-                              ),
-                              Column(
+                                SizedBox(
+                                  height: 60.h,
+                                  width: 60.h,
+                                  child: AppImages.gold,
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: AppDimensions.paddingXXL),
+                              child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   const Text(
-                                    '1,000',
+                                    '10,000',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -178,207 +153,37 @@ class GameScreen extends StatelessWidget {
                                   SizedBox(
                                     height: 60.h,
                                     width: 60.h,
-                                    child: AppImages.silver,
+                                    child: AppImages.bronze,
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  '1,000',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 60.h,
+                                  width: 60.h,
+                                  child: AppImages.silver,
+                                ),
+                              ],
+                            ),
+                          ],
                         )
                       ],
                     )),
               ],
             ),
-
-            // Padding(
-            //   padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingM),
-            //   child: Column(
-            //     children: [
-            //       Row(
-            //         children: [
-            //           Container(
-            //             height: 40.h,
-            //             width: 40.h,
-            //             decoration: BoxDecoration(
-            //                 borderRadius: BorderRadius.circular(100),
-            //                 border: Border.all(color: Colors.white)),
-            //             child: Center(
-            //               child: IconButton(
-            //                   onPressed: () => Navigator.pop(context),
-            //                   icon: const Icon(
-            //                     Icons.arrow_back,
-            //                     color: Colors.white,
-            //                     size: 20,
-            //                   )),
-            //             ),
-            //           ),
-            //           Expanded(
-            //               child: Padding(
-            //             padding: EdgeInsets.only(right: 24.w),
-            //             child: Align(
-            //                 alignment: Alignment.center,
-            //                 child: Text(
-            //                   'Asea_E1',
-            //                   style: TextStyle(
-            //                     color: Colors.white,
-            //                     fontSize: 16.sp,
-            //                     fontWeight: FontWeight.w600,
-            //                   ),
-            //                 )),
-            //           ))
-            //         ],
-            //       ),
-            //       SizedBox(
-            //         height: 22.h,
-            //       ),
-            //       Container(
-            //         decoration: BoxDecoration(
-            //             color: Colors.white,
-            //             borderRadius:
-            //                 BorderRadius.circular(AppDimensions.radiusL)),
-            //         height: 100.h,
-            //         width: double.infinity,
-            //         child: ClipRRect(
-            //           borderRadius:
-            //               BorderRadius.circular(AppDimensions.radiusL),
-            //           child: Stack(
-            //             children: [
-            //               Positioned.fill(
-            //                   child: Image.asset(
-            //                 AppImages.grainTexture,
-            //                 fit: BoxFit.cover,
-            //                 color: Colors.black.withOpacity(0.12),
-            //                 colorBlendMode: BlendMode.darken,
-            //               )),
-            //               Positioned(
-            //                   child: Row(
-            //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //                 children: [
-            //                   Column(
-            //                     mainAxisAlignment: MainAxisAlignment.center,
-            //                     children: [
-            //                       SizedBox(
-            //                         height: 50.h,
-            //                         width: 50.w,
-            //                         child: AppImages.gold,
-            //                       ),
-            //                       RichText(
-            //                         textAlign: TextAlign.center,
-            //                         text: TextSpan(
-            //                           style: TextStyle(
-            //                               fontWeight: FontWeight.w600,
-            //                               color: Colors.black,
-            //                               fontSize: AppDimensions.fontS),
-            //                           children: [
-            //                             TextSpan(
-            //                               text: "100000\n",
-            //                               style: TextStyle(
-            //                                   fontWeight: FontWeight.w600,
-            //                                   fontSize: AppDimensions.fontM),
-            //                             ),
-            //                             TextSpan(
-            //                               style: TextStyle(
-            //                                   fontWeight: FontWeight.w400,
-            //                                   fontSize: AppDimensions.fontXS),
-            //                               text: "BIRR",
-            //                             )
-            //                           ],
-            //                         ),
-            //                       )
-            //                     ],
-            //                   ),
-            //                   Container(
-            //                     width: 2.h,
-            //                     margin: EdgeInsets.symmetric(vertical: 12.h),
-            //                     color: AppColors.lightGray,
-            //                   ),
-            //                   Column(
-            //                     mainAxisAlignment: MainAxisAlignment.center,
-            //                     children: [
-            //                       SizedBox(
-            //                         height: 50.h,
-            //                         width: 50.w,
-            //                         child: AppImages.bronze,
-            //                       ),
-            //                       RichText(
-            //                         textAlign: TextAlign.center,
-            //                         text: TextSpan(
-            //                           style: TextStyle(
-            //                               fontWeight: FontWeight.w600,
-            //                               color: Colors.black,
-            //                               fontSize: AppDimensions.fontS),
-            //                           children: [
-            //                             TextSpan(
-            //                               text: "100000\n",
-            //                               style: TextStyle(
-            //                                   fontWeight: FontWeight.w600,
-            //                                   fontSize: AppDimensions.fontM),
-            //                             ),
-            //                             TextSpan(
-            //                               style: TextStyle(
-            //                                   fontWeight: FontWeight.w400,
-            //                                   fontSize: AppDimensions.fontXS),
-            //                               text: "BIRR",
-            //                             )
-            //                           ],
-            //                         ),
-            //                       )
-            //                     ],
-            //                   ),
-            //                   Container(
-            //                     width: 2.h,
-            //                     margin: EdgeInsets.symmetric(vertical: 12.h),
-            //                     color: AppColors.lightGray,
-            //                   ),
-            //                   Column(
-            //                     mainAxisAlignment: MainAxisAlignment.center,
-            //                     children: [
-            //                       SizedBox(
-            //                         height: 50.h,
-            //                         width: 50.w,
-            //                         child: AppImages.silver,
-            //                       ),
-            //                       RichText(
-            //                         textAlign: TextAlign.center,
-            //                         text: TextSpan(
-            //                           style: TextStyle(
-            //                               fontWeight: FontWeight.w600,
-            //                               color: Colors.black,
-            //                               fontSize: AppDimensions.fontS),
-            //                           children: [
-            //                             TextSpan(
-            //                               text: "100000\n",
-            //                               style: TextStyle(
-            //                                   fontWeight: FontWeight.w600,
-            //                                   fontSize: AppDimensions.fontM),
-            //                             ),
-            //                             TextSpan(
-            //                               style: TextStyle(
-            //                                   fontWeight: FontWeight.w400,
-            //                                   fontSize: AppDimensions.fontXS),
-            //                               text: "BIRR",
-            //                             )
-            //                           ],
-            //                         ),
-            //                       )
-            //                     ],
-            //                   ),
-            //                 ],
-            //               ))
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: AppDimensions.spacingL,
-            // ),
             Expanded(
                 child: Container(
-              height: double.infinity,
-              width: double.infinity,
               decoration: BoxDecoration(
                   gradient: AppColors.backgroundGradient,
                   boxShadow: [
@@ -394,6 +199,7 @@ class GameScreen extends StatelessWidget {
                       topLeft: Radius.circular(AppDimensions.radiusL))),
               child: Column(
                 children: [
+                  /// Game card section header
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: AppDimensions.paddingM,
@@ -415,7 +221,7 @@ class GameScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(100)),
                               ),
                               onPressed: () {},
-                              child: const Text('Random')),
+                              child: const Text('ቁጥር ገምት')),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -430,79 +236,21 @@ class GameScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  PaginatedGrid(),
+
+                  Expanded(flex: 4, child: PaginatedGrid()),
                   SizedBox(
-                    height: 8.h,
+                    height: AppDimensions.spacingS,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            height: 20.h,
-                            width: 20.h,
-                            decoration: BoxDecoration(
-                                color: AppColors.availableColor,
-                                borderRadius: BorderRadius.circular(
-                                    AppDimensions.radiusXS)),
-                          ),
-                          SizedBox(
-                            width: AppDimensions.spacingS,
-                          ),
-                          Text('Available',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: AppDimensions.fontS,
-                                  fontWeight: FontWeight.bold))
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 20.h,
-                            width: 20.h,
-                            decoration: BoxDecoration(
-                                color: AppColors.lockedColor,
-                                borderRadius: BorderRadius.circular(
-                                    AppDimensions.radiusXS)),
-                          ),
-                          SizedBox(
-                            width: AppDimensions.spacingS,
-                          ),
-                          Text('Locked',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: AppDimensions.fontS,
-                                  fontWeight: FontWeight.bold))
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 20.h,
-                            width: 20.h,
-                            decoration: BoxDecoration(
-                                color: AppColors.reservedColor,
-                                borderRadius: BorderRadius.circular(
-                                    AppDimensions.radiusXS)),
-                          ),
-                          SizedBox(
-                            width: AppDimensions.spacingS,
-                          ),
-                          Text('Sold',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: AppDimensions.fontS,
-                                  fontWeight: FontWeight.bold))
-                        ],
-                      ),
-                    ],
-                  ),
+
+                  //ticket status color
+                  TicketStatusColorIndicatorWidget(),
+
+                  //selected tickets section
                   Container(
-                    margin: EdgeInsets.symmetric(
-                        vertical: AppDimensions.paddingM,
-                        horizontal: AppDimensions.paddingM),
+                    margin: EdgeInsets.only(
+                        top: AppDimensions.paddingM,
+                        left: AppDimensions.paddingS,
+                        right: AppDimensions.paddingS),
                     height: 60.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -511,7 +259,7 @@ class GameScreen extends StatelessWidget {
                             BorderRadius.circular(AppDimensions.radiusS)),
                     child: Center(
                       child: Text(
-                        'No ticket locked yet!',
+                        'ምንም ቲኬታ ገና አልመረጡም!',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
@@ -519,97 +267,42 @@ class GameScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: AppDimensions.paddingXXS,
-                        horizontal: AppDimensions.paddingM),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w400,
+
+                  //buy ticket section
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: AppDimensions.paddingXXS,
+                          horizontal: AppDimensions.paddingM),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'ተቅላላ ሂሳብ',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.white,
+                                    fontSize: AppDimensions.fontS),
                               ),
-                              children: [
-                                TextSpan(
-                                    text: "Total Price\n",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: AppDimensions.fontM)),
-                                TextSpan(
-                                    text: '500 BIRR',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: AppDimensions.fontL))
-                              ]),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: AppDimensions.paddingXL),
-                          height: 50,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                AppColors.lightenColor(AppColors.darkBlue, .6),
-                                AppColors.lightenColor(AppColors.darkBlue, .4),
-                                AppColors.darkBlue,
-                                AppColors.lightenColor(AppColors.darkBlue, .2),
-                              ],
-                              stops: const [0, .1, .85, 1],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                                AppDimensions.radiusM), // Rounded corners
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                offset: const Offset(0, 4),
-                                blurRadius: 6,
-                              ),
+                              Text(
+                                '500 ብር',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: AppDimensions.fontM),
+                              )
                             ],
                           ),
-                          child: Center(
-                            child: Text(
-                              'Buy Ticket',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                shadows: [
-                                  Shadow(
-                                    color: Colors.black.withOpacity(0.5),
-                                    offset: const Offset(1, 2),
-                                    blurRadius: 2,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                        // SizedBox(
-                        //   width: 140.w,
-                        //   height: 50.h,
-                        //   child: CustomGameButton(
-                        //       label: 'Buy Ticket',
-                        //       baseColor: AppColors.secondaryColor,
-                        //       onPressed: () {}),
-                        // )
-                        // ElevatedButton(
-                        //     onPressed: () {},
-                        //     style: ElevatedButton.styleFrom(
-                        //         backgroundColor: AppColors.foregroundOrange,
-                        //         foregroundColor: Colors.white,
-                        //         padding: EdgeInsets.symmetric(
-                        //             horizontal: AppDimensions.paddingXL),
-                        //         textStyle: TextStyle(
-                        //             fontWeight: FontWeight.bold,
-                        //             fontSize: AppDimensions.fontM),
-                        //         shape: RoundedRectangleBorder(
-                        //             borderRadius: BorderRadius.circular(100))),
-                        //     child: const Text('Buy Ticket'))
-                      ],
+                          // const ShadeButton()
+                          // const ShadeButton2()
+                          const ShadeButton3()
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -622,308 +315,249 @@ class GameScreen extends StatelessWidget {
   }
 }
 
-class ExpandableSearchField extends StatefulWidget {
-  const ExpandableSearchField({super.key});
-
-  @override
-  _ExpandableSearchFieldState createState() => _ExpandableSearchFieldState();
-}
-
-class _ExpandableSearchFieldState extends State<ExpandableSearchField> {
-  bool _isExpanded = false;
+class ShadeButton extends StatelessWidget {
+  const ShadeButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          height: 32.h,
-          width: _isExpanded ? 100.w : 0,
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(AppDimensions.radiusCircular),
+    return Container(
+      height: AppDimensions.buttonM,
+      width: 140.w,
+      decoration: BoxDecoration(
+        color: AppColors.deepSkyBlue,
+        border: GradientBoxBorder(
+            width: 4,
+            gradient: LinearGradient(colors: [
+              AppColors.lightSkyBlue,
+              AppColors.lightSkyBlue.withAlpha(50)
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
+        borderRadius:
+            BorderRadius.circular(AppDimensions.radiusS), // Rounded corners
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.darkBlueShade,
+            offset: Offset(0, 6),
+            blurRadius: 0,
           ),
-          child: TextFormField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              hintText: 'Search...',
-              hintStyle: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: AppDimensions.fontS,
-              ),
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: AppDimensions.paddingS,
-                vertical: AppDimensions.paddingXS,
+        ],
+      ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: FractionallySizedBox(
+              heightFactor: .6,
+              widthFactor: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft:
+                            Radius.circular(AppDimensions.radiusCircular),
+                        bottomRight:
+                            Radius.circular(AppDimensions.radiusCircular)),
+                    color: AppColors.lightSkyBlue.withOpacity(.4)),
               ),
             ),
-            style: TextStyle(fontSize: AppDimensions.fontXS),
           ),
-        ),
-        // Reduced unnecessary padding and constraints here
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _isExpanded = !_isExpanded;
-            });
-          },
-          child: Icon(
-            _isExpanded ? Icons.close : Icons.search,
-            size: AppDimensions.iconS,
-            color: Colors.white,
-          ),
-        ),
-      ],
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Buy Ticket',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: const Offset(1, 4),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
 
-class FilterDropdown extends StatefulWidget {
-  const FilterDropdown({Key? key}) : super(key: key);
-
-  @override
-  _FilterDropdownState createState() => _FilterDropdownState();
-}
-
-class _FilterDropdownState extends State<FilterDropdown> {
-  String? _selectedValue;
-  final List<String> _options = [
-    'All',
-    'Locked',
-    'Free',
-    'Sold',
-    "1-50",
-    '51-100'
-  ];
+class ShadeButton2 extends StatelessWidget {
+  const ShadeButton2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 32.h,
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton2<String>(
-          menuItemStyleData: MenuItemStyleData(
-            height: 30.h,
-            padding: EdgeInsets.zero,
-            selectedMenuItemBuilder: (context, child) {
-              return Container(
-                color: AppColors.primaryColor,
-                child: child,
-              );
-            },
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXL),
+      height: 50,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            AppColors.lightenColor(AppColors.darkBlue, .6),
+            AppColors.lightenColor(AppColors.darkBlue, .4),
+            AppColors.darkBlue,
+            AppColors.lightenColor(AppColors.darkBlue, .2),
+          ],
+          stops: const [0, .1, .85, 1],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        borderRadius:
+            BorderRadius.circular(AppDimensions.radiusM), // Rounded corners
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            offset: const Offset(0, 4),
+            blurRadius: 6,
           ),
-          iconStyleData: const IconStyleData(
-            icon: Icon(
-              Icons.arrow_drop_down,
-              color: AppColors.secondaryColor,
-            ),
-            openMenuIcon: Icon(
-              Icons.arrow_drop_up,
-              color: AppColors.secondaryColor,
-            ),
+        ],
+      ),
+      child: Center(
+        child: Text(
+          'Buy Ticket',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            shadows: [
+              Shadow(
+                color: Colors.black.withOpacity(0.5),
+                offset: const Offset(1, 2),
+                blurRadius: 2,
+              ),
+            ],
           ),
-          underline: Container(
-            height: 1.h,
-            color: Colors.red,
-          ),
-          hint: Text(
-            'Filter',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: AppDimensions.fontS,
-              color: AppColors.secondaryColor,
-            ),
-          ),
-          selectedItemBuilder: (BuildContext context) {
-            return _options.map((String item) {
-              return Text(
-                item,
-                style: TextStyle(
-                  color: item == _selectedValue
-                      ? AppColors.secondaryColor
-                      : Colors.grey,
-                  fontWeight: FontWeight.w600,
-                  fontSize: AppDimensions.fontS,
-                ),
-              );
-            }).toList();
-          },
-          dropdownStyleData: DropdownStyleData(
-            offset: const Offset(0, -5),
-            padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXS),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
-              color: AppColors.secondaryColor,
-            ),
-          ),
-          buttonStyleData: ButtonStyleData(
-            elevation: 0,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: Colors.white, width: 1)),
-            // No hover effect
-          ),
-          isDense: true,
-          items: _options
-              .map((e) => DropdownMenuItem(
-                  value: e,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    e,
-                    style: const TextStyle(color: Colors.white),
-                  )))
-              .toList(),
-          value: _selectedValue,
-          onChanged: (value) {
-            setState(() {
-              _selectedValue = value as String;
-            });
-          },
         ),
       ),
     );
-    // return SizedBox(
-    //   height: 32.h,
-    //   width: 100.w,
-    //   child: DropdownButtonHideUnderline(
-    //     child: DropdownButton2(
-    //       value: _selectedValue,
-    //       onChanged: (value) {
-    //         setState(() {
-    //           _selectedValue = value as String;
-    //         });
-    //       },
-    //       isExpanded: true,
-    //       hint: Text(
-    //         'Filter',
-    //         style: TextStyle(
-    //           fontSize: 14,
-    //           color: Theme.of(context).hintColor,
-    //         ),
-    //       ),
-    // buttonStyleData: ButtonStyleData(
-    //   elevation: 0,
-    //   decoration: const BoxDecoration(
-    //     color: Colors.transparent,
-    //   ),
-
-    //   overlayColor:
-    //       WidgetStateProperty.all(Colors.transparent), // No hover effect
-    // ),
-    // dropdownStyleData: const DropdownStyleData(
-    //   elevation: 0,
-    //   decoration: BoxDecoration(
-    //     color: Colors.white, // Dropdown background color
-    //   ),
-    // ),
-    //       items: _options
-    //           .map((item) => DropdownMenuItem<String>(
-    //                 value: item,
-    //                 child: Align(
-    //                   alignment: Alignment.centerLeft,
-    //                   child: Text(
-    //                     item,
-    //                     style: const TextStyle(
-    //                       fontSize: 14,
-    //                       color: Colors.black, // Dropdown item text color
-    //                     ),
-    //                   ),
-    //                 ),
-    //               ))
-    //           .toList(),
-    //       selectedItemBuilder: (context) => _options
-    //           .map((item) => Text(
-    //                 item,
-    //                 style: const TextStyle(
-    //                   color: Colors.white,
-    //                 ),
-    //               ))
-    //           .toList(),
-    //     ),
-    //   ),
-    // );
   }
 }
 
-class PaginatedGrid extends StatelessWidget {
-  final List<String> items = List.generate(100, (index) => '$index');
-  final int itemsPerPage = 63;
-  final controller = PageController(keepPage: true);
-
-  PaginatedGrid({Key? key}) : super(key: key);
+class ShadeButton3 extends StatelessWidget {
+  const ShadeButton3({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Divide items into chunks (pages)
-    List<List<String>> pages = [];
-    for (int i = 0; i < items.length; i += itemsPerPage) {
-      pages.add(items.sublist(i,
-          i + itemsPerPage > items.length ? items.length : i + itemsPerPage));
-    }
-
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .38,
-      width: double.infinity,
-      child: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: controller,
-              itemCount: pages.length,
-              scrollDirection: Axis.horizontal, // Ensure horizontal scrolling
-              itemBuilder: (context, pageIndex) {
-                return GridView.count(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: AppDimensions.paddingS),
-                  crossAxisCount: 9,
-                  mainAxisSpacing: 6.h,
-                  crossAxisSpacing: 6.h,
-                  physics:
-                      const NeverScrollableScrollPhysics(), // Disable vertical scrolling
-                  children: pages[pageIndex].map((item) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          // border: Border.all(color: Colors.white, width: 1),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              spreadRadius: 1,
-                              blurRadius: 2,
-                              offset: const Offset(0, 1),
-                            ),
-                          ],
-                          color: AppColors.lockedColor,
-                          borderRadius:
-                              BorderRadius.circular(AppDimensions.radiusS)),
-                      child: Center(
-                        child: Text(
-                          item,
-                          style: TextStyle(
-                              fontSize: AppDimensions.fontS,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                      ),
-                    );
-                  }).toList(),
-                );
-              },
-            ),
+    return ScaleOnTap(
+      child: Container(
+        margin: EdgeInsets.only(top: AppDimensions.spacingS),
+        height: double.maxFinite,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(AppDimensions.radiusS),
+          child: Stack(
+            children: [
+              Container(
+                height: AppDimensions.buttonM,
+                width: 150.w,
+                decoration: BoxDecoration(
+                  border: GradientBoxBorder(
+                    width: 5,
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColors.lightenColor(AppColors.lightPink, .5),
+                        const Color.fromARGB(255, 255, 47, 116)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: const [0, 1],
+                    ),
+                  ),
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.lightPink,
+                      AppColors.lightenColor(AppColors.darkPink, .1)
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                  borderRadius: BorderRadius.circular(AppDimensions.radiusS),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: AppColors.darkCrimson,
+                      offset: Offset(0, 5),
+                      blurRadius: 0,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    'ቲኬት ግዛ',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: AppDimensions.fontM,
+                      shadows: [
+                        BoxShadow(
+                          offset: const Offset(0, 3),
+                          blurRadius: 5,
+                          color: Colors.black.withOpacity(.3),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -70,
+                left: -45,
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  width: 150.w + 90,
+                  height: AppDimensions.buttonM + 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(.2),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(AppDimensions.radiusCircular),
+                      bottomRight:
+                          Radius.circular(AppDimensions.radiusCircular),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          SmoothPageIndicator(
-              controller: controller,
-              count: pages.length,
-              effect: ExpandingDotsEffect(
-                radius: 5,
-                spacing: 10,
-                dotHeight: 10.h,
-                dotWidth: 10.w,
-                activeDotColor: Colors.white,
-                dotColor: Colors.black.withOpacity(.2),
-              )),
-        ],
+        ),
+      ),
+    );
+  }
+}
+
+class ScaleOnTap extends StatefulWidget {
+  final Widget child;
+
+  const ScaleOnTap({super.key, required this.child});
+
+  @override
+  _ScaleOnTapState createState() => _ScaleOnTapState();
+}
+
+class _ScaleOnTapState extends State<ScaleOnTap> {
+  double _scale = 1.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) {
+        setState(() {
+          _scale = 0.9;
+        });
+      },
+      onTapUp: (_) {
+        setState(() {
+          _scale = 1.0;
+        });
+      },
+      onTapCancel: () {
+        setState(() {
+          _scale = 1.0;
+        });
+      },
+      child: AnimatedScale(
+        scale: _scale,
+        duration: const Duration(milliseconds: 100),
+        child: widget.child,
       ),
     );
   }

@@ -98,7 +98,6 @@ class AppScreen extends StatelessWidget {
                   );
                 },
                 shadow: const Shadow(color: Colors.black, offset: Offset(0, 1)),
-                // backgroundColor: AppColors.tertiaryColor,
                 backgroundGradient: AppColors.primaryGradient,
                 gapLocation: GapLocation.center,
                 notchMargin: 0,

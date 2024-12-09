@@ -4,10 +4,8 @@ class AppColors {
   static const Color secondaryColor = Color(0xFF6240C5);
   static const Color primaryColor = Color(0xFFD50DD5);
   static const Color tertiaryColor = Color(0xFFCA0018);
-  static const Color fourthColor = Color(0xFFFCC434);
-  static const Color gradientColor = Color(0xFFFF6A03);
-  // static const Color secondaryColor = Color(0xFFEB3349);
-  // static const Color primaryColor = Color(0xFFF45C43);
+  // static const Color fourthColor = Color(0xFFFCC434);
+  // static const Color gradientColor = Color(0xFFFF6A03);
 
   static const Color backgroundGray = Color(0xFFF6F6F6);
   static const Color lightGray = Color(0xFFE1E1E1);
@@ -22,23 +20,15 @@ class AppColors {
 
   static const Color goldenYellow = Color(0xFFF4BC35);
 
-  // static const LinearGradient primaryGradient = LinearGradient(
-  //   colors: [
-  //     primaryColor,
-  //     secondaryColor,
-  //   ],
-  //   begin: Alignment.topLeft,
-  //   end: Alignment.bottomRight,
-  // );
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [
       Color(0xFF9C84FC),
-      Color(0xFFD50DD5), // Second color
-      Color(0xFFD50DD5), // Second color
+      Color(0xFFD50DD5),
+      Color(0xFFD50DD5),
     ],
-    stops: [0.0, 0.4, 1.0], // Adjusted stops for a spread effect
-    begin: Alignment.topCenter, // Start at the top center
-    end: Alignment.bottomCenter, // End at the bottom center
+    stops: [0.0, 0.4, 1.0],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
   );
   static const LinearGradient buttonGradient10Opacity = LinearGradient(
     colors: [
@@ -56,32 +46,58 @@ class AppColors {
       Color(0xFFD50DD5),
       Color(0xFFD50DD5),
     ],
-    begin: Alignment.topCenter, // Start at the top center
-    end: Alignment.bottomCenter, // End at the bottom right
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
     stops: [0, .3, .8, 1],
   );
 
   static const Color lightTransparentGray = Color(0x61E0E061);
 
-  static const Color transparentWhite = Color(0x50FFFFFF); // 50% opacity
+  static const Color transparentWhite = Color(0x50FFFFFF);
 
-  static const Color backgroundGreen =
-      Color(0xFF4DD784); // Light green for background
-  static const Color foregroundGreen =
-      Color(0xFF078E3D); // Dark green for foreground
+  //filter button combination colors
+  //green
+  static const Color backgroundGreen = Color(0xFF4DD784);
+  static const Color foregroundGreen = Color(0xFF078E3D);
+
+//yellow
   static const Color backgroundYellow = Color(0xFFFFDE90);
   static const Color foregroundOrange = Color(0xFFF4BC35);
-  // Define color variables
+
+  //blue
   static const Color backgroundBlue = Color(0xFF619CF9);
   static const Color foregroundBlue = Color(0xFF1E69E1);
+
+  //red
   static const Color backgroundCoral = Color(0xFFFF8B78);
   static const Color foregroundRed = Color(0xFFF45C43);
 
+  //ticket status color
   static const Color availableColor = Colors.white;
   static const Color lockedColor = Color(0xFFFF9800);
   static const Color reservedColor = Color(0xFFDC3545);
 
-  static const Color darkBlue = Color(0xFF265DC7); // Dark blue color
+  //button colors
+  //blue
+  static const Color darkBlue = Color(0xFF0147E8);
+  static const Color lightSkyBlue = Color(0xFF02AAF7);
+  static const Color deepSkyBlue = Color(0xFF0147E8);
+  static const Color darkBlueShade = Color(0xFF0C3582);
+
+//pink
+  static const Gradient pinkButtonGradinet = LinearGradient(
+    colors: [
+      Color(0xFFFF727B),
+      Color(0xFFA60E70),
+    ],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
+
+//pink
+  static const Color lightPink = Color(0xFFFF727B);
+  static const Color darkPink = Color(0xFFA60E70);
+  static const Color darkCrimson = Color(0xFF5A002E);
 
   static Color lightenColor(Color color, [double amount = 0.2]) {
     assert(amount >= 0 && amount <= 1);
