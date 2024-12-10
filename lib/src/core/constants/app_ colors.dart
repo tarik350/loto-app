@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color secondaryColor = Color(0xFF6240C5);
+  static const Color secondaryColorShade = Color(0xFF9C84FC);
   static const Color primaryColor = Color(0xFFD50DD5);
   static const Color tertiaryColor = Color(0xFFCA0018);
+
   // static const Color fourthColor = Color(0xFFFCC434);
   // static const Color gradientColor = Color(0xFFFF6A03);
 
@@ -98,6 +100,23 @@ class AppColors {
   static const Color lightPink = Color(0xFFFF727B);
   static const Color darkPink = Color(0xFFA60E70);
   static const Color darkCrimson = Color(0xFF5A002E);
+
+  //cash home page bg colors
+  static const Color darkPurple = Color(0xFF581982);
+  static const Color vividViolet = Color(0xFF8C2CA9);
+
+//yellow varient
+  static const Color lightYellow = Color(0xFFFFF7CE);
+  static const Color shadeYellow = Color(0xFFF4E17A);
+
+  static const Gradient homeTabSelectorBgGradient = LinearGradient(colors: [
+    Color(0xFF11B7FC),
+    Color(0xFF00EEFF),
+    Color(0xFF00EEFF),
+    Color(0xFF11B7FC),
+  ]);
+
+  static const Color strongGreen = Color(0xFF1CC818);
 
   static Color lightenColor(Color color, [double amount = 0.2]) {
     assert(amount >= 0 && amount <= 1);

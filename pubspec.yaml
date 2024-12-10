@@ -36,7 +36,6 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_bloc: ^8.1.6
   get_it: ^7.6.7
-  equatable: ^2.0.5
   uuid: ^4.5.0
   share_plus: ^10.0.0
   dart_pusher_channels: ^1.2.3
@@ -54,10 +53,10 @@ dependencies:
   dropdown_button2: ^2.3.9
   smooth_page_indicator: ^1.2.0+3
   animation_wrappers: ^3.0.0
-  flutter_polygon_clipper: ^1.0.4
-  clip_shadowx: ^0.0.1
+
   stroke_text: ^0.0.3
   gradient_borders: ^1.0.1
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

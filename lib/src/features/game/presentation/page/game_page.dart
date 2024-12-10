@@ -300,7 +300,19 @@ class GameScreen extends StatelessWidget {
                           ),
                           // const ShadeButton()
                           // const ShadeButton2()
-                          const ShadeButton3()
+                          ShadeButton3(
+                            width: 120.w,
+                            bgGradientTopColor: AppColors.lightSkyBlue,
+                            bgGradientBottomColor: AppColors.darkBlueShade,
+                            borderGradientTopColor:
+                                AppColors.lightSkyBlue.withAlpha(10),
+                            borderGradientBottomColor: AppColors.lightSkyBlue,
+                            shadowColor: AppColors.darkBlueShade,
+                            title: 'ትኬት ግዛ',
+                            onPressed: () {
+                              // print('doing something ');
+                            },
+                          )
                         ],
                       ),
                     ),
@@ -436,87 +448,109 @@ class ShadeButton2 extends StatelessWidget {
 }
 
 class ShadeButton3 extends StatelessWidget {
-  const ShadeButton3({super.key});
+  final double width;
+  final Color bgGradientTopColor;
+  final Color bgGradientBottomColor;
+  final Color borderGradientTopColor;
+  final Color borderGradientBottomColor;
+  final Color shadowColor;
+  final String title;
+  final VoidCallback onPressed;
+
+  const ShadeButton3(
+      {super.key,
+      required this.width,
+      required this.bgGradientTopColor,
+      required this.bgGradientBottomColor,
+      required this.borderGradientTopColor,
+      required this.borderGradientBottomColor,
+      required this.shadowColor,
+      required this.title,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return ScaleOnTap(
-      child: Container(
-        margin: EdgeInsets.only(top: AppDimensions.spacingS),
-        height: double.maxFinite,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(AppDimensions.radiusS),
-          child: Stack(
-            children: [
-              Container(
-                height: AppDimensions.buttonM,
-                width: 150.w,
-                decoration: BoxDecoration(
-                  border: GradientBoxBorder(
-                    width: 5,
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          margin: EdgeInsets.only(top: AppDimensions.spacingS),
+          height: double.maxFinite,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(AppDimensions.radiusS),
+            child: Stack(
+              children: [
+                Container(
+                  height: AppDimensions.buttonM,
+                  width: width,
+                  decoration: BoxDecoration(
+                    border: GradientBoxBorder(
+                      width: 5,
+                      gradient: LinearGradient(
+                        colors: [
+                          borderGradientTopColor,
+                          borderGradientBottomColor
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        stops: const [0, 1],
+                      ),
+                    ),
                     gradient: LinearGradient(
                       colors: [
-                        AppColors.lightenColor(AppColors.lightPink, .5),
-                        const Color.fromARGB(255, 255, 47, 116)
+                        bgGradientTopColor,
+                        bgGradientBottomColor,
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      stops: const [0, 1],
                     ),
-                  ),
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.lightPink,
-                      AppColors.lightenColor(AppColors.darkPink, .1)
+                    borderRadius: BorderRadius.circular(AppDimensions.radiusS),
+                    boxShadow: [
+                      BoxShadow(
+                        color: shadowColor,
+                        offset: const Offset(0, 5),
+                        blurRadius: 0,
+                      ),
                     ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
                   ),
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusS),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: AppColors.darkCrimson,
-                      offset: Offset(0, 5),
-                      blurRadius: 0,
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    'ቲኬት ግዛ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: AppDimensions.fontM,
-                      shadows: [
-                        BoxShadow(
-                          offset: const Offset(0, 3),
-                          blurRadius: 5,
-                          color: Colors.black.withOpacity(.3),
-                        )
-                      ],
+                  child: Center(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: AppDimensions.fontM,
+                        shadows: [
+                          BoxShadow(
+                            offset: const Offset(0, 3),
+                            blurRadius: 5,
+                            color: Colors.black.withOpacity(.3),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: -70,
-                left: -45,
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  width: 150.w + 90,
-                  height: AppDimensions.buttonM + 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(.2),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(AppDimensions.radiusCircular),
-                      bottomRight:
-                          Radius.circular(AppDimensions.radiusCircular),
+                Positioned(
+                  top: -70,
+                  left: -45,
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    width: width + 90,
+                    height: AppDimensions.buttonM + 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(.2),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft:
+                            Radius.circular(AppDimensions.radiusCircular),
+                        bottomRight:
+                            Radius.circular(AppDimensions.radiusCircular),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

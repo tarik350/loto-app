@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppImages {
@@ -42,5 +43,21 @@ class AppImages {
 
   static final SvgPicture pentagonBg =
       SvgPicture.asset('$_basePath/pentagon_bg.svg');
+  static final SvgPicture goldCoin =
+      SvgPicture.asset('$_basePath/gold_coin.svg');
+  static final SvgPicture bronzeCoin =
+      SvgPicture.asset('$_basePath/bronze_coin.svg');
   static const String pentagonBgImagePath = '$_basePath/pentagon_bg.png';
+  static final SvgPicture trophy = SvgPicture.asset('$_basePath/trophy.svg');
+  static final SvgPicture notification =
+      SvgPicture.asset('$_basePath/notification.svg');
+
+  static const String carouselBanner = '$_basePath/carouse_banner.png';
+
+  static final SvgPicture cashHomePageBg = SvgPicture.asset(
+    '$_basePath/home_bg.svg',
+    height: double.infinity,
+    width: double.infinity,
+    fit: BoxFit.cover,
+  );
 }

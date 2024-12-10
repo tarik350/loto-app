@@ -57,6 +57,7 @@ class AppScreen extends StatelessWidget {
           ),
           onPressed: () {},
         ),
+        extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BlocProvider(
           create: (context) => AppCubit(0),
@@ -66,6 +67,20 @@ class AppScreen extends StatelessWidget {
                 height: 60.h,
                 activeIndex: state,
                 itemCount: iconList.length,
+                shadow: const Shadow(color: Colors.black, offset: Offset(0, 1)),
+                backgroundGradient: AppColors.primaryGradient,
+                gapLocation: GapLocation.center,
+                notchMargin: 0,
+                leftCornerRadius: AppDimensions.radiusS,
+                rightCornerRadius: AppDimensions.radiusS,
+                notchSmoothness: NotchSmoothness.sharpEdge,
+                onTap: (index) {
+                  context.read<AppCubit>().switchTab(index);
+
+                  _pageController.animateToPage(index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut);
+                },
                 tabBuilder: (index, isActive) {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -97,61 +112,48 @@ class AppScreen extends StatelessWidget {
                     ],
                   );
                 },
-                shadow: const Shadow(color: Colors.black, offset: Offset(0, 1)),
-                backgroundGradient: AppColors.primaryGradient,
-                gapLocation: GapLocation.center,
-                notchMargin: 0,
-                leftCornerRadius: AppDimensions.radiusS,
-                rightCornerRadius: AppDimensions.radiusS,
-                notchSmoothness: NotchSmoothness.sharpEdge,
-                onTap: (index) {
-                  context.read<AppCubit>().switchTab(index);
-
-                  _pageController.animateToPage(index,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut);
-                },
-
-                //other params
               );
             },
           ),
         ),
-        body: PageView(
-          controller: _pageController,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            FadedSlideAnimation(
-              beginOffset: const Offset(0, 0.3),
-              endOffset: const Offset(0, 0),
-              slideCurve: Curves.linearToEaseOut,
-              child: const HomeScreen(),
-            ),
-            FadedSlideAnimation(
-              beginOffset: const Offset(0, 0.3),
-              endOffset: const Offset(0, 0),
-              slideCurve: Curves.linearToEaseOut,
-              child: Container(
-                color: Colors.blue,
+        body: Container(
+          margin: EdgeInsets.only(bottom: 50.h),
+          child: PageView(
+            controller: _pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              FadedSlideAnimation(
+                beginOffset: const Offset(0, 0.3),
+                endOffset: const Offset(0, 0),
+                slideCurve: Curves.linearToEaseOut,
+                child: const HomeScreen(),
               ),
-            ),
-            FadedSlideAnimation(
-              beginOffset: const Offset(0, 0.3),
-              endOffset: const Offset(0, 0),
-              slideCurve: Curves.linearToEaseOut,
-              child: Container(
-                color: Colors.green,
+              FadedSlideAnimation(
+                beginOffset: const Offset(0, 0.3),
+                endOffset: const Offset(0, 0),
+                slideCurve: Curves.linearToEaseOut,
+                child: Container(
+                  color: Colors.blue,
+                ),
               ),
-            ),
-            FadedSlideAnimation(
-              beginOffset: const Offset(0, 0.3),
-              endOffset: const Offset(0, 0),
-              slideCurve: Curves.linearToEaseOut,
-              child: Container(
-                color: Colors.yellow,
+              FadedSlideAnimation(
+                beginOffset: const Offset(0, 0.3),
+                endOffset: const Offset(0, 0),
+                slideCurve: Curves.linearToEaseOut,
+                child: Container(
+                  color: Colors.green,
+                ),
               ),
-            ),
-          ],
+              FadedSlideAnimation(
+                beginOffset: const Offset(0, 0.3),
+                endOffset: const Offset(0, 0),
+                slideCurve: Curves.linearToEaseOut,
+                child: Container(
+                  color: Colors.yellow,
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }

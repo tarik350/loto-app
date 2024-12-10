@@ -47,6 +47,7 @@ class AppDimensions {
   static double get inputHeightLarge => 60.h;
 
   // Spacing Between Elements
+  static double get spacingXXS => 2.h;
   static double get spacingXS => 4.h;
   static double get spacingS => 8.h;
   static double get spacingM => 16.h;
