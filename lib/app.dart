@@ -11,6 +11,7 @@ import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/features/home/presentation/pages/home_page.dart';
 import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_page.dart';
+import 'package:mobile_app/src/features/profile/presentation/page/profile_page.dart';
 import 'package:mobile_app/src/features/ticket_history/presentation/pages/ticket_history_page.dart';
 
 @RoutePage()
@@ -70,7 +71,7 @@ class AppScreen extends StatelessWidget {
                 activeIndex: state,
                 itemCount: iconList.length,
                 shadow: const Shadow(color: Colors.black, offset: Offset(0, 1)),
-                backgroundGradient: AppColors.primaryGradient,
+                backgroundGradient: AppColors.secondaryGradient,
                 gapLocation: GapLocation.center,
                 notchMargin: 0,
                 leftCornerRadius: AppDimensions.radiusS,
@@ -146,9 +147,7 @@ class AppScreen extends StatelessWidget {
                 beginOffset: const Offset(0, 0.3),
                 endOffset: const Offset(0, 0),
                 slideCurve: Curves.linearToEaseOut,
-                child: Container(
-                  color: Colors.yellow,
-                ),
+                child: const ProfilePage(),
               ),
             ],
           ),

@@ -60,4 +60,22 @@ class AppImages {
     width: double.infinity,
     fit: BoxFit.cover,
   );
+
+  /// profile page
+  static final SvgPicture userIcon = SvgPicture.asset('$_basePath/user.svg');
+  static final SvgPicture userAddIcon =
+      SvgPicture.asset('$_basePath/user-add.svg');
+  static final SvgPicture privacyIcon =
+      SvgPicture.asset('$_basePath/privacy.svg');
+  static final SvgPicture notificationBlackIcon =
+      SvgPicture.asset('$_basePath/notification-black.svg');
+  static final SvgPicture logoutIcon =
+      SvgPicture.asset('$_basePath/logout.svg');
+  static final SvgPicture helpIcon = SvgPicture.asset('$_basePath/help.svg');
+  static final SvgPicture creditCardIcon =
+      SvgPicture.asset('$_basePath/credit-card.svg');
+  static final SvgPicture myOrderIcon =
+      SvgPicture.asset('$_basePath/order.svg');
+  static final SvgPicture inviteFreindsIcon =
+      SvgPicture.asset('$_basePath/user-add.svg');
 }

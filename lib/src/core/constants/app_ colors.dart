@@ -83,6 +83,7 @@ class AppColors {
   //red
   static const Color backgroundCoral = Color(0xFFFF8B78);
   static const Color foregroundRed = Color(0xFFF45C43);
+  static const Color strongRed = Color(0xFFDE1135);
 
   //ticket status color
   static const Color availableColor = Colors.white;

@@ -51,82 +51,80 @@ class MyTicketPage extends StatelessWidget {
         SliverList(
             delegate: SliverChildListDelegate(
           [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                    children: List.generate(10, (index) {
-                  return Container(
-                    width: double.maxFinite,
-                    margin: EdgeInsets.symmetric(
-                        vertical: AppDimensions.spacingS,
-                        horizontal: AppDimensions.spacingS),
-                    height: 80.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.vividViolet,
-                        borderRadius:
-                            BorderRadius.circular(AppDimensions.radiusS)),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppDimensions.paddingS),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            children: [
-                              AppImages.icon1,
-                              SizedBox(
-                                width: AppDimensions.spacingS,
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Asbeza',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: AppDimensions.fontL),
-                                  ),
-                                  Text("Asbeza_E01",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: AppDimensions.fontS,
-                                          color: Colors.white.withOpacity(.7)))
-                                ],
-                              )
-                            ],
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppDimensions.spacingM,
-                                vertical: AppDimensions.spacingS),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  AppDimensions.radiusCircular),
-                              color: AppColors.transparentWhite,
+            SingleChildScrollView(
+              child: Column(
+                  children: List.generate(10, (index) {
+                return Container(
+                  width: double.maxFinite,
+                  margin: EdgeInsets.symmetric(
+                      vertical: AppDimensions.spacingS,
+                      horizontal: AppDimensions.spacingS),
+                  height: 80.h,
+                  decoration: BoxDecoration(
+                      color: AppColors.vividViolet,
+                      borderRadius:
+                          BorderRadius.circular(AppDimensions.radiusS)),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppDimensions.paddingS),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            AppImages.icon1,
+                            SizedBox(
+                              width: AppDimensions.spacingS,
                             ),
-                            child: RichText(
-                                text: TextSpan(children: [
-                              TextSpan(
-                                  text: "Ticket price 100 ",
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Asbeza',
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AppDimensions.fontM)),
-                              TextSpan(
-                                  text: "ETB",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 10.sp))
-                            ])),
-                          )
-                        ],
-                      ),
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: AppDimensions.fontL),
+                                ),
+                                Text("Asbeza_E01",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: AppDimensions.fontS,
+                                        color: Colors.white.withOpacity(.7)))
+                              ],
+                            )
+                          ],
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimensions.spacingM,
+                              vertical: AppDimensions.spacingS),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                                AppDimensions.radiusCircular),
+                            color: AppColors.transparentWhite,
+                          ),
+                          child: RichText(
+                              text: TextSpan(children: [
+                            TextSpan(
+                                text: "Ticket price 100 ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: AppDimensions.fontM)),
+                            TextSpan(
+                                text: "ETB",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 10.sp))
+                          ])),
+                        )
+                      ],
                     ),
-                  );
-                }).toList()),
-              ),
+                  ),
+                );
+              }).toList()),
             ),
             SizedBox(
               height: 20.h,
