@@ -10,6 +10,8 @@ import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/features/home/presentation/pages/home_page.dart';
+import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_page.dart';
+import 'package:mobile_app/src/features/ticket_history/presentation/pages/ticket_history_page.dart';
 
 @RoutePage()
 class AppScreen extends StatelessWidget {
@@ -126,23 +128,19 @@ class AppScreen extends StatelessWidget {
                 beginOffset: const Offset(0, 0.3),
                 endOffset: const Offset(0, 0),
                 slideCurve: Curves.linearToEaseOut,
-                child: const HomeScreen(),
+                child: const HomePage(),
               ),
               FadedSlideAnimation(
                 beginOffset: const Offset(0, 0.3),
                 endOffset: const Offset(0, 0),
                 slideCurve: Curves.linearToEaseOut,
-                child: Container(
-                  color: Colors.blue,
-                ),
+                child: const MyTicketPage(),
               ),
               FadedSlideAnimation(
                 beginOffset: const Offset(0, 0.3),
                 endOffset: const Offset(0, 0),
                 slideCurve: Curves.linearToEaseOut,
-                child: Container(
-                  color: Colors.green,
-                ),
+                child: const TicketHistoryPage(),
               ),
               FadedSlideAnimation(
                 beginOffset: const Offset(0, 0.3),

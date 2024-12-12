@@ -12,14 +12,14 @@ import 'package:mobile_app/src/features/home/presentation/widgets/home_page_filt
 // Define color variables
 
 @RoutePage()
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomePage> {
 // Mock data for game cards
 
   int currentIndex = 0;
@@ -52,17 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
               pinned: currentIndex == 1,
               flexibleSpace: Container(
                 // padding: EdgeInsets.only(top: AppDimensions.paddingXL),
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.secondaryColorShade,
-                      AppColors.primaryColor,
-                    ],
-                    stops: [0.0, 1],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                ),
+                decoration:
+                    const BoxDecoration(gradient: AppColors.secondaryGradient),
                 child: FlexibleSpaceBar(
                     titlePadding: EdgeInsets.zero,
                     centerTitle: true,

@@ -32,6 +32,16 @@ class AppColors {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
+
+  static const Gradient secondaryGradient = LinearGradient(
+    colors: [
+      AppColors.secondaryColorShade,
+      AppColors.primaryColor,
+    ],
+    stops: [0.0, 1],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
   static const LinearGradient buttonGradient10Opacity = LinearGradient(
     colors: [
       primaryColor10Opacity,

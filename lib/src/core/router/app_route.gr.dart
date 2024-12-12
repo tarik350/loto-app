@@ -71,7 +71,7 @@ class GameRoute extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomeScreen]
+/// [_i3.HomePage]
 class HomeRoute extends _i4.PageRouteInfo<void> {
   const HomeRoute({List<_i4.PageRouteInfo>? children})
       : super(
@@ -84,7 +84,7 @@ class HomeRoute extends _i4.PageRouteInfo<void> {
   static _i4.PageInfo page = _i4.PageInfo(
     name,
     builder: (data) {
-      return const _i3.HomeScreen();
+      return const _i3.HomePage();
     },
   );
 }
