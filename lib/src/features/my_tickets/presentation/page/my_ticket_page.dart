@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
@@ -5,6 +6,7 @@ import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 
+@RoutePage()
 class MyTicketPage extends StatelessWidget {
   const MyTicketPage({super.key});
 
@@ -13,15 +15,30 @@ class MyTicketPage extends StatelessWidget {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
-        const SliverAppBar(
+        SliverAppBar(
           pinned: false,
-          flexibleSpace: FlexibleSpaceBar(
+          leading: Container(
+            margin: EdgeInsets.only(top: 4.h),
+            child: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          flexibleSpace: const FlexibleSpaceBar(
             titlePadding: EdgeInsets.zero,
             title: CustomPageAppBar(title: 'My Ticket'),
           ),
         ),
         SliverAppBar(
           pinned: true,
+          leading: Container(),
           flexibleSpace: FlexibleSpaceBar(
             titlePadding: EdgeInsets.zero,
             title: Container(

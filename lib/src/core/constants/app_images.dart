@@ -78,4 +78,15 @@ class AppImages {
       SvgPicture.asset('$_basePath/order.svg');
   static final SvgPicture inviteFreindsIcon =
       SvgPicture.asset('$_basePath/user-add.svg');
+
+  //my wallet page icons
+  static final SvgPicture withdrawalIcon =
+      SvgPicture.asset('$_basePath/withdraw.svg');
+  static final SvgPicture topupIcon = SvgPicture.asset('$_basePath/top-up.svg');
+  static final SvgPicture topupFilledIcon =
+      SvgPicture.asset('$_basePath/topup-filled.svg');
+  static final SvgPicture withdrawFilledIcon =
+      SvgPicture.asset('$_basePath/withdraw-filled.svg');
+  static final SvgPicture paymentHistoryIcon =
+      SvgPicture.asset('$_basePath/payment-history.svg');
 }

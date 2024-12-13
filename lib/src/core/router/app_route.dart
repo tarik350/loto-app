@@ -10,5 +10,13 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: HomeRoute.page, path: '/home'),
         AutoRoute(page: AppRoute.page, path: '/app', initial: true),
         AutoRoute(page: GameRoute.page, path: '/game'),
+        AutoRoute(
+          page: MyWalletRoute.page,
+          path: '/wallet',
+        ),
+        AutoRoute(
+          page: MyTicketRoute.page,
+          path: '/ticket',
+        )
       ];
 }
