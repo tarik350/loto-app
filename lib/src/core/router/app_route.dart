@@ -17,6 +17,14 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           page: MyTicketRoute.page,
           path: '/ticket',
+        ),
+        AutoRoute(
+          page: EditProfileRoute.page,
+          path: '/edit-profile',
+        ),
+        AutoRoute(
+          page: HelpCenterRoute.page,
+          path: '/help',
         )
       ];
 }

@@ -9,7 +9,9 @@ import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_p
 
 List<ProfileCardContentDto> cards = [
   ProfileCardContentDto(
-      icon: AppImages.userIcon, title: 'Your Profile', onAction: (context) {}),
+      icon: AppImages.userIcon,
+      title: 'Your Profile',
+      onAction: (context) => context.router.push(const EditProfileRoute())),
   ProfileCardContentDto(
       icon: AppImages.myOrderIcon,
       title: "My Orders",
@@ -31,7 +33,9 @@ List<ProfileCardContentDto> cards = [
       title: "Privacy Policy",
       onAction: (context) {}),
   ProfileCardContentDto(
-      icon: AppImages.helpIcon, title: "Help Center", onAction: (context) {}),
+      icon: AppImages.helpIcon,
+      title: "Help Center",
+      onAction: (context) => context.router.push(const HelpCenterRoute())),
   ProfileCardContentDto(
       icon: AppImages.inviteFreindsIcon,
       title: "Invite Freinds",

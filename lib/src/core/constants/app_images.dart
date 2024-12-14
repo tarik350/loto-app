@@ -89,4 +89,16 @@ class AppImages {
       SvgPicture.asset('$_basePath/withdraw-filled.svg');
   static final SvgPicture paymentHistoryIcon =
       SvgPicture.asset('$_basePath/payment-history.svg');
+
+  //help center icons
+  static final Widget facebookIcon = Transform.scale(
+      scale: 1.1, child: SvgPicture.asset('$_basePath/facebook.svg'));
+  static final SvgPicture whatsappIcon =
+      SvgPicture.asset('$_basePath/whatsapp.svg');
+  static final SvgPicture twitterIcon =
+      SvgPicture.asset('$_basePath/twitter.svg');
+  static final SvgPicture instagramIcon =
+      SvgPicture.asset('$_basePath/instagram.svg');
+  static final SvgPicture websiteIcon =
+      SvgPicture.asset('$_basePath/website.svg');
 }
