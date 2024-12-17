@@ -34,15 +34,15 @@ mixin _$GameCategory {
   @JsonKey(name: 'title_am')
   String? get titleAm => throw _privateConstructorUsedError;
   @JsonKey(name: 'winning_prize')
-  String? get winningPrize => throw _privateConstructorUsedError;
+  int? get winningPrize => throw _privateConstructorUsedError;
   @JsonKey(name: 'second_winning_prize')
-  String? get secondWinningPrize => throw _privateConstructorUsedError;
+  int? get secondWinningPrize => throw _privateConstructorUsedError;
   @JsonKey(name: 'third_winning_prize')
-  String? get thirdWinningPrize => throw _privateConstructorUsedError;
+  int? get thirdWinningPrize => throw _privateConstructorUsedError;
   @JsonKey(name: 'ticket_price')
-  String? get ticketPrice => throw _privateConstructorUsedError;
+  int? get ticketPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'ticket_count')
-  String? get ticketCount => throw _privateConstructorUsedError;
+  int? get ticketCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'game_duration')
   String? get gameDuration => throw _privateConstructorUsedError;
   @JsonKey(name: 'games_count')
@@ -71,11 +71,11 @@ abstract class $GameCategoryCopyWith<$Res> {
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'title_en') String? titleEn,
       @JsonKey(name: 'title_am') String? titleAm,
-      @JsonKey(name: 'winning_prize') String? winningPrize,
-      @JsonKey(name: 'second_winning_prize') String? secondWinningPrize,
-      @JsonKey(name: 'third_winning_prize') String? thirdWinningPrize,
-      @JsonKey(name: 'ticket_price') String? ticketPrice,
-      @JsonKey(name: 'ticket_count') String? ticketCount,
+      @JsonKey(name: 'winning_prize') int? winningPrize,
+      @JsonKey(name: 'second_winning_prize') int? secondWinningPrize,
+      @JsonKey(name: 'third_winning_prize') int? thirdWinningPrize,
+      @JsonKey(name: 'ticket_price') int? ticketPrice,
+      @JsonKey(name: 'ticket_count') int? ticketCount,
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
       List<Game>? games});
@@ -134,23 +134,23 @@ class _$GameCategoryCopyWithImpl<$Res, $Val extends GameCategory>
       winningPrize: freezed == winningPrize
           ? _value.winningPrize
           : winningPrize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       secondWinningPrize: freezed == secondWinningPrize
           ? _value.secondWinningPrize
           : secondWinningPrize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       thirdWinningPrize: freezed == thirdWinningPrize
           ? _value.thirdWinningPrize
           : thirdWinningPrize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       ticketPrice: freezed == ticketPrice
           ? _value.ticketPrice
           : ticketPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       ticketCount: freezed == ticketCount
           ? _value.ticketCount
           : ticketCount // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       gameDuration: freezed == gameDuration
           ? _value.gameDuration
           : gameDuration // ignore: cast_nullable_to_non_nullable
@@ -181,11 +181,11 @@ abstract class _$$GameCategoryImplCopyWith<$Res>
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'title_en') String? titleEn,
       @JsonKey(name: 'title_am') String? titleAm,
-      @JsonKey(name: 'winning_prize') String? winningPrize,
-      @JsonKey(name: 'second_winning_prize') String? secondWinningPrize,
-      @JsonKey(name: 'third_winning_prize') String? thirdWinningPrize,
-      @JsonKey(name: 'ticket_price') String? ticketPrice,
-      @JsonKey(name: 'ticket_count') String? ticketCount,
+      @JsonKey(name: 'winning_prize') int? winningPrize,
+      @JsonKey(name: 'second_winning_prize') int? secondWinningPrize,
+      @JsonKey(name: 'third_winning_prize') int? thirdWinningPrize,
+      @JsonKey(name: 'ticket_price') int? ticketPrice,
+      @JsonKey(name: 'ticket_count') int? ticketCount,
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
       List<Game>? games});
@@ -242,23 +242,23 @@ class __$$GameCategoryImplCopyWithImpl<$Res>
       winningPrize: freezed == winningPrize
           ? _value.winningPrize
           : winningPrize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       secondWinningPrize: freezed == secondWinningPrize
           ? _value.secondWinningPrize
           : secondWinningPrize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       thirdWinningPrize: freezed == thirdWinningPrize
           ? _value.thirdWinningPrize
           : thirdWinningPrize // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       ticketPrice: freezed == ticketPrice
           ? _value.ticketPrice
           : ticketPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       ticketCount: freezed == ticketCount
           ? _value.ticketCount
           : ticketCount // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       gameDuration: freezed == gameDuration
           ? _value.gameDuration
           : gameDuration // ignore: cast_nullable_to_non_nullable
@@ -317,19 +317,19 @@ class _$GameCategoryImpl implements _GameCategory {
   final String? titleAm;
   @override
   @JsonKey(name: 'winning_prize')
-  final String? winningPrize;
+  final int? winningPrize;
   @override
   @JsonKey(name: 'second_winning_prize')
-  final String? secondWinningPrize;
+  final int? secondWinningPrize;
   @override
   @JsonKey(name: 'third_winning_prize')
-  final String? thirdWinningPrize;
+  final int? thirdWinningPrize;
   @override
   @JsonKey(name: 'ticket_price')
-  final String? ticketPrice;
+  final int? ticketPrice;
   @override
   @JsonKey(name: 'ticket_count')
-  final String? ticketCount;
+  final int? ticketCount;
   @override
   @JsonKey(name: 'game_duration')
   final String? gameDuration;
@@ -421,11 +421,11 @@ abstract class _GameCategory implements GameCategory {
       @JsonKey(name: 'updated_at') final DateTime? updatedAt,
       @JsonKey(name: 'title_en') final String? titleEn,
       @JsonKey(name: 'title_am') final String? titleAm,
-      @JsonKey(name: 'winning_prize') final String? winningPrize,
-      @JsonKey(name: 'second_winning_prize') final String? secondWinningPrize,
-      @JsonKey(name: 'third_winning_prize') final String? thirdWinningPrize,
-      @JsonKey(name: 'ticket_price') final String? ticketPrice,
-      @JsonKey(name: 'ticket_count') final String? ticketCount,
+      @JsonKey(name: 'winning_prize') final int? winningPrize,
+      @JsonKey(name: 'second_winning_prize') final int? secondWinningPrize,
+      @JsonKey(name: 'third_winning_prize') final int? thirdWinningPrize,
+      @JsonKey(name: 'ticket_price') final int? ticketPrice,
+      @JsonKey(name: 'ticket_count') final int? ticketCount,
       @JsonKey(name: 'game_duration') final String? gameDuration,
       @JsonKey(name: 'games_count') final int? gamesCount,
       final List<Game>? games}) = _$GameCategoryImpl;
@@ -450,19 +450,19 @@ abstract class _GameCategory implements GameCategory {
   String? get titleAm;
   @override
   @JsonKey(name: 'winning_prize')
-  String? get winningPrize;
+  int? get winningPrize;
   @override
   @JsonKey(name: 'second_winning_prize')
-  String? get secondWinningPrize;
+  int? get secondWinningPrize;
   @override
   @JsonKey(name: 'third_winning_prize')
-  String? get thirdWinningPrize;
+  int? get thirdWinningPrize;
   @override
   @JsonKey(name: 'ticket_price')
-  String? get ticketPrice;
+  int? get ticketPrice;
   @override
   @JsonKey(name: 'ticket_count')
-  String? get ticketCount;
+  int? get ticketCount;
   @override
   @JsonKey(name: 'game_duration')
   String? get gameDuration;

@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => sl<RegisterBloc>()),
         BlocProvider(create: (_) => sl<LoginBloc>()),
         BlocProvider(
-            create: (_) =>
-                sl<HomeBloc>()..add(const GetAllGamesWithCategoryEvent())),
+          create: (_) => sl<HomeBloc>(),
+        )
       ],
       child: MaterialApp(
         key: UniqueKey(),

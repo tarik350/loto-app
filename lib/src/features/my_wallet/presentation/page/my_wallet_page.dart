@@ -40,14 +40,6 @@ List<TransactionDto> transactions = [
       amount: "20.00", transactionType: 'Withdraw', date: 'Monday 12 , 2024'),
 ];
 
-List<WalletActionDTO> actions = [
-  WalletActionDTO(
-      title: 'Withdraw', icon: AppImages.withdrawalIcon, callback: () {}),
-  WalletActionDTO(title: 'Top Up', icon: AppImages.topupIcon, callback: () {}),
-  WalletActionDTO(
-      title: 'History', icon: AppImages.historyIcon, callback: () {})
-];
-
 @RoutePage()
 class MyWalletPage extends StatelessWidget {
   const MyWalletPage({super.key});
@@ -118,25 +110,11 @@ class MyWalletPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Column(
-                        children: [
-                          AppImages.withdrawalIcon,
-                          SizedBox(
-                            height: AppDimensions.spacingXXS,
-                          ),
-                          Text(
-                            'Withdraw',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: AppDimensions.fontS),
-                          )
-                        ],
-                      ),
-                      fadedSeprater(),
-                      Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          AppImages.topupIcon,
+                          SvgPicture.asset(AppImages.topupIcon,
+                              colorFilter: const ColorFilter.mode(
+                                  Colors.white, BlendMode.srcIn)),
                           SizedBox(
                             height: AppDimensions.spacingXXS,
                           ),
@@ -152,14 +130,37 @@ class MyWalletPage extends StatelessWidget {
                       fadedSeprater(),
                       Column(
                         children: [
-                          AppImages.paymentHistoryIcon,
+                          SvgPicture.asset(
+                            AppImages.withdrawalIcon,
+                            colorFilter: ColorFilter.mode(
+                                Colors.white.withOpacity(.6), BlendMode.srcIn),
+                          ),
+                          SizedBox(
+                            height: AppDimensions.spacingXXS,
+                          ),
+                          Text(
+                            'Withdraw',
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(.6),
+                                fontWeight: FontWeight.bold,
+                                fontSize: AppDimensions.fontS),
+                          )
+                        ],
+                      ),
+                      fadedSeprater(),
+                      Column(
+                        children: [
+                          SvgPicture.asset(AppImages.paymentHistoryIcon,
+                              colorFilter: ColorFilter.mode(
+                                  Colors.white.withOpacity(.6),
+                                  BlendMode.srcIn)),
                           SizedBox(
                             height: AppDimensions.spacingXXS,
                           ),
                           Text(
                             'History',
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.white.withOpacity(.6),
                                 fontWeight: FontWeight.bold,
                                 fontSize: AppDimensions.fontS),
                           )

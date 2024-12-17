@@ -18,36 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllGamesWithCategory,
+    required TResult Function() getAllCashGames,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getAllGamesWithCategory,
+    TResult? Function()? getAllCashGames,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllGamesWithCategory,
+    TResult Function()? getAllCashGames,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetAllGamesWithCategoryEvent value)
-        getAllGamesWithCategory,
+    required TResult Function(GetAllCashGamesEvent value) getAllCashGames,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetAllGamesWithCategoryEvent value)?
-        getAllGamesWithCategory,
+    TResult? Function(GetAllCashGamesEvent value)? getAllCashGames,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetAllGamesWithCategoryEvent value)?
-        getAllGamesWithCategory,
+    TResult Function(GetAllCashGamesEvent value)? getAllCashGames,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,20 +71,18 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$GetAllGamesWithCategoryEventImplCopyWith<$Res> {
-  factory _$$GetAllGamesWithCategoryEventImplCopyWith(
-          _$GetAllGamesWithCategoryEventImpl value,
-          $Res Function(_$GetAllGamesWithCategoryEventImpl) then) =
-      __$$GetAllGamesWithCategoryEventImplCopyWithImpl<$Res>;
+abstract class _$$GetAllCashGamesEventImplCopyWith<$Res> {
+  factory _$$GetAllCashGamesEventImplCopyWith(_$GetAllCashGamesEventImpl value,
+          $Res Function(_$GetAllCashGamesEventImpl) then) =
+      __$$GetAllCashGamesEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetAllGamesWithCategoryEventImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$GetAllGamesWithCategoryEventImpl>
-    implements _$$GetAllGamesWithCategoryEventImplCopyWith<$Res> {
-  __$$GetAllGamesWithCategoryEventImplCopyWithImpl(
-      _$GetAllGamesWithCategoryEventImpl _value,
-      $Res Function(_$GetAllGamesWithCategoryEventImpl) _then)
+class __$$GetAllCashGamesEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetAllCashGamesEventImpl>
+    implements _$$GetAllCashGamesEventImplCopyWith<$Res> {
+  __$$GetAllCashGamesEventImplCopyWithImpl(_$GetAllCashGamesEventImpl _value,
+      $Res Function(_$GetAllCashGamesEventImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of HomeEvent
@@ -96,20 +91,19 @@ class __$$GetAllGamesWithCategoryEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetAllGamesWithCategoryEventImpl
-    implements GetAllGamesWithCategoryEvent {
-  const _$GetAllGamesWithCategoryEventImpl();
+class _$GetAllCashGamesEventImpl implements GetAllCashGamesEvent {
+  const _$GetAllCashGamesEventImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.getAllGamesWithCategory()';
+    return 'HomeEvent.getAllCashGames()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAllGamesWithCategoryEventImpl);
+            other is _$GetAllCashGamesEventImpl);
   }
 
   @override
@@ -118,27 +112,27 @@ class _$GetAllGamesWithCategoryEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getAllGamesWithCategory,
+    required TResult Function() getAllCashGames,
   }) {
-    return getAllGamesWithCategory();
+    return getAllCashGames();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getAllGamesWithCategory,
+    TResult? Function()? getAllCashGames,
   }) {
-    return getAllGamesWithCategory?.call();
+    return getAllCashGames?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getAllGamesWithCategory,
+    TResult Function()? getAllCashGames,
     required TResult orElse(),
   }) {
-    if (getAllGamesWithCategory != null) {
-      return getAllGamesWithCategory();
+    if (getAllCashGames != null) {
+      return getAllCashGames();
     }
     return orElse();
   }
@@ -146,38 +140,34 @@ class _$GetAllGamesWithCategoryEventImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetAllGamesWithCategoryEvent value)
-        getAllGamesWithCategory,
+    required TResult Function(GetAllCashGamesEvent value) getAllCashGames,
   }) {
-    return getAllGamesWithCategory(this);
+    return getAllCashGames(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetAllGamesWithCategoryEvent value)?
-        getAllGamesWithCategory,
+    TResult? Function(GetAllCashGamesEvent value)? getAllCashGames,
   }) {
-    return getAllGamesWithCategory?.call(this);
+    return getAllCashGames?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetAllGamesWithCategoryEvent value)?
-        getAllGamesWithCategory,
+    TResult Function(GetAllCashGamesEvent value)? getAllCashGames,
     required TResult orElse(),
   }) {
-    if (getAllGamesWithCategory != null) {
-      return getAllGamesWithCategory(this);
+    if (getAllCashGames != null) {
+      return getAllCashGames(this);
     }
     return orElse();
   }
 }
 
-abstract class GetAllGamesWithCategoryEvent implements HomeEvent {
-  const factory GetAllGamesWithCategoryEvent() =
-      _$GetAllGamesWithCategoryEventImpl;
+abstract class GetAllCashGamesEvent implements HomeEvent {
+  const factory GetAllCashGamesEvent() = _$GetAllCashGamesEventImpl;
 }
 
 /// @nodoc
@@ -186,7 +176,7 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() loading,
-    required TResult Function(List<GameCategory> gameCategories) loaded,
+    required TResult Function(PaginatedResponse<Game> games) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -194,7 +184,7 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? loading,
-    TResult? Function(List<GameCategory> gameCategories)? loaded,
+    TResult? Function(PaginatedResponse<Game> games)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -202,7 +192,7 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? loading,
-    TResult Function(List<GameCategory> gameCategories)? loaded,
+    TResult Function(PaginatedResponse<Game> games)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -297,7 +287,7 @@ class _$HomeStateImpl implements _HomeState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() loading,
-    required TResult Function(List<GameCategory> gameCategories) loaded,
+    required TResult Function(PaginatedResponse<Game> games) loaded,
     required TResult Function(String message) error,
   }) {
     return $default();
@@ -308,7 +298,7 @@ class _$HomeStateImpl implements _HomeState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? loading,
-    TResult? Function(List<GameCategory> gameCategories)? loaded,
+    TResult? Function(PaginatedResponse<Game> games)? loaded,
     TResult? Function(String message)? error,
   }) {
     return $default?.call();
@@ -319,7 +309,7 @@ class _$HomeStateImpl implements _HomeState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? loading,
-    TResult Function(List<GameCategory> gameCategories)? loaded,
+    TResult Function(PaginatedResponse<Game> games)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -414,7 +404,7 @@ class _$HomeLoadingStateImpl implements HomeLoadingState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() loading,
-    required TResult Function(List<GameCategory> gameCategories) loaded,
+    required TResult Function(PaginatedResponse<Game> games) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -425,7 +415,7 @@ class _$HomeLoadingStateImpl implements HomeLoadingState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? loading,
-    TResult? Function(List<GameCategory> gameCategories)? loaded,
+    TResult? Function(PaginatedResponse<Game> games)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -436,7 +426,7 @@ class _$HomeLoadingStateImpl implements HomeLoadingState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? loading,
-    TResult Function(List<GameCategory> gameCategories)? loaded,
+    TResult Function(PaginatedResponse<Game> games)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -494,7 +484,9 @@ abstract class _$$HomeLoadedStateImplCopyWith<$Res> {
           $Res Function(_$HomeLoadedStateImpl) then) =
       __$$HomeLoadedStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<GameCategory> gameCategories});
+  $Res call({PaginatedResponse<Game> games});
+
+  $PaginatedResponseCopyWith<Game, $Res> get games;
 }
 
 /// @nodoc
@@ -510,34 +502,38 @@ class __$$HomeLoadedStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? gameCategories = null,
+    Object? games = null,
   }) {
     return _then(_$HomeLoadedStateImpl(
-      null == gameCategories
-          ? _value._gameCategories
-          : gameCategories // ignore: cast_nullable_to_non_nullable
-              as List<GameCategory>,
+      null == games
+          ? _value.games
+          : games // ignore: cast_nullable_to_non_nullable
+              as PaginatedResponse<Game>,
     ));
+  }
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PaginatedResponseCopyWith<Game, $Res> get games {
+    return $PaginatedResponseCopyWith<Game, $Res>(_value.games, (value) {
+      return _then(_value.copyWith(games: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$HomeLoadedStateImpl implements HomeLoadedState {
-  const _$HomeLoadedStateImpl(final List<GameCategory> gameCategories)
-      : _gameCategories = gameCategories;
+  const _$HomeLoadedStateImpl(this.games);
 
-  final List<GameCategory> _gameCategories;
   @override
-  List<GameCategory> get gameCategories {
-    if (_gameCategories is EqualUnmodifiableListView) return _gameCategories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_gameCategories);
-  }
+  final PaginatedResponse<Game> games;
 
   @override
   String toString() {
-    return 'HomeState.loaded(gameCategories: $gameCategories)';
+    return 'HomeState.loaded(games: $games)';
   }
 
   @override
@@ -545,13 +541,11 @@ class _$HomeLoadedStateImpl implements HomeLoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeLoadedStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._gameCategories, _gameCategories));
+            (identical(other.games, games) || other.games == games));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_gameCategories));
+  int get hashCode => Object.hash(runtimeType, games);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -567,10 +561,10 @@ class _$HomeLoadedStateImpl implements HomeLoadedState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() loading,
-    required TResult Function(List<GameCategory> gameCategories) loaded,
+    required TResult Function(PaginatedResponse<Game> games) loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(gameCategories);
+    return loaded(games);
   }
 
   @override
@@ -578,10 +572,10 @@ class _$HomeLoadedStateImpl implements HomeLoadedState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? loading,
-    TResult? Function(List<GameCategory> gameCategories)? loaded,
+    TResult? Function(PaginatedResponse<Game> games)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(gameCategories);
+    return loaded?.call(games);
   }
 
   @override
@@ -589,12 +583,12 @@ class _$HomeLoadedStateImpl implements HomeLoadedState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? loading,
-    TResult Function(List<GameCategory> gameCategories)? loaded,
+    TResult Function(PaginatedResponse<Game> games)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(gameCategories);
+      return loaded(games);
     }
     return orElse();
   }
@@ -638,10 +632,10 @@ class _$HomeLoadedStateImpl implements HomeLoadedState {
 }
 
 abstract class HomeLoadedState implements HomeState {
-  const factory HomeLoadedState(final List<GameCategory> gameCategories) =
+  const factory HomeLoadedState(final PaginatedResponse<Game> games) =
       _$HomeLoadedStateImpl;
 
-  List<GameCategory> get gameCategories;
+  PaginatedResponse<Game> get games;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -721,7 +715,7 @@ class _$HomeErrorStateImpl implements HomeErrorState {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() loading,
-    required TResult Function(List<GameCategory> gameCategories) loaded,
+    required TResult Function(PaginatedResponse<Game> games) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -732,7 +726,7 @@ class _$HomeErrorStateImpl implements HomeErrorState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? loading,
-    TResult? Function(List<GameCategory> gameCategories)? loaded,
+    TResult? Function(PaginatedResponse<Game> games)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -743,7 +737,7 @@ class _$HomeErrorStateImpl implements HomeErrorState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? loading,
-    TResult Function(List<GameCategory> gameCategories)? loaded,
+    TResult Function(PaginatedResponse<Game> games)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

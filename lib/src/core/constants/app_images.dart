@@ -33,6 +33,7 @@ class AppImages {
   static const String homeIconPath = '$_basePath/home_icon.svg';
   static const String profileIconPath = '$_basePath/profile_icon.svg';
   static const String ticketIconPath = '$_basePath/ticket_icon.svg';
+
   static const String historyIconPath = '$_basePath/history_icon.svg';
   static const String videoIconPath = '$_basePath/video_icon.svg';
 
@@ -49,7 +50,7 @@ class AppImages {
       SvgPicture.asset('$_basePath/bronze_coin.svg');
   static const String pentagonBgImagePath = '$_basePath/pentagon_bg.png';
   static final SvgPicture trophy = SvgPicture.asset('$_basePath/trophy.svg');
-  static final SvgPicture notification =
+  static final SvgPicture notificationIcon =
       SvgPicture.asset('$_basePath/notification.svg');
 
   static const String carouselBanner = '$_basePath/carouse_banner.png';
@@ -79,16 +80,16 @@ class AppImages {
   static final SvgPicture inviteFreindsIcon =
       SvgPicture.asset('$_basePath/user-add.svg');
 
-  //my wallet page icons
-  static final SvgPicture withdrawalIcon =
-      SvgPicture.asset('$_basePath/withdraw.svg');
-  static final SvgPicture topupIcon = SvgPicture.asset('$_basePath/top-up.svg');
+  //my wallet filter types icon
+  static const String withdrawalIcon = '$_basePath/withdraw.svg';
+  static const String topupIcon = '$_basePath/top-up.svg';
+  static const String paymentHistoryIcon = '$_basePath/payment-history.svg';
+
+  //transaction icons
   static final SvgPicture topupFilledIcon =
       SvgPicture.asset('$_basePath/topup-filled.svg');
   static final SvgPicture withdrawFilledIcon =
       SvgPicture.asset('$_basePath/withdraw-filled.svg');
-  static final SvgPicture paymentHistoryIcon =
-      SvgPicture.asset('$_basePath/payment-history.svg');
 
   //help center icons
   static final Widget facebookIcon = Transform.scale(

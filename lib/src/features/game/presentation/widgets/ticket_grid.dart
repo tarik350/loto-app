@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
-import 'package:mobile_app/src/features/game/presentation/page/game_page.dart';
+import 'package:mobile_app/src/core/widgets/tab_scale_animation_wrapper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PaginatedGrid extends StatelessWidget {
@@ -38,7 +38,7 @@ class PaginatedGrid extends StatelessWidget {
                   crossAxisSpacing: 6.h,
                   physics: const NeverScrollableScrollPhysics(),
                   children: pages[pageIndex].map((item) {
-                    return ScaleOnTap(
+                    return ScaleOnTapAnimationWrapper(
                       child: Container(
                         decoration: BoxDecoration(
                             boxShadow: [

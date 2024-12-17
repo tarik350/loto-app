@@ -2,6 +2,5 @@ part of 'home_bloc.dart';
 
 @freezed
 class HomeEvent with _$HomeEvent {
-  const factory HomeEvent.getAllGamesWithCategory() =
-      GetAllGamesWithCategoryEvent;
+  const factory HomeEvent.getAllCashGames() = GetAllCashGamesEvent;
 }

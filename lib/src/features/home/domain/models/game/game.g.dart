@@ -17,11 +17,16 @@ _$GameImpl _$$GameImplFromJson(Map<String, dynamic> json) => _$GameImpl(
       categoryId: (json['category_id'] as num?)?.toInt(),
       name: json['name'] as String?,
       soldTicketCount: (json['sold_ticket_count'] as num?)?.toInt(),
+      lockedTicketsCount: (json['locked_tickets_count'] as num?)?.toInt(),
+      freeTicketsCount: (json['free_tickets_count'] as num?)?.toInt(),
       firstPlaceWinnerId: json['first_place_winner_id'],
       secondPlaceWinnerId: json['second_place_winner_id'],
       thirdPlaceWinnerId: json['third_place_winner_id'],
       status: json['status'] as String?,
       winningVideoUrl: json['winning_video_url'] as String?,
+      category: json['category'] == null
+          ? null
+          : GameCategory.fromJson(json['category'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$GameImplToJson(_$GameImpl instance) =>
@@ -32,9 +37,12 @@ Map<String, dynamic> _$$GameImplToJson(_$GameImpl instance) =>
       'category_id': instance.categoryId,
       'name': instance.name,
       'sold_ticket_count': instance.soldTicketCount,
+      'locked_tickets_count': instance.lockedTicketsCount,
+      'free_tickets_count': instance.freeTicketsCount,
       'first_place_winner_id': instance.firstPlaceWinnerId,
       'second_place_winner_id': instance.secondPlaceWinnerId,
       'third_place_winner_id': instance.thirdPlaceWinnerId,
       'status': instance.status,
       'winning_video_url': instance.winningVideoUrl,
+      'category': instance.category,
     };

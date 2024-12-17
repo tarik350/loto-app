@@ -30,6 +30,12 @@ mixin _$Game {
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'sold_ticket_count')
   int? get soldTicketCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'locked_tickets_count')
+  int? get lockedTicketsCount =>
+      throw _privateConstructorUsedError; // {{ edit_1 }}
+  @JsonKey(name: 'free_tickets_count')
+  int? get freeTicketsCount =>
+      throw _privateConstructorUsedError; // {{ edit_2 }}
   @JsonKey(name: 'first_place_winner_id')
   dynamic get firstPlaceWinnerId => throw _privateConstructorUsedError;
   @JsonKey(name: 'second_place_winner_id')
@@ -39,6 +45,7 @@ mixin _$Game {
   String? get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'winning_video_url')
   String? get winningVideoUrl => throw _privateConstructorUsedError;
+  GameCategory? get category => throw _privateConstructorUsedError;
 
   /// Serializes this Game to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -61,11 +68,16 @@ abstract class $GameCopyWith<$Res> {
       @JsonKey(name: 'category_id') int? categoryId,
       String? name,
       @JsonKey(name: 'sold_ticket_count') int? soldTicketCount,
+      @JsonKey(name: 'locked_tickets_count') int? lockedTicketsCount,
+      @JsonKey(name: 'free_tickets_count') int? freeTicketsCount,
       @JsonKey(name: 'first_place_winner_id') dynamic firstPlaceWinnerId,
       @JsonKey(name: 'second_place_winner_id') dynamic secondPlaceWinnerId,
       @JsonKey(name: 'third_place_winner_id') dynamic thirdPlaceWinnerId,
       String? status,
-      @JsonKey(name: 'winning_video_url') String? winningVideoUrl});
+      @JsonKey(name: 'winning_video_url') String? winningVideoUrl,
+      GameCategory? category});
+
+  $GameCategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -89,11 +101,14 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     Object? categoryId = freezed,
     Object? name = freezed,
     Object? soldTicketCount = freezed,
+    Object? lockedTicketsCount = freezed,
+    Object? freeTicketsCount = freezed,
     Object? firstPlaceWinnerId = freezed,
     Object? secondPlaceWinnerId = freezed,
     Object? thirdPlaceWinnerId = freezed,
     Object? status = freezed,
     Object? winningVideoUrl = freezed,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -120,6 +135,14 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.soldTicketCount
           : soldTicketCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      lockedTicketsCount: freezed == lockedTicketsCount
+          ? _value.lockedTicketsCount
+          : lockedTicketsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      freeTicketsCount: freezed == freeTicketsCount
+          ? _value.freeTicketsCount
+          : freeTicketsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
       firstPlaceWinnerId: freezed == firstPlaceWinnerId
           ? _value.firstPlaceWinnerId
           : firstPlaceWinnerId // ignore: cast_nullable_to_non_nullable
@@ -140,7 +163,25 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.winningVideoUrl
           : winningVideoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as GameCategory?,
     ) as $Val);
+  }
+
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GameCategoryCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $GameCategoryCopyWith<$Res>(_value.category!, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
+    });
   }
 }
 
@@ -158,11 +199,17 @@ abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
       @JsonKey(name: 'category_id') int? categoryId,
       String? name,
       @JsonKey(name: 'sold_ticket_count') int? soldTicketCount,
+      @JsonKey(name: 'locked_tickets_count') int? lockedTicketsCount,
+      @JsonKey(name: 'free_tickets_count') int? freeTicketsCount,
       @JsonKey(name: 'first_place_winner_id') dynamic firstPlaceWinnerId,
       @JsonKey(name: 'second_place_winner_id') dynamic secondPlaceWinnerId,
       @JsonKey(name: 'third_place_winner_id') dynamic thirdPlaceWinnerId,
       String? status,
-      @JsonKey(name: 'winning_video_url') String? winningVideoUrl});
+      @JsonKey(name: 'winning_video_url') String? winningVideoUrl,
+      GameCategory? category});
+
+  @override
+  $GameCategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -183,11 +230,14 @@ class __$$GameImplCopyWithImpl<$Res>
     Object? categoryId = freezed,
     Object? name = freezed,
     Object? soldTicketCount = freezed,
+    Object? lockedTicketsCount = freezed,
+    Object? freeTicketsCount = freezed,
     Object? firstPlaceWinnerId = freezed,
     Object? secondPlaceWinnerId = freezed,
     Object? thirdPlaceWinnerId = freezed,
     Object? status = freezed,
     Object? winningVideoUrl = freezed,
+    Object? category = freezed,
   }) {
     return _then(_$GameImpl(
       id: freezed == id
@@ -214,6 +264,14 @@ class __$$GameImplCopyWithImpl<$Res>
           ? _value.soldTicketCount
           : soldTicketCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      lockedTicketsCount: freezed == lockedTicketsCount
+          ? _value.lockedTicketsCount
+          : lockedTicketsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      freeTicketsCount: freezed == freeTicketsCount
+          ? _value.freeTicketsCount
+          : freeTicketsCount // ignore: cast_nullable_to_non_nullable
+              as int?,
       firstPlaceWinnerId: freezed == firstPlaceWinnerId
           ? _value.firstPlaceWinnerId
           : firstPlaceWinnerId // ignore: cast_nullable_to_non_nullable
@@ -234,6 +292,10 @@ class __$$GameImplCopyWithImpl<$Res>
           ? _value.winningVideoUrl
           : winningVideoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as GameCategory?,
     ));
   }
 }
@@ -248,11 +310,14 @@ class _$GameImpl implements _Game {
       @JsonKey(name: 'category_id') this.categoryId,
       this.name,
       @JsonKey(name: 'sold_ticket_count') this.soldTicketCount,
+      @JsonKey(name: 'locked_tickets_count') this.lockedTicketsCount,
+      @JsonKey(name: 'free_tickets_count') this.freeTicketsCount,
       @JsonKey(name: 'first_place_winner_id') this.firstPlaceWinnerId,
       @JsonKey(name: 'second_place_winner_id') this.secondPlaceWinnerId,
       @JsonKey(name: 'third_place_winner_id') this.thirdPlaceWinnerId,
       this.status,
-      @JsonKey(name: 'winning_video_url') this.winningVideoUrl});
+      @JsonKey(name: 'winning_video_url') this.winningVideoUrl,
+      this.category});
 
   factory _$GameImpl.fromJson(Map<String, dynamic> json) =>
       _$$GameImplFromJson(json);
@@ -274,6 +339,14 @@ class _$GameImpl implements _Game {
   @JsonKey(name: 'sold_ticket_count')
   final int? soldTicketCount;
   @override
+  @JsonKey(name: 'locked_tickets_count')
+  final int? lockedTicketsCount;
+// {{ edit_1 }}
+  @override
+  @JsonKey(name: 'free_tickets_count')
+  final int? freeTicketsCount;
+// {{ edit_2 }}
+  @override
   @JsonKey(name: 'first_place_winner_id')
   final dynamic firstPlaceWinnerId;
   @override
@@ -287,10 +360,12 @@ class _$GameImpl implements _Game {
   @override
   @JsonKey(name: 'winning_video_url')
   final String? winningVideoUrl;
+  @override
+  final GameCategory? category;
 
   @override
   String toString() {
-    return 'Game(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, categoryId: $categoryId, name: $name, soldTicketCount: $soldTicketCount, firstPlaceWinnerId: $firstPlaceWinnerId, secondPlaceWinnerId: $secondPlaceWinnerId, thirdPlaceWinnerId: $thirdPlaceWinnerId, status: $status, winningVideoUrl: $winningVideoUrl)';
+    return 'Game(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, categoryId: $categoryId, name: $name, soldTicketCount: $soldTicketCount, lockedTicketsCount: $lockedTicketsCount, freeTicketsCount: $freeTicketsCount, firstPlaceWinnerId: $firstPlaceWinnerId, secondPlaceWinnerId: $secondPlaceWinnerId, thirdPlaceWinnerId: $thirdPlaceWinnerId, status: $status, winningVideoUrl: $winningVideoUrl, category: $category)';
   }
 
   @override
@@ -308,6 +383,10 @@ class _$GameImpl implements _Game {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.soldTicketCount, soldTicketCount) ||
                 other.soldTicketCount == soldTicketCount) &&
+            (identical(other.lockedTicketsCount, lockedTicketsCount) ||
+                other.lockedTicketsCount == lockedTicketsCount) &&
+            (identical(other.freeTicketsCount, freeTicketsCount) ||
+                other.freeTicketsCount == freeTicketsCount) &&
             const DeepCollectionEquality()
                 .equals(other.firstPlaceWinnerId, firstPlaceWinnerId) &&
             const DeepCollectionEquality()
@@ -316,7 +395,9 @@ class _$GameImpl implements _Game {
                 .equals(other.thirdPlaceWinnerId, thirdPlaceWinnerId) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.winningVideoUrl, winningVideoUrl) ||
-                other.winningVideoUrl == winningVideoUrl));
+                other.winningVideoUrl == winningVideoUrl) &&
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -329,11 +410,14 @@ class _$GameImpl implements _Game {
       categoryId,
       name,
       soldTicketCount,
+      lockedTicketsCount,
+      freeTicketsCount,
       const DeepCollectionEquality().hash(firstPlaceWinnerId),
       const DeepCollectionEquality().hash(secondPlaceWinnerId),
       const DeepCollectionEquality().hash(thirdPlaceWinnerId),
       status,
-      winningVideoUrl);
+      winningVideoUrl,
+      category);
 
   /// Create a copy of Game
   /// with the given fields replaced by the non-null parameter values.
@@ -359,13 +443,15 @@ abstract class _Game implements Game {
       @JsonKey(name: 'category_id') final int? categoryId,
       final String? name,
       @JsonKey(name: 'sold_ticket_count') final int? soldTicketCount,
+      @JsonKey(name: 'locked_tickets_count') final int? lockedTicketsCount,
+      @JsonKey(name: 'free_tickets_count') final int? freeTicketsCount,
       @JsonKey(name: 'first_place_winner_id') final dynamic firstPlaceWinnerId,
       @JsonKey(name: 'second_place_winner_id')
       final dynamic secondPlaceWinnerId,
       @JsonKey(name: 'third_place_winner_id') final dynamic thirdPlaceWinnerId,
       final String? status,
-      @JsonKey(name: 'winning_video_url')
-      final String? winningVideoUrl}) = _$GameImpl;
+      @JsonKey(name: 'winning_video_url') final String? winningVideoUrl,
+      final GameCategory? category}) = _$GameImpl;
 
   factory _Game.fromJson(Map<String, dynamic> json) = _$GameImpl.fromJson;
 
@@ -386,6 +472,12 @@ abstract class _Game implements Game {
   @JsonKey(name: 'sold_ticket_count')
   int? get soldTicketCount;
   @override
+  @JsonKey(name: 'locked_tickets_count')
+  int? get lockedTicketsCount; // {{ edit_1 }}
+  @override
+  @JsonKey(name: 'free_tickets_count')
+  int? get freeTicketsCount; // {{ edit_2 }}
+  @override
   @JsonKey(name: 'first_place_winner_id')
   dynamic get firstPlaceWinnerId;
   @override
@@ -399,6 +491,8 @@ abstract class _Game implements Game {
   @override
   @JsonKey(name: 'winning_video_url')
   String? get winningVideoUrl;
+  @override
+  GameCategory? get category;
 
   /// Create a copy of Game
   /// with the given fields replaced by the non-null parameter values.

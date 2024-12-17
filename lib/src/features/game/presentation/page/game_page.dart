@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
+import 'package:mobile_app/src/core/widgets/game_button1.dart';
+import 'package:mobile_app/src/core/widgets/tab_scale_animation_wrapper.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/expandable_search.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/filter_dropdown.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/ticket_grid.dart';
@@ -46,22 +47,24 @@ class GameScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                            padding: EdgeInsets.all(6.h),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    AppDimensions.radiusCircular),
-                                border:
-                                    Border.all(width: 2, color: Colors.white)),
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                              size: AppDimensions.iconS,
-                            )),
+                      ScaleOnTapAnimationWrapper(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                              padding: EdgeInsets.all(6.h),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                      AppDimensions.radiusCircular),
+                                  border: Border.all(
+                                      width: 2, color: Colors.white)),
+                              child: Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: AppDimensions.iconS,
+                              )),
+                        ),
                       ),
                       SizedBox(width: 45.w),
                       Stack(
@@ -300,7 +303,7 @@ class GameScreen extends StatelessWidget {
                           ),
                           // const ShadeButton()
                           // const ShadeButton2()
-                          ShadeButton3(
+                          GameButton1(
                             width: 120.w,
                             bgGradientTopColor: AppColors.lightSkyBlue,
                             bgGradientBottomColor: AppColors.darkBlueShade,
@@ -309,9 +312,7 @@ class GameScreen extends StatelessWidget {
                             borderGradientBottomColor: AppColors.lightSkyBlue,
                             shadowColor: AppColors.darkBlueShade,
                             title: 'ትኬት ግዛ',
-                            onPressed: () {
-                              // print('doing something ');
-                            },
+                            onPressed: () {},
                           )
                         ],
                       ),
@@ -322,276 +323,6 @@ class GameScreen extends StatelessWidget {
             ))
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ShadeButton extends StatelessWidget {
-  const ShadeButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: AppDimensions.buttonM,
-      width: 140.w,
-      decoration: BoxDecoration(
-        color: AppColors.deepSkyBlue,
-        border: GradientBoxBorder(
-            width: 4,
-            gradient: LinearGradient(colors: [
-              AppColors.lightSkyBlue,
-              AppColors.lightSkyBlue.withAlpha(50)
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
-        borderRadius:
-            BorderRadius.circular(AppDimensions.radiusS), // Rounded corners
-        boxShadow: const [
-          BoxShadow(
-            color: AppColors.darkBlueShade,
-            offset: Offset(0, 6),
-            blurRadius: 0,
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: FractionallySizedBox(
-              heightFactor: .6,
-              widthFactor: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft:
-                            Radius.circular(AppDimensions.radiusCircular),
-                        bottomRight:
-                            Radius.circular(AppDimensions.radiusCircular)),
-                    color: AppColors.lightSkyBlue.withOpacity(.4)),
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              'Buy Ticket',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.3),
-                    offset: const Offset(1, 4),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class ShadeButton2 extends StatelessWidget {
-  const ShadeButton2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXL),
-      height: 50,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.lightenColor(AppColors.darkBlue, .6),
-            AppColors.lightenColor(AppColors.darkBlue, .4),
-            AppColors.darkBlue,
-            AppColors.lightenColor(AppColors.darkBlue, .2),
-          ],
-          stops: const [0, .1, .85, 1],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-        borderRadius:
-            BorderRadius.circular(AppDimensions.radiusM), // Rounded corners
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            offset: const Offset(0, 4),
-            blurRadius: 6,
-          ),
-        ],
-      ),
-      child: Center(
-        child: Text(
-          'Buy Ticket',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            shadows: [
-              Shadow(
-                color: Colors.black.withOpacity(0.5),
-                offset: const Offset(1, 2),
-                blurRadius: 2,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ShadeButton3 extends StatelessWidget {
-  final double width;
-  final Color bgGradientTopColor;
-  final Color bgGradientBottomColor;
-  final Color borderGradientTopColor;
-  final Color borderGradientBottomColor;
-  final Color shadowColor;
-  final String title;
-  final VoidCallback onPressed;
-
-  const ShadeButton3(
-      {super.key,
-      required this.width,
-      required this.bgGradientTopColor,
-      required this.bgGradientBottomColor,
-      required this.borderGradientTopColor,
-      required this.borderGradientBottomColor,
-      required this.shadowColor,
-      required this.title,
-      required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScaleOnTap(
-      child: GestureDetector(
-        onTap: onPressed,
-        child: Container(
-          margin: EdgeInsets.only(top: AppDimensions.spacingS),
-          height: double.maxFinite,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(AppDimensions.radiusS),
-            child: Stack(
-              children: [
-                Container(
-                  height: AppDimensions.buttonM,
-                  width: width,
-                  decoration: BoxDecoration(
-                    border: GradientBoxBorder(
-                      width: 5,
-                      gradient: LinearGradient(
-                        colors: [
-                          borderGradientTopColor,
-                          borderGradientBottomColor
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        stops: const [0, 1],
-                      ),
-                    ),
-                    gradient: LinearGradient(
-                      colors: [
-                        bgGradientTopColor,
-                        bgGradientBottomColor,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                    borderRadius: BorderRadius.circular(AppDimensions.radiusS),
-                    boxShadow: [
-                      BoxShadow(
-                        color: shadowColor,
-                        offset: const Offset(0, 5),
-                        blurRadius: 0,
-                      ),
-                    ],
-                  ),
-                  child: Center(
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: AppDimensions.fontM,
-                        shadows: [
-                          BoxShadow(
-                            offset: const Offset(0, 3),
-                            blurRadius: 5,
-                            color: Colors.black.withOpacity(.3),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: -70,
-                  left: -45,
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    width: width + 90,
-                    height: AppDimensions.buttonM + 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(.2),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft:
-                            Radius.circular(AppDimensions.radiusCircular),
-                        bottomRight:
-                            Radius.circular(AppDimensions.radiusCircular),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ScaleOnTap extends StatefulWidget {
-  final Widget child;
-
-  const ScaleOnTap({super.key, required this.child});
-
-  @override
-  _ScaleOnTapState createState() => _ScaleOnTapState();
-}
-
-class _ScaleOnTapState extends State<ScaleOnTap> {
-  double _scale = 1.0;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: (_) {
-        setState(() {
-          _scale = 0.9;
-        });
-      },
-      onTapUp: (_) {
-        setState(() {
-          _scale = 1.0;
-        });
-      },
-      onTapCancel: () {
-        setState(() {
-          _scale = 1.0;
-        });
-      },
-      child: AnimatedScale(
-        scale: _scale,
-        duration: const Duration(milliseconds: 100),
-        child: widget.child,
       ),
     );
   }

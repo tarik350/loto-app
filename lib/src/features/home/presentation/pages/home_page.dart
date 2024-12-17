@@ -140,7 +140,27 @@ class _HomeScreenState extends State<HomePage> {
                                 child: Container(
                                     margin: EdgeInsets.only(
                                         right: AppDimensions.spacingM),
-                                    child: AppImages.notification),
+                                    child: SizedBox(
+                                        width: AppDimensions.iconXS,
+                                        child: AppImages.notificationIcon)),
+                              ),
+                            ),
+                            Positioned(
+                              left: 0, // Align the icon to the far right
+                              child: GestureDetector(
+                                onTap: () {
+                                  //todo change the locale
+                                },
+                                child: Container(
+                                    margin: EdgeInsets.only(
+                                        left: AppDimensions.spacingM),
+                                    child: Text(
+                                      'አማ',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: AppDimensions.fontS),
+                                    )),
                               ),
                             ),
                           ],

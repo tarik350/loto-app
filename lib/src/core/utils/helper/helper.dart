@@ -9,6 +9,7 @@ import 'package:mobile_app/src/core/network/error/dio_error_handler.dart';
 import 'package:mobile_app/src/shared/models/api_response_dto/api_response.dart';
 
 class Helper {
+  //generic method for serailzing json responses
   static Future<Either<AppException, ApiResponse<T>>> handleSuccessResponse<T>(
     Response response,
     int successCode, {
@@ -55,4 +56,6 @@ class Helper {
     final random = Random();
     return availableColors[random.nextInt(availableColors.length)];
   }
+
+  //calculate total tickets sold
 }
