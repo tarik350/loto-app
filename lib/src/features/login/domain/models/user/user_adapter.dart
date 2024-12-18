@@ -3,7 +3,7 @@ import 'user.dart';
 
 class UserAdapter extends TypeAdapter<User> {
   @override
-  final int typeId = 0; // Unique ID for this adapter
+  final int typeId = 0;
 
   @override
   User read(BinaryReader reader) {

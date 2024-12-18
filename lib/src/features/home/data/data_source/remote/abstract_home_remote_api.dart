@@ -7,7 +7,7 @@ import 'package:mobile_app/src/shared/models/paginated_response/paginated_respon
 
 abstract class AbstractHomeRemoteApi {
   Future<Either<AppException, ApiResponse<PaginatedResponse<Game>>>>
-      getAllCashGames();
+      getAllCashGames({int? categoryId});
 
   /// endpoint not ready yet
   // Future<Either<AppException, ApiResponse<List<GoodsGame>>>> getAllGoodsGames();
@@ -17,8 +17,8 @@ abstract class AbstractHomeRemoteApi {
       getAllGameCateories();
 
   //get games with specific category id
-  Future<Either<AppException, ApiResponse<List<Game>>>> getAllGamesForCategory(
-      int categoryId);
+  Future<Either<AppException, ApiResponse<List<Game>>>>
+      filterGamesWithGameCategory(int categoryId);
 
   //end point not ready yet
   //get featured ads for the carausel ( they are games )

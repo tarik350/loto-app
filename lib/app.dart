@@ -74,9 +74,9 @@ class AppScreen extends StatelessWidget {
                 backgroundGradient: AppColors.secondaryGradient,
                 gapLocation: GapLocation.center,
                 notchMargin: 0,
-                leftCornerRadius: AppDimensions.radiusS,
-                rightCornerRadius: AppDimensions.radiusS,
-                notchSmoothness: NotchSmoothness.sharpEdge,
+                leftCornerRadius: AppDimensions.radiusM,
+                rightCornerRadius: AppDimensions.radiusM,
+                notchSmoothness: NotchSmoothness.defaultEdge,
                 onTap: (index) {
                   context.read<AppCubit>().switchTab(index);
 

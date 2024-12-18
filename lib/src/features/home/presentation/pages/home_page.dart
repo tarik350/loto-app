@@ -29,7 +29,8 @@ class _HomeScreenState extends State<HomePage> {
         body: Stack(
       children: [
         Container(
-          height: MediaQuery.sizeOf(context).height,
+          // height: MediaQuery.sizeOf(context).height,
+          padding: EdgeInsets.only(bottom: 50.h),
           decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
             AppColors.darkPurple,
@@ -170,7 +171,7 @@ class _HomeScreenState extends State<HomePage> {
               ),
             ),
             if (currentIndex == 0) HomePageFilterAppBar(),
-            if (currentIndex == 0) CashGamesScreen(),
+            if (currentIndex == 0) const CashGamesScreen(),
             if (currentIndex == 1) const GoodsHomePage()
           ],
         ),

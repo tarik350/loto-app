@@ -24,6 +24,7 @@ _$GameCategoryImpl _$$GameCategoryImplFromJson(Map<String, dynamic> json) =>
       ticketCount: (json['ticket_count'] as num?)?.toInt(),
       gameDuration: json['game_duration'] as String?,
       gamesCount: (json['games_count'] as num?)?.toInt(),
+      avatar: json['avatar'] as String?,
       games: (json['games'] as List<dynamic>?)
           ?.map((e) => Game.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -43,5 +44,6 @@ Map<String, dynamic> _$$GameCategoryImplToJson(_$GameCategoryImpl instance) =>
       'ticket_count': instance.ticketCount,
       'game_duration': instance.gameDuration,
       'games_count': instance.gamesCount,
+      'avatar': instance.avatar,
       'games': instance.games,
     };

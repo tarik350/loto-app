@@ -19,6 +19,7 @@ class GameCategory with _$GameCategory {
       @JsonKey(name: 'ticket_count') int? ticketCount,
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
+      String? avatar,
       List<Game>? games}) = _GameCategory;
 
   factory GameCategory.fromJson(

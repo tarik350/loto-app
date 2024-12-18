@@ -1,54 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
+import 'package:mobile_app/src/core/utils/helper/fetch_state.dart';
+import 'package:mobile_app/src/core/utils/injections.dart';
+import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
+import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
 
 class HomePageFilterAppBar extends StatelessWidget {
-  HomePageFilterAppBar({super.key});
-
-  // we are going to load teh came categories in here
-  final List<Map<String, dynamic>> games = [
-    {
-      "name": "Asbeza",
-      "image": AppImages.icon1,
-      'bg': AppColors.backgroundYellow,
-      'fg': AppColors.foregroundOrange,
-    },
-    {
-      "name": "Shop",
-      "image": AppImages.icon2,
-      'bg': AppColors.backgroundBlue,
-      'fg': AppColors.foregroundBlue
-    },
-    {
-      "name": "Guzo",
-      "image": AppImages.icon3,
-      'bg': AppColors.backgroundCoral,
-      'fg': AppColors.foregroundRed
-    },
-    {
-      "name": "Feta",
-      "image": AppImages.icon4,
-      'bg': AppColors.backgroundGreen,
-      'fg': AppColors.foregroundGreen
-    },
-    {
-      "name": "Feta",
-      "image": AppImages.icon4,
-      'bg': AppColors.backgroundGreen,
-      'fg': AppColors.foregroundGreen
-    },
-    {
-      "name": "Guzo",
-      "image": AppImages.icon3,
-      'bg': AppColors.backgroundCoral,
-      'fg': AppColors.foregroundRed
-    },
-  ];
+  const HomePageFilterAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.read<HomeBloc>().add(const HomeEvent.getAllGameCateories());
+
     return SliverAppBar(
       toolbarHeight: 80.h,
       shape: ContinuousRectangleBorder(
@@ -68,90 +35,115 @@ class HomePageFilterAppBar extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Container(
-              //   margin: EdgeInsets.only(
-              //       right: AppDimensions.paddingXS,
-              //       left: AppDimensions.paddingXS,
-              //       top: AppDimensions.paddingL),
-              //   child: Row(
-              //     children: [
-              //       Icon(
-              //         Icons.filter_list,
-              //         color: Colors.white,
-              //         size: AppDimensions.iconS,
-              //       ),
-              //       Text(
-              //         'AllFilters',
-              //         style: TextStyle(
-              //           color: Colors.white,
-              //           fontWeight: FontWeight.bold,
-              //           fontSize: AppDimensions.fontS,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: List.generate(games.length, (index) {
-                    final category = games[index];
-                    return Container(
-                      margin: EdgeInsets.symmetric(
-                          vertical: AppDimensions.spacingS,
-                          horizontal: AppDimensions.spacingS),
-                      width: 60.w,
-                      height: 70.h,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color:
-                                Colors.black.withOpacity(0.2), // Shadow color
-                            offset: const Offset(0, 6), // Only vertical offset
-                            blurRadius: 0, // Blur effect
-                            spreadRadius: 0, // No spread
-                          ),
-                        ],
-                        color: category['bg'],
-                        borderRadius:
-                            BorderRadius.circular(AppDimensions.radiusM),
-                        border: Border.all(width: 5, color: Colors.white),
-                      ),
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: FractionallySizedBox(
-                          heightFactor: 0.9,
-                          widthFactor: 1,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(AppDimensions.radiusS)),
-                              color: category['fg'],
+                child: BlocSelector<HomeBloc, HomeState, FetchState>(
+                  selector: (state) => state.categoryFetchState,
+                  builder: (context, state) {
+                    if (state == FetchState.loaded) {
+                      final List<GameCategory> categories =
+                          sl<HomeBloc>().state.categories as List<GameCategory>;
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: List.generate(categories.length, (index) {
+                          final category = categories[index];
+                          return GestureDetector(
+                            onTap: () {
+                              context.read<HomeBloc>().add(
+                                  HomeEvent.updateCategoryId(
+                                      categoryId: category.id));
+                              context.read<HomeBloc>().add(
+                                  HomeEvent.getAllCashGames(
+                                      categoryId: category.id));
+                            },
+                            child: BlocBuilder<HomeBloc, HomeState>(
+                              builder: (context, state) {
+                                return Transform.scale(
+                                  scale: sl<HomeBloc>().state.categoryId ==
+                                          category.id
+                                      ? 1.2
+                                      : 1,
+                                  child: Container(
+                                    margin: EdgeInsets.symmetric(
+                                        vertical: AppDimensions.spacingS,
+                                        horizontal: AppDimensions.spacingS),
+                                    width: 60.w,
+                                    height: 70.h,
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black
+                                              .withOpacity(0.2), // Shadow color
+                                          offset: const Offset(
+                                              0, 6), // Only vertical offset
+                                          blurRadius: 0, // Blur effect
+                                          spreadRadius: 0, // No spread
+                                        ),
+                                      ],
+                                      color: AppColors.backgroundBlue,
+                                      borderRadius: BorderRadius.circular(
+                                          AppDimensions.radiusM),
+                                      border: Border.all(
+                                          width: 5, color: Colors.white),
+                                    ),
+                                    child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: FractionallySizedBox(
+                                        heightFactor: 0.9,
+                                        widthFactor: 1,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(
+                                                    AppDimensions.radiusS)),
+                                            color: AppColors.foregroundBlue,
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SizedBox(
+                                                height: 30.h,
+                                                width: 30.h,
+                                                child: AppImages.icon1,
+                                              ),
+                                              Text(
+                                                category.titleAm.toString(),
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize:
+                                                        AppDimensions.fontXS),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 30.h,
-                                  width: 30.h,
-                                  child: category['image'],
-                                ),
-                                Text(
-                                  category['name'],
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: AppDimensions.fontXS),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
+                          );
+                        }),
+                      );
+                    } else if (state == FetchState.loading) {
+                      return const Center(
+                        child: Text('loading'),
+                      );
+                    } else if (state == FetchState.error) {
+                      return const Center(
+                        child: Text('error fetching game categories'),
+                      );
+                    } else if (state == FetchState.initial) {
+                      return const Center(
+                        child: Text('initial'),
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
                 ),
               ),
             ],

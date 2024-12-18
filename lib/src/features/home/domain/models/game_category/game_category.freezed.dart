@@ -47,6 +47,7 @@ mixin _$GameCategory {
   String? get gameDuration => throw _privateConstructorUsedError;
   @JsonKey(name: 'games_count')
   int? get gamesCount => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
   List<Game>? get games => throw _privateConstructorUsedError;
 
   /// Serializes this GameCategory to a JSON map.
@@ -78,6 +79,7 @@ abstract class $GameCategoryCopyWith<$Res> {
       @JsonKey(name: 'ticket_count') int? ticketCount,
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
+      String? avatar,
       List<Game>? games});
 }
 
@@ -108,6 +110,7 @@ class _$GameCategoryCopyWithImpl<$Res, $Val extends GameCategory>
     Object? ticketCount = freezed,
     Object? gameDuration = freezed,
     Object? gamesCount = freezed,
+    Object? avatar = freezed,
     Object? games = freezed,
   }) {
     return _then(_value.copyWith(
@@ -159,6 +162,10 @@ class _$GameCategoryCopyWithImpl<$Res, $Val extends GameCategory>
           ? _value.gamesCount
           : gamesCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
       games: freezed == games
           ? _value.games
           : games // ignore: cast_nullable_to_non_nullable
@@ -188,6 +195,7 @@ abstract class _$$GameCategoryImplCopyWith<$Res>
       @JsonKey(name: 'ticket_count') int? ticketCount,
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
+      String? avatar,
       List<Game>? games});
 }
 
@@ -216,6 +224,7 @@ class __$$GameCategoryImplCopyWithImpl<$Res>
     Object? ticketCount = freezed,
     Object? gameDuration = freezed,
     Object? gamesCount = freezed,
+    Object? avatar = freezed,
     Object? games = freezed,
   }) {
     return _then(_$GameCategoryImpl(
@@ -267,6 +276,10 @@ class __$$GameCategoryImplCopyWithImpl<$Res>
           ? _value.gamesCount
           : gamesCount // ignore: cast_nullable_to_non_nullable
               as int?,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
       games: freezed == games
           ? _value._games
           : games // ignore: cast_nullable_to_non_nullable
@@ -291,6 +304,7 @@ class _$GameCategoryImpl implements _GameCategory {
       @JsonKey(name: 'ticket_count') this.ticketCount,
       @JsonKey(name: 'game_duration') this.gameDuration,
       @JsonKey(name: 'games_count') this.gamesCount,
+      this.avatar,
       final List<Game>? games})
       : _games = games;
 
@@ -336,6 +350,8 @@ class _$GameCategoryImpl implements _GameCategory {
   @override
   @JsonKey(name: 'games_count')
   final int? gamesCount;
+  @override
+  final String? avatar;
   final List<Game>? _games;
   @override
   List<Game>? get games {
@@ -348,7 +364,7 @@ class _$GameCategoryImpl implements _GameCategory {
 
   @override
   String toString() {
-    return 'GameCategory(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, titleEn: $titleEn, titleAm: $titleAm, winningPrize: $winningPrize, secondWinningPrize: $secondWinningPrize, thirdWinningPrize: $thirdWinningPrize, ticketPrice: $ticketPrice, ticketCount: $ticketCount, gameDuration: $gameDuration, gamesCount: $gamesCount, games: $games)';
+    return 'GameCategory(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, titleEn: $titleEn, titleAm: $titleAm, winningPrize: $winningPrize, secondWinningPrize: $secondWinningPrize, thirdWinningPrize: $thirdWinningPrize, ticketPrice: $ticketPrice, ticketCount: $ticketCount, gameDuration: $gameDuration, gamesCount: $gamesCount, avatar: $avatar, games: $games)';
   }
 
   @override
@@ -377,6 +393,7 @@ class _$GameCategoryImpl implements _GameCategory {
                 other.gameDuration == gameDuration) &&
             (identical(other.gamesCount, gamesCount) ||
                 other.gamesCount == gamesCount) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
             const DeepCollectionEquality().equals(other._games, _games));
   }
 
@@ -396,6 +413,7 @@ class _$GameCategoryImpl implements _GameCategory {
       ticketCount,
       gameDuration,
       gamesCount,
+      avatar,
       const DeepCollectionEquality().hash(_games));
 
   /// Create a copy of GameCategory
@@ -428,6 +446,7 @@ abstract class _GameCategory implements GameCategory {
       @JsonKey(name: 'ticket_count') final int? ticketCount,
       @JsonKey(name: 'game_duration') final String? gameDuration,
       @JsonKey(name: 'games_count') final int? gamesCount,
+      final String? avatar,
       final List<Game>? games}) = _$GameCategoryImpl;
 
   factory _GameCategory.fromJson(
@@ -469,6 +488,8 @@ abstract class _GameCategory implements GameCategory {
   @override
   @JsonKey(name: 'games_count')
   int? get gamesCount;
+  @override
+  String? get avatar;
   @override
   List<Game>? get games;
 
