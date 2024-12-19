@@ -1,22 +1,29 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
+import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/core/widgets/game_button1.dart';
 import 'package:mobile_app/src/core/widgets/tab_scale_animation_wrapper.dart';
+import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/expandable_search.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/filter_dropdown.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/ticket_grid.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/ticket_status_indicator.dart';
+import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
 
 @RoutePage()
 class GameScreen extends StatelessWidget {
-  const GameScreen({super.key});
+  final GameCategory category;
+  final int gameId;
+  const GameScreen({super.key, required this.category, required this.gameId});
 
   @override
   Widget build(BuildContext context) {
+    context.read<GameBloc>().add(GameEvent.fetchTickets(gameId));
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -125,9 +132,9 @@ class GameScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Text(
-                                  '100,000',
-                                  style: TextStyle(
+                                Text(
+                                  category.winningPrize.toString(),
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -146,9 +153,9 @@ class GameScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  const Text(
-                                    '10,000',
-                                    style: TextStyle(
+                                  Text(
+                                    category.secondWinningPrize.toString(),
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -165,9 +172,9 @@ class GameScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Text(
-                                  '1,000',
-                                  style: TextStyle(
+                                Text(
+                                  category.thirdWinningPrize.toString(),
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -240,7 +247,7 @@ class GameScreen extends StatelessWidget {
                     ),
                   ),
 
-                  Expanded(flex: 4, child: PaginatedGrid()),
+                  const Expanded(flex: 4, child: PaginatedGrid()),
                   SizedBox(
                     height: AppDimensions.spacingS,
                   ),

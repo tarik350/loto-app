@@ -15,6 +15,8 @@ import 'package:mobile_app/src/features/edit_profile/presentation/pages/edit_pro
     as _i2;
 import 'package:mobile_app/src/features/game/presentation/page/game_page.dart'
     as _i3;
+import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart'
+    as _i10;
 import 'package:mobile_app/src/features/home/presentation/pages/home_page.dart'
     as _i5;
 import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_page.dart'
@@ -80,10 +82,19 @@ class EditProfileRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.GameScreen]
-class GameRoute extends _i8.PageRouteInfo<void> {
-  const GameRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class GameRoute extends _i8.PageRouteInfo<GameRouteArgs> {
+  GameRoute({
+    _i9.Key? key,
+    required _i10.GameCategory category,
+    required int gameId,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           GameRoute.name,
+          args: GameRouteArgs(
+            key: key,
+            category: category,
+            gameId: gameId,
+          ),
           initialChildren: children,
         );
 
@@ -92,9 +103,33 @@ class GameRoute extends _i8.PageRouteInfo<void> {
   static _i8.PageInfo page = _i8.PageInfo(
     name,
     builder: (data) {
-      return const _i3.GameScreen();
+      final args = data.argsAs<GameRouteArgs>();
+      return _i3.GameScreen(
+        key: args.key,
+        category: args.category,
+        gameId: args.gameId,
+      );
     },
   );
+}
+
+class GameRouteArgs {
+  const GameRouteArgs({
+    this.key,
+    required this.category,
+    required this.gameId,
+  });
+
+  final _i9.Key? key;
+
+  final _i10.GameCategory category;
+
+  final int gameId;
+
+  @override
+  String toString() {
+    return 'GameRouteArgs{key: $key, category: $category, gameId: $gameId}';
+  }
 }
 
 /// generated route for

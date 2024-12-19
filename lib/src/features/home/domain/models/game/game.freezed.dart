@@ -31,11 +31,9 @@ mixin _$Game {
   @JsonKey(name: 'sold_ticket_count')
   int? get soldTicketCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'locked_tickets_count')
-  int? get lockedTicketsCount =>
-      throw _privateConstructorUsedError; // {{ edit_1 }}
+  int? get lockedTicketsCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'free_tickets_count')
-  int? get freeTicketsCount =>
-      throw _privateConstructorUsedError; // {{ edit_2 }}
+  int? get freeTicketsCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_place_winner_id')
   dynamic get firstPlaceWinnerId => throw _privateConstructorUsedError;
   @JsonKey(name: 'second_place_winner_id')
@@ -341,11 +339,9 @@ class _$GameImpl implements _Game {
   @override
   @JsonKey(name: 'locked_tickets_count')
   final int? lockedTicketsCount;
-// {{ edit_1 }}
   @override
   @JsonKey(name: 'free_tickets_count')
   final int? freeTicketsCount;
-// {{ edit_2 }}
   @override
   @JsonKey(name: 'first_place_winner_id')
   final dynamic firstPlaceWinnerId;
@@ -473,10 +469,10 @@ abstract class _Game implements Game {
   int? get soldTicketCount;
   @override
   @JsonKey(name: 'locked_tickets_count')
-  int? get lockedTicketsCount; // {{ edit_1 }}
+  int? get lockedTicketsCount;
   @override
   @JsonKey(name: 'free_tickets_count')
-  int? get freeTicketsCount; // {{ edit_2 }}
+  int? get freeTicketsCount;
   @override
   @JsonKey(name: 'first_place_winner_id')
   dynamic get firstPlaceWinnerId;

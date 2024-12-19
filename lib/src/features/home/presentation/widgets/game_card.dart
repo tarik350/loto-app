@@ -6,6 +6,7 @@ import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/core/router/app_route.gr.dart';
 import 'package:mobile_app/src/core/widgets/game_button1.dart';
+import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
 
 class GameCard extends StatelessWidget {
   final String gameName;
@@ -16,6 +17,8 @@ class GameCard extends StatelessWidget {
   final int lockedTicketsCount;
   final int freeTicketsCount;
   final int totalTicketCount;
+  final int gameId;
+  final GameCategory? category;
 
   const GameCard(
       {super.key,
@@ -26,7 +29,9 @@ class GameCard extends StatelessWidget {
       required this.soldTicketCount,
       required this.lockedTicketsCount,
       required this.freeTicketsCount,
-      required this.totalTicketCount});
+      required this.totalTicketCount,
+      required this.gameId,
+      this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -166,8 +171,10 @@ class GameCard extends StatelessWidget {
                                     AppColors.lightSkyBlue,
                                 shadowColor: AppColors.darkBlueShade,
                                 title: 'Play Now',
-                                onPressed: () =>
-                                    context.router.push(const GameRoute()))
+                                onPressed: () {
+                                  context.router.push(GameRoute(
+                                      category: category!, gameId: gameId));
+                                })
                           ],
                         ),
                       ),

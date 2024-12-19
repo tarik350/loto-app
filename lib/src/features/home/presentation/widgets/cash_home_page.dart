@@ -88,6 +88,8 @@ class CashGamesScreen extends StatelessWidget {
                         lockedTicketsCount: game.lockedTicketsCount ?? 0,
                         freeTicketsCount: game.freeTicketsCount ?? 0,
                         totalTicketCount: game.category?.ticketCount ?? 0,
+                        category: game.category,
+                        gameId: game.id ?? 0,
                       );
                     }).toList(),
                   );

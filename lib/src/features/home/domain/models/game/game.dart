@@ -13,10 +13,8 @@ class Game with _$Game {
       @JsonKey(name: 'category_id') int? categoryId,
       String? name,
       @JsonKey(name: 'sold_ticket_count') int? soldTicketCount,
-      @JsonKey(name: 'locked_tickets_count')
-      int? lockedTicketsCount, // {{ edit_1 }}
-      @JsonKey(name: 'free_tickets_count')
-      int? freeTicketsCount, // {{ edit_2 }}
+      @JsonKey(name: 'locked_tickets_count') int? lockedTicketsCount,
+      @JsonKey(name: 'free_tickets_count') int? freeTicketsCount,
       @JsonKey(name: 'first_place_winner_id') dynamic firstPlaceWinnerId,
       @JsonKey(name: 'second_place_winner_id') dynamic secondPlaceWinnerId,
       @JsonKey(name: 'third_place_winner_id') dynamic thirdPlaceWinnerId,
