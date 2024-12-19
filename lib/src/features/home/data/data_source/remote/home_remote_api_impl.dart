@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:mobile_app/src/core/exceptions/exceptions.dart';
+import 'package:mobile_app/src/core/network/error/dio_error_handler.dart';
 import 'package:mobile_app/src/core/utils/helper/helper.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/features/home/data/data_source/remote/abstract_home_remote_api.dart';
@@ -32,6 +33,8 @@ class HomeRemoteApiImpl extends AbstractHomeRemoteApi {
                   (gameJson) =>
                       Game.fromJson(gameJson as Map<String, dynamic>)));
       return paginatedGames;
+    } on DioException catch (e) {
+      return left(handleDioException(e));
     } catch (e) {
       return left(UnexpectedException(error: e));
     }

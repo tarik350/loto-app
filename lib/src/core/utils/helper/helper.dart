@@ -57,5 +57,9 @@ class Helper {
     return availableColors[random.nextInt(availableColors.length)];
   }
 
-  //calculate total tickets sold
+  //generate color given a decimal
+  static Color decimalToColor(int decimal) {
+    final int argbValue = 0xFF000000 | decimal;
+    return Color(argbValue);
+  }
 }

@@ -6,6 +6,7 @@ import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/core/utils/helper/fetch_state.dart';
+import 'package:mobile_app/src/core/utils/helper/helper.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/features/home/domain/models/game/game.dart';
 import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
@@ -76,7 +77,10 @@ class CashGamesScreen extends StatelessWidget {
                       final game = games.data![index];
 
                       return GameCard(
-                        backgroundColor: AppColors.mintGreen,
+                        backgroundColor: game.category != null &&
+                                game.category!.fgColor != null
+                            ? Helper.decimalToColor(game.category!.fgColor!)
+                            : AppColors.mintGreen,
                         gameName: game.name ?? "unknown",
                         winningPrice: game.category?.winningPrize ?? 0,
                         ticketPrice: game.category?.ticketPrice ?? 0,

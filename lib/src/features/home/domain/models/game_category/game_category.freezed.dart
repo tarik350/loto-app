@@ -48,6 +48,10 @@ mixin _$GameCategory {
   @JsonKey(name: 'games_count')
   int? get gamesCount => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  @JsonKey(name: "bg_color")
+  int? get bgColor => throw _privateConstructorUsedError;
+  @JsonKey(name: "fg_color")
+  int? get fgColor => throw _privateConstructorUsedError;
   List<Game>? get games => throw _privateConstructorUsedError;
 
   /// Serializes this GameCategory to a JSON map.
@@ -80,6 +84,8 @@ abstract class $GameCategoryCopyWith<$Res> {
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
       String? avatar,
+      @JsonKey(name: "bg_color") int? bgColor,
+      @JsonKey(name: "fg_color") int? fgColor,
       List<Game>? games});
 }
 
@@ -111,6 +117,8 @@ class _$GameCategoryCopyWithImpl<$Res, $Val extends GameCategory>
     Object? gameDuration = freezed,
     Object? gamesCount = freezed,
     Object? avatar = freezed,
+    Object? bgColor = freezed,
+    Object? fgColor = freezed,
     Object? games = freezed,
   }) {
     return _then(_value.copyWith(
@@ -166,6 +174,14 @@ class _$GameCategoryCopyWithImpl<$Res, $Val extends GameCategory>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      bgColor: freezed == bgColor
+          ? _value.bgColor
+          : bgColor // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fgColor: freezed == fgColor
+          ? _value.fgColor
+          : fgColor // ignore: cast_nullable_to_non_nullable
+              as int?,
       games: freezed == games
           ? _value.games
           : games // ignore: cast_nullable_to_non_nullable
@@ -196,6 +212,8 @@ abstract class _$$GameCategoryImplCopyWith<$Res>
       @JsonKey(name: 'game_duration') String? gameDuration,
       @JsonKey(name: 'games_count') int? gamesCount,
       String? avatar,
+      @JsonKey(name: "bg_color") int? bgColor,
+      @JsonKey(name: "fg_color") int? fgColor,
       List<Game>? games});
 }
 
@@ -225,6 +243,8 @@ class __$$GameCategoryImplCopyWithImpl<$Res>
     Object? gameDuration = freezed,
     Object? gamesCount = freezed,
     Object? avatar = freezed,
+    Object? bgColor = freezed,
+    Object? fgColor = freezed,
     Object? games = freezed,
   }) {
     return _then(_$GameCategoryImpl(
@@ -280,6 +300,14 @@ class __$$GameCategoryImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      bgColor: freezed == bgColor
+          ? _value.bgColor
+          : bgColor // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fgColor: freezed == fgColor
+          ? _value.fgColor
+          : fgColor // ignore: cast_nullable_to_non_nullable
+              as int?,
       games: freezed == games
           ? _value._games
           : games // ignore: cast_nullable_to_non_nullable
@@ -305,6 +333,8 @@ class _$GameCategoryImpl implements _GameCategory {
       @JsonKey(name: 'game_duration') this.gameDuration,
       @JsonKey(name: 'games_count') this.gamesCount,
       this.avatar,
+      @JsonKey(name: "bg_color") this.bgColor,
+      @JsonKey(name: "fg_color") this.fgColor,
       final List<Game>? games})
       : _games = games;
 
@@ -352,6 +382,12 @@ class _$GameCategoryImpl implements _GameCategory {
   final int? gamesCount;
   @override
   final String? avatar;
+  @override
+  @JsonKey(name: "bg_color")
+  final int? bgColor;
+  @override
+  @JsonKey(name: "fg_color")
+  final int? fgColor;
   final List<Game>? _games;
   @override
   List<Game>? get games {
@@ -364,7 +400,7 @@ class _$GameCategoryImpl implements _GameCategory {
 
   @override
   String toString() {
-    return 'GameCategory(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, titleEn: $titleEn, titleAm: $titleAm, winningPrize: $winningPrize, secondWinningPrize: $secondWinningPrize, thirdWinningPrize: $thirdWinningPrize, ticketPrice: $ticketPrice, ticketCount: $ticketCount, gameDuration: $gameDuration, gamesCount: $gamesCount, avatar: $avatar, games: $games)';
+    return 'GameCategory(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, titleEn: $titleEn, titleAm: $titleAm, winningPrize: $winningPrize, secondWinningPrize: $secondWinningPrize, thirdWinningPrize: $thirdWinningPrize, ticketPrice: $ticketPrice, ticketCount: $ticketCount, gameDuration: $gameDuration, gamesCount: $gamesCount, avatar: $avatar, bgColor: $bgColor, fgColor: $fgColor, games: $games)';
   }
 
   @override
@@ -394,6 +430,8 @@ class _$GameCategoryImpl implements _GameCategory {
             (identical(other.gamesCount, gamesCount) ||
                 other.gamesCount == gamesCount) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.bgColor, bgColor) || other.bgColor == bgColor) &&
+            (identical(other.fgColor, fgColor) || other.fgColor == fgColor) &&
             const DeepCollectionEquality().equals(other._games, _games));
   }
 
@@ -414,6 +452,8 @@ class _$GameCategoryImpl implements _GameCategory {
       gameDuration,
       gamesCount,
       avatar,
+      bgColor,
+      fgColor,
       const DeepCollectionEquality().hash(_games));
 
   /// Create a copy of GameCategory
@@ -447,6 +487,8 @@ abstract class _GameCategory implements GameCategory {
       @JsonKey(name: 'game_duration') final String? gameDuration,
       @JsonKey(name: 'games_count') final int? gamesCount,
       final String? avatar,
+      @JsonKey(name: "bg_color") final int? bgColor,
+      @JsonKey(name: "fg_color") final int? fgColor,
       final List<Game>? games}) = _$GameCategoryImpl;
 
   factory _GameCategory.fromJson(
@@ -490,6 +532,12 @@ abstract class _GameCategory implements GameCategory {
   int? get gamesCount;
   @override
   String? get avatar;
+  @override
+  @JsonKey(name: "bg_color")
+  int? get bgColor;
+  @override
+  @JsonKey(name: "fg_color")
+  int? get fgColor;
   @override
   List<Game>? get games;
 

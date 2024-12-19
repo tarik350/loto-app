@@ -5,6 +5,7 @@ import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/core/utils/helper/fetch_state.dart';
+import 'package:mobile_app/src/core/utils/helper/helper.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
 import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
@@ -81,7 +82,10 @@ class HomePageFilterAppBar extends StatelessWidget {
                                           spreadRadius: 0, // No spread
                                         ),
                                       ],
-                                      color: AppColors.backgroundBlue,
+                                      color: category.bgColor != null
+                                          ? Helper.decimalToColor(
+                                              category.bgColor!)
+                                          : AppColors.backgroundBlue,
                                       borderRadius: BorderRadius.circular(
                                           AppDimensions.radiusM),
                                       border: Border.all(
@@ -94,11 +98,13 @@ class HomePageFilterAppBar extends StatelessWidget {
                                         widthFactor: 1,
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(
-                                                    AppDimensions.radiusS)),
-                                            color: AppColors.foregroundBlue,
-                                          ),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(
+                                                      AppDimensions.radiusS)),
+                                              color: category.fgColor != null
+                                                  ? Helper.decimalToColor(
+                                                      category.fgColor!)
+                                                  : AppColors.foregroundBlue),
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
