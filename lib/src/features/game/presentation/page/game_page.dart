@@ -4,14 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
-import 'package:mobile_app/src/core/constants/app_images.dart';
-import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/core/widgets/game_button1.dart';
-import 'package:mobile_app/src/core/widgets/tab_scale_animation_wrapper.dart';
 import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/expandable_search.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/filter_dropdown.dart';
-import 'package:mobile_app/src/features/game/presentation/widgets/ticket_grid.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/game_ticket_page_heading.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/game_tickets_grid.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/locked_ticket_list.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/ticket_status_indicator.dart';
 import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
 
@@ -35,163 +34,7 @@ class GameScreen extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: 14.w, vertical: AppDimensions.paddingS),
-                  height: 200.h,
-                  width: double.maxFinite,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(AppImages.pentagonBgImagePath)),
-                  ),
-                ),
-                Positioned(
-                  top: 24.h,
-                  left: 45.w,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ScaleOnTapAnimationWrapper(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                              padding: EdgeInsets.all(6.h),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      AppDimensions.radiusCircular),
-                                  border: Border.all(
-                                      width: 2, color: Colors.white)),
-                              child: Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                                size: AppDimensions.iconS,
-                              )),
-                        ),
-                      ),
-                      SizedBox(width: 45.w),
-                      Stack(
-                        children: <Widget>[
-                          // Stroked text as border.
-                          Text(
-                            'Asbeza01',
-                            style: TextStyle(
-                              fontSize: AppDimensions.fontXXL,
-                              shadows: [
-                                BoxShadow(
-                                    spreadRadius: .3,
-                                    blurRadius: 8,
-                                    color: Colors.black.withOpacity(.8),
-                                    offset: const Offset(0, 5))
-                              ],
-                              fontWeight: FontWeight.bold,
-                              foreground: Paint()
-                                ..shader = const LinearGradient(
-                                  colors: [
-                                    Color(0xFF9C84FC),
-                                    Color(0xFF9C84FC),
-                                    Color(0xFF9C84FC),
-                                    Color(0xFFD50DD5)
-                                  ],
-                                ).createShader(
-                                    const Rect.fromLTWH(0, 0, 200, 50))
-                                ..style = PaintingStyle.stroke
-                                ..strokeWidth = 8,
-                            ),
-                          ),
-                          Text(
-                            'Asbeza01',
-                            style: TextStyle(
-                              // letterSpacing: 0,
-                              fontSize: AppDimensions.fontXXL,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey[300],
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                    top: 52.h,
-                    left: 55,
-                    right: 60,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  category.winningPrize.toString(),
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 60.h,
-                                  width: 60.h,
-                                  child: AppImages.gold,
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: AppDimensions.paddingXXL),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    category.secondWinningPrize.toString(),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 60.h,
-                                    width: 60.h,
-                                    child: AppImages.bronze,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  category.thirdWinningPrize.toString(),
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 60.h,
-                                  width: 60.h,
-                                  child: AppImages.silver,
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    )),
-              ],
-            ),
+            GameTicketPageheading(category: category),
             Expanded(
                 child: Container(
               decoration: BoxDecoration(
@@ -246,8 +89,7 @@ class GameScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  const Expanded(flex: 4, child: PaginatedGrid()),
+                  Expanded(flex: 4, child: GameTicketsGrid()),
                   SizedBox(
                     height: AppDimensions.spacingS,
                   ),
@@ -256,28 +98,7 @@ class GameScreen extends StatelessWidget {
                   TicketStatusColorIndicatorWidget(),
 
                   //selected tickets section
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: AppDimensions.paddingM,
-                        left: AppDimensions.paddingS,
-                        right: AppDimensions.paddingS),
-                    height: 60.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: AppColors.secondaryColor.withOpacity(.5),
-                        borderRadius:
-                            BorderRadius.circular(AppDimensions.radiusS)),
-                    child: Center(
-                      child: Text(
-                        'ምንም ቲኬታ ገና አልመረጡም!',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                            fontSize: AppDimensions.fontS),
-                      ),
-                    ),
-                  ),
-
+                  const LockedTicketList(),
                   //buy ticket section
                   Expanded(
                     child: Padding(

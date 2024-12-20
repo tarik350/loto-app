@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mobile_app/src/features/game/domain/model/ticket_status.dart';
+import 'package:mobile_app/src/features/game/domain/model/ticket/ticket_status.dart';
 
 part 'ticket.freezed.dart';
 part 'ticket.g.dart';

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:mobile_app/src/core/exceptions/exceptions.dart';
@@ -48,7 +50,11 @@ AppException handleServerException(
         'Gateway Timeout. The server did not receive a timely response from an upstream server.',
   };
   if (statusCode == 422) {
-    return ValidationException.fromJson(response?.data);
+    try {
+      return ValidationException.fromJson(response?.data);
+    } catch (e) {
+      debugger();
+    }
   }
 
   return ServerException(
