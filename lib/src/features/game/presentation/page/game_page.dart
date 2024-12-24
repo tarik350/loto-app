@@ -140,7 +140,85 @@ class GameScreen extends StatelessWidget {
                             borderGradientBottomColor: AppColors.lightSkyBlue,
                             shadowColor: AppColors.darkBlueShade,
                             title: 'ትኬት ግዛ',
-                            onPressed: () {},
+                            onPressed: () {
+                              //TODO:
+                              //CHECK IF USER HAS AUTHENTICATED
+
+                              //IF AUTHENTICATED CHECK IF USER PHONE SUPPORTS BIOMETRIC AUTHENTICATED
+                              //IF IT SUPPORTS PROMPT USER TO PROVIDE THIER BIOMETRIC
+                              //OTHER WISE SHOW A DIALOG FOR USER TO ENTER THIER PASSWORD
+
+                              //ON PASSSWORD OR BIOMETRIC SUCCESS MAKE A REQUEST TO INITIATE TICKET PURCHASE
+
+                              // ToastManager.show(
+                              //     context: context,
+                              //     icon: Icon(
+                              //       Icons.check_circle,
+                              //       color: Colors.green,
+                              //       size: AppDimensions.iconS,
+                              //     ),
+                              //     message:
+                              //         "This is a very long message for the toast to observe its behavior. this is even more logner text to really toast to see how it really look on a very large text");
+                              // DialogManager.showCustomDialog(
+                              //     context,
+                              //     CustomDialog(
+                              //       title: "Release Lock for Ticket",
+                              //       actions: [
+                              //         Expanded(
+                              //           child: GameButton1(
+                              //             width: double.maxFinite,
+                              //             height: AppDimensions.buttonL,
+                              //             bgGradientTopColor:
+                              //                 AppColors.lightSkyBlue,
+                              //             bgGradientBottomColor:
+                              //                 AppColors.darkBlueShade,
+                              //             borderGradientTopColor: AppColors
+                              //                 .lightSkyBlue
+                              //                 .withAlpha(10),
+                              //             borderGradientBottomColor:
+                              //                 AppColors.lightSkyBlue,
+                              //             shadowColor: AppColors.darkBlueShade,
+                              //             title: 'Release',
+                              //             onPressed: () {
+                              //               //todo make a request to release lock for a given ticket number
+                              //             },
+                              //           ),
+                              //         ),
+                              //         SizedBox(
+                              //           width: AppDimensions.spacingM,
+                              //         ),
+                              //         Expanded(
+                              //           child: GameButton1(
+                              //             width: double.maxFinite,
+                              //             height: AppDimensions.buttonL,
+                              //             bgGradientTopColor:
+                              //                 AppColors.lightPink,
+                              //             bgGradientBottomColor:
+                              //                 AppColors.darkPink,
+                              //             borderGradientTopColor: AppColors
+                              //                 .lightPink
+                              //                 .withAlpha(100),
+                              //             borderGradientBottomColor: AppColors
+                              //                 .darkCrimson
+                              //                 .withOpacity(.5),
+                              //             shadowColor: AppColors.darkCrimson,
+                              //             title: 'cancel',
+                              //             onPressed: () {
+                              //               Navigator.pop(context);
+                              //             },
+                              //           ),
+                              //         )
+                              //       ],
+                              //       child: Text(
+                              //         "Are you sure you want to relase lock for ticket number 12?",
+                              //         textAlign: TextAlign.center,
+                              //         style: TextStyle(
+                              //             color: Colors.grey.shade700,
+                              //             fontSize: AppDimensions.fontM,
+                              //             fontWeight: FontWeight.w600),
+                              //       ),
+                              //     ));
+                            },
                           )
                         ],
                       ),

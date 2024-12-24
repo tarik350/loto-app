@@ -8,30 +8,32 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i8;
-import 'package:flutter/material.dart' as _i9;
+import 'package:auto_route/auto_route.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 import 'package:mobile_app/app.dart' as _i1;
 import 'package:mobile_app/src/features/edit_profile/presentation/pages/edit_profile_page.dart'
-    as _i2;
-import 'package:mobile_app/src/features/game/presentation/page/game_page.dart'
     as _i3;
-import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart'
-    as _i10;
-import 'package:mobile_app/src/features/home/presentation/pages/home_page.dart'
-    as _i5;
-import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_page.dart'
-    as _i6;
-import 'package:mobile_app/src/features/my_wallet/presentation/page/my_wallet_page.dart'
-    as _i7;
-import 'package:mobile_app/src/shared/features/authentication_bottom_sheet/presentation/help_center/presentation/page/help_center_page.dart'
+import 'package:mobile_app/src/features/game/presentation/page/game_page.dart'
     as _i4;
+import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart'
+    as _i11;
+import 'package:mobile_app/src/features/home/presentation/pages/home_page.dart'
+    as _i6;
+import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_page.dart'
+    as _i7;
+import 'package:mobile_app/src/features/my_wallet/presentation/page/my_wallet_page.dart'
+    as _i8;
+import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/help_center/presentation/page/help_center_page.dart'
+    as _i5;
+import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/pages/auth_page_wrapper.dart'
+    as _i2;
 
 /// generated route for
 /// [_i1.AppScreen]
-class AppRoute extends _i8.PageRouteInfo<AppRouteArgs> {
+class AppRoute extends _i9.PageRouteInfo<AppRouteArgs> {
   AppRoute({
-    _i9.Key? key,
-    List<_i8.PageRouteInfo>? children,
+    _i10.Key? key,
+    List<_i9.PageRouteInfo>? children,
   }) : super(
           AppRoute.name,
           args: AppRouteArgs(key: key),
@@ -40,7 +42,7 @@ class AppRoute extends _i8.PageRouteInfo<AppRouteArgs> {
 
   static const String name = 'AppRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
       final args =
@@ -53,7 +55,7 @@ class AppRoute extends _i8.PageRouteInfo<AppRouteArgs> {
 class AppRouteArgs {
   const AppRouteArgs({this.key});
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   @override
   String toString() {
@@ -62,9 +64,28 @@ class AppRouteArgs {
 }
 
 /// generated route for
-/// [_i2.EditProfilePage]
-class EditProfileRoute extends _i8.PageRouteInfo<void> {
-  const EditProfileRoute({List<_i8.PageRouteInfo>? children})
+/// [_i2.AuthPageWrapper]
+class AuthRouteWrapper extends _i9.PageRouteInfo<void> {
+  const AuthRouteWrapper({List<_i9.PageRouteInfo>? children})
+      : super(
+          AuthRouteWrapper.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthRouteWrapper';
+
+  static _i9.PageInfo page = _i9.PageInfo(
+    name,
+    builder: (data) {
+      return const _i2.AuthPageWrapper();
+    },
+  );
+}
+
+/// generated route for
+/// [_i3.EditProfilePage]
+class EditProfileRoute extends _i9.PageRouteInfo<void> {
+  const EditProfileRoute({List<_i9.PageRouteInfo>? children})
       : super(
           EditProfileRoute.name,
           initialChildren: children,
@@ -72,22 +93,22 @@ class EditProfileRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'EditProfileRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i2.EditProfilePage();
+      return const _i3.EditProfilePage();
     },
   );
 }
 
 /// generated route for
-/// [_i3.GameScreen]
-class GameRoute extends _i8.PageRouteInfo<GameRouteArgs> {
+/// [_i4.GameScreen]
+class GameRoute extends _i9.PageRouteInfo<GameRouteArgs> {
   GameRoute({
-    _i9.Key? key,
-    required _i10.GameCategory category,
+    _i10.Key? key,
+    required _i11.GameCategory category,
     required int gameId,
-    List<_i8.PageRouteInfo>? children,
+    List<_i9.PageRouteInfo>? children,
   }) : super(
           GameRoute.name,
           args: GameRouteArgs(
@@ -100,11 +121,11 @@ class GameRoute extends _i8.PageRouteInfo<GameRouteArgs> {
 
   static const String name = 'GameRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<GameRouteArgs>();
-      return _i3.GameScreen(
+      return _i4.GameScreen(
         key: args.key,
         category: args.category,
         gameId: args.gameId,
@@ -120,9 +141,9 @@ class GameRouteArgs {
     required this.gameId,
   });
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
-  final _i10.GameCategory category;
+  final _i11.GameCategory category;
 
   final int gameId;
 
@@ -133,9 +154,9 @@ class GameRouteArgs {
 }
 
 /// generated route for
-/// [_i4.HelpCenterPage]
-class HelpCenterRoute extends _i8.PageRouteInfo<void> {
-  const HelpCenterRoute({List<_i8.PageRouteInfo>? children})
+/// [_i5.HelpCenterPage]
+class HelpCenterRoute extends _i9.PageRouteInfo<void> {
+  const HelpCenterRoute({List<_i9.PageRouteInfo>? children})
       : super(
           HelpCenterRoute.name,
           initialChildren: children,
@@ -143,18 +164,18 @@ class HelpCenterRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'HelpCenterRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i4.HelpCenterPage();
+      return const _i5.HelpCenterPage();
     },
   );
 }
 
 /// generated route for
-/// [_i5.HomePage]
-class HomeRoute extends _i8.PageRouteInfo<void> {
-  const HomeRoute({List<_i8.PageRouteInfo>? children})
+/// [_i6.HomePage]
+class HomeRoute extends _i9.PageRouteInfo<void> {
+  const HomeRoute({List<_i9.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -162,18 +183,18 @@ class HomeRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i5.HomePage();
+      return const _i6.HomePage();
     },
   );
 }
 
 /// generated route for
-/// [_i6.MyTicketPage]
-class MyTicketRoute extends _i8.PageRouteInfo<void> {
-  const MyTicketRoute({List<_i8.PageRouteInfo>? children})
+/// [_i7.MyTicketPage]
+class MyTicketRoute extends _i9.PageRouteInfo<void> {
+  const MyTicketRoute({List<_i9.PageRouteInfo>? children})
       : super(
           MyTicketRoute.name,
           initialChildren: children,
@@ -181,18 +202,18 @@ class MyTicketRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'MyTicketRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i6.MyTicketPage();
+      return const _i7.MyTicketPage();
     },
   );
 }
 
 /// generated route for
-/// [_i7.MyWalletPage]
-class MyWalletRoute extends _i8.PageRouteInfo<void> {
-  const MyWalletRoute({List<_i8.PageRouteInfo>? children})
+/// [_i8.MyWalletPage]
+class MyWalletRoute extends _i9.PageRouteInfo<void> {
+  const MyWalletRoute({List<_i9.PageRouteInfo>? children})
       : super(
           MyWalletRoute.name,
           initialChildren: children,
@@ -200,10 +221,10 @@ class MyWalletRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'MyWalletRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static _i9.PageInfo page = _i9.PageInfo(
     name,
     builder: (data) {
-      return const _i7.MyWalletPage();
+      return const _i8.MyWalletPage();
     },
   );
 }

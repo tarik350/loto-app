@@ -5,6 +5,7 @@ import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
+import 'package:mobile_app/src/shared/widgets/tab_selector_button.dart';
 
 @RoutePage()
 class MyTicketPage extends StatelessWidget {
@@ -177,57 +178,25 @@ class _TabSelectorState extends State<TabSelector> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildTab(
-          index: 0,
+        TabSelectorButton(
+          onTap: () => setState(() {
+            _selectedIndex = 0;
+            widget.onTabSelected(0);
+          }),
           title: widget.firstTitle,
           isSelected: _selectedIndex == 0,
         ),
-        _buildTab(
-          index: 1,
+        TabSelectorButton(
+          onTap: () => {
+            setState(() {
+              _selectedIndex = 1;
+              widget.onTabSelected(1);
+            })
+          },
           title: widget.secondTitle,
           isSelected: _selectedIndex == 1,
         ),
       ],
-    );
-  }
-
-  Widget _buildTab(
-      {required int index, required String title, required bool isSelected}) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            _selectedIndex = index;
-          });
-          widget.onTabSelected(_selectedIndex);
-        },
-        child: AnimatedContainer(
-          alignment: Alignment.center,
-          // padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          duration: const Duration(milliseconds: 300),
-          decoration: BoxDecoration(
-            gradient: isSelected
-                ? const LinearGradient(
-                    colors: [
-                      AppColors.secondaryColorShade,
-                      AppColors.primaryColor,
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  )
-                : const LinearGradient(
-                    colors: [Colors.white, Colors.white],
-                  ),
-          ),
-          child: Text(
-            title,
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: isSelected ? Colors.white : Colors.black,
-                fontSize: AppDimensions.fontM),
-          ),
-        ),
-      ),
     );
   }
 }

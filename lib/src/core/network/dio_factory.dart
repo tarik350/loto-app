@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mobile_app/src/core/network/dio_network.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
-import 'package:mobile_app/src/features/login/data/data_source/local/abstract_local_login_api.dart';
+import 'package:mobile_app/src/features/auth/login/data/data_source/local/abstract_local_login_api.dart';
 
 class DioFactory {
   final Dio dio;

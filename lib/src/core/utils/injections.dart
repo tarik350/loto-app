@@ -3,8 +3,8 @@ import 'package:mobile_app/src/core/network/network_injections.dart';
 import 'package:mobile_app/src/core/utils/hive_injection.dart';
 import 'package:mobile_app/src/features/game/game_injections.dart';
 import 'package:mobile_app/src/features/home/presentation/home_injection.dart';
-import 'package:mobile_app/src/features/login/login_injection.dart';
-import 'package:mobile_app/src/features/register/register_injection.dart';
+import 'package:mobile_app/src/features/auth/login/login_injection.dart';
+import 'package:mobile_app/src/features/auth/register/register_injection.dart';
 import 'package:mobile_app/src/shared/services/services_injections.dart';
 
 final sl = GetIt.instance;

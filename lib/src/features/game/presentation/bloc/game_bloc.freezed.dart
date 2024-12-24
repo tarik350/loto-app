@@ -51,7 +51,7 @@ mixin _$GameEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -61,7 +61,7 @@ mixin _$GameEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -71,7 +71,7 @@ mixin _$GameEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -224,7 +224,7 @@ class _$FetchGameTicketsImpl
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -237,7 +237,7 @@ class _$FetchGameTicketsImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -250,7 +250,7 @@ class _$FetchGameTicketsImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -411,7 +411,7 @@ class _$LockTicketEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -424,7 +424,7 @@ class _$LockTicketEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -437,7 +437,7 @@ class _$LockTicketEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -463,10 +463,10 @@ abstract class LockTicketEvent implements GameEvent {
 }
 
 /// @nodoc
-abstract class _$$UnloadTicketEventImplCopyWith<$Res> {
-  factory _$$UnloadTicketEventImplCopyWith(_$UnloadTicketEventImpl value,
-          $Res Function(_$UnloadTicketEventImpl) then) =
-      __$$UnloadTicketEventImplCopyWithImpl<$Res>;
+abstract class _$$UnlockTicketEventImplCopyWith<$Res> {
+  factory _$$UnlockTicketEventImplCopyWith(_$UnlockTicketEventImpl value,
+          $Res Function(_$UnlockTicketEventImpl) then) =
+      __$$UnlockTicketEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Ticket ticket});
 
@@ -474,11 +474,11 @@ abstract class _$$UnloadTicketEventImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UnloadTicketEventImplCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$UnloadTicketEventImpl>
-    implements _$$UnloadTicketEventImplCopyWith<$Res> {
-  __$$UnloadTicketEventImplCopyWithImpl(_$UnloadTicketEventImpl _value,
-      $Res Function(_$UnloadTicketEventImpl) _then)
+class __$$UnlockTicketEventImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$UnlockTicketEventImpl>
+    implements _$$UnlockTicketEventImplCopyWith<$Res> {
+  __$$UnlockTicketEventImplCopyWithImpl(_$UnlockTicketEventImpl _value,
+      $Res Function(_$UnlockTicketEventImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of GameEvent
@@ -488,7 +488,7 @@ class __$$UnloadTicketEventImplCopyWithImpl<$Res>
   $Res call({
     Object? ticket = null,
   }) {
-    return _then(_$UnloadTicketEventImpl(
+    return _then(_$UnlockTicketEventImpl(
       null == ticket
           ? _value.ticket
           : ticket // ignore: cast_nullable_to_non_nullable
@@ -509,10 +509,10 @@ class __$$UnloadTicketEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnloadTicketEventImpl
+class _$UnlockTicketEventImpl
     with DiagnosticableTreeMixin
-    implements UnloadTicketEvent {
-  const _$UnloadTicketEventImpl(this.ticket);
+    implements UnlockTicketEvent {
+  const _$UnlockTicketEventImpl(this.ticket);
 
   @override
   final Ticket ticket;
@@ -534,7 +534,7 @@ class _$UnloadTicketEventImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnloadTicketEventImpl &&
+            other is _$UnlockTicketEventImpl &&
             (identical(other.ticket, ticket) || other.ticket == ticket));
   }
 
@@ -546,8 +546,8 @@ class _$UnloadTicketEventImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnloadTicketEventImplCopyWith<_$UnloadTicketEventImpl> get copyWith =>
-      __$$UnloadTicketEventImplCopyWithImpl<_$UnloadTicketEventImpl>(
+  _$$UnlockTicketEventImplCopyWith<_$UnlockTicketEventImpl> get copyWith =>
+      __$$UnlockTicketEventImplCopyWithImpl<_$UnlockTicketEventImpl>(
           this, _$identity);
 
   @override
@@ -598,7 +598,7 @@ class _$UnloadTicketEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -611,7 +611,7 @@ class _$UnloadTicketEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -624,7 +624,7 @@ class _$UnloadTicketEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -637,16 +637,16 @@ class _$UnloadTicketEventImpl
   }
 }
 
-abstract class UnloadTicketEvent implements GameEvent {
-  const factory UnloadTicketEvent(final Ticket ticket) =
-      _$UnloadTicketEventImpl;
+abstract class UnlockTicketEvent implements GameEvent {
+  const factory UnlockTicketEvent(final Ticket ticket) =
+      _$UnlockTicketEventImpl;
 
   Ticket get ticket;
 
   /// Create a copy of GameEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UnloadTicketEventImplCopyWith<_$UnloadTicketEventImpl> get copyWith =>
+  _$$UnlockTicketEventImplCopyWith<_$UnlockTicketEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -775,7 +775,7 @@ class _$SearchTicketEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -788,7 +788,7 @@ class _$SearchTicketEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -801,7 +801,7 @@ class _$SearchTicketEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -952,7 +952,7 @@ class _$FilterTicketEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -965,7 +965,7 @@ class _$FilterTicketEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -978,7 +978,7 @@ class _$FilterTicketEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -1099,7 +1099,7 @@ class _$SelectRandomTicketImpl
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
     required TResult Function(LockTicketEvent value) lockTicket,
-    required TResult Function(UnloadTicketEvent value) unlockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
@@ -1112,7 +1112,7 @@ class _$SelectRandomTicketImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
     TResult? Function(LockTicketEvent value)? lockTicket,
-    TResult? Function(UnloadTicketEvent value)? unlockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
@@ -1125,7 +1125,7 @@ class _$SelectRandomTicketImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
     TResult Function(LockTicketEvent value)? lockTicket,
-    TResult Function(UnloadTicketEvent value)? unlockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
@@ -1149,9 +1149,8 @@ mixin _$GameState {
   FetchState get ticketFetchState => throw _privateConstructorUsedError;
   FormSubmissionStatus get ticketPurchaseStatus =>
       throw _privateConstructorUsedError;
-  FormSubmissionStatus get ticketLockStatus =>
-      throw _privateConstructorUsedError;
-  Ticket? get ticketPendingForLock => throw _privateConstructorUsedError;
+  TicketLockState get ticketLockState => throw _privateConstructorUsedError;
+  TicketUnlockState get ticketUnlockState => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of GameState
@@ -1171,11 +1170,12 @@ abstract class $GameStateCopyWith<$Res> {
       List<Ticket> lockedTickets,
       FetchState ticketFetchState,
       FormSubmissionStatus ticketPurchaseStatus,
-      FormSubmissionStatus ticketLockStatus,
-      Ticket? ticketPendingForLock,
+      TicketLockState ticketLockState,
+      TicketUnlockState ticketUnlockState,
       String? errorMessage});
 
-  $TicketCopyWith<$Res>? get ticketPendingForLock;
+  $TicketLockStateCopyWith<$Res> get ticketLockState;
+  $TicketUnlockStateCopyWith<$Res> get ticketUnlockState;
 }
 
 /// @nodoc
@@ -1197,8 +1197,8 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
     Object? lockedTickets = null,
     Object? ticketFetchState = null,
     Object? ticketPurchaseStatus = null,
-    Object? ticketLockStatus = null,
-    Object? ticketPendingForLock = freezed,
+    Object? ticketLockState = null,
+    Object? ticketUnlockState = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1218,14 +1218,14 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
           ? _value.ticketPurchaseStatus
           : ticketPurchaseStatus // ignore: cast_nullable_to_non_nullable
               as FormSubmissionStatus,
-      ticketLockStatus: null == ticketLockStatus
-          ? _value.ticketLockStatus
-          : ticketLockStatus // ignore: cast_nullable_to_non_nullable
-              as FormSubmissionStatus,
-      ticketPendingForLock: freezed == ticketPendingForLock
-          ? _value.ticketPendingForLock
-          : ticketPendingForLock // ignore: cast_nullable_to_non_nullable
-              as Ticket?,
+      ticketLockState: null == ticketLockState
+          ? _value.ticketLockState
+          : ticketLockState // ignore: cast_nullable_to_non_nullable
+              as TicketLockState,
+      ticketUnlockState: null == ticketUnlockState
+          ? _value.ticketUnlockState
+          : ticketUnlockState // ignore: cast_nullable_to_non_nullable
+              as TicketUnlockState,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1237,13 +1237,19 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TicketCopyWith<$Res>? get ticketPendingForLock {
-    if (_value.ticketPendingForLock == null) {
-      return null;
-    }
+  $TicketLockStateCopyWith<$Res> get ticketLockState {
+    return $TicketLockStateCopyWith<$Res>(_value.ticketLockState, (value) {
+      return _then(_value.copyWith(ticketLockState: value) as $Val);
+    });
+  }
 
-    return $TicketCopyWith<$Res>(_value.ticketPendingForLock!, (value) {
-      return _then(_value.copyWith(ticketPendingForLock: value) as $Val);
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TicketUnlockStateCopyWith<$Res> get ticketUnlockState {
+    return $TicketUnlockStateCopyWith<$Res>(_value.ticketUnlockState, (value) {
+      return _then(_value.copyWith(ticketUnlockState: value) as $Val);
     });
   }
 }
@@ -1261,12 +1267,14 @@ abstract class _$$GameStateImplCopyWith<$Res>
       List<Ticket> lockedTickets,
       FetchState ticketFetchState,
       FormSubmissionStatus ticketPurchaseStatus,
-      FormSubmissionStatus ticketLockStatus,
-      Ticket? ticketPendingForLock,
+      TicketLockState ticketLockState,
+      TicketUnlockState ticketUnlockState,
       String? errorMessage});
 
   @override
-  $TicketCopyWith<$Res>? get ticketPendingForLock;
+  $TicketLockStateCopyWith<$Res> get ticketLockState;
+  @override
+  $TicketUnlockStateCopyWith<$Res> get ticketUnlockState;
 }
 
 /// @nodoc
@@ -1286,8 +1294,8 @@ class __$$GameStateImplCopyWithImpl<$Res>
     Object? lockedTickets = null,
     Object? ticketFetchState = null,
     Object? ticketPurchaseStatus = null,
-    Object? ticketLockStatus = null,
-    Object? ticketPendingForLock = freezed,
+    Object? ticketLockState = null,
+    Object? ticketUnlockState = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$GameStateImpl(
@@ -1307,14 +1315,14 @@ class __$$GameStateImplCopyWithImpl<$Res>
           ? _value.ticketPurchaseStatus
           : ticketPurchaseStatus // ignore: cast_nullable_to_non_nullable
               as FormSubmissionStatus,
-      ticketLockStatus: null == ticketLockStatus
-          ? _value.ticketLockStatus
-          : ticketLockStatus // ignore: cast_nullable_to_non_nullable
-              as FormSubmissionStatus,
-      ticketPendingForLock: freezed == ticketPendingForLock
-          ? _value.ticketPendingForLock
-          : ticketPendingForLock // ignore: cast_nullable_to_non_nullable
-              as Ticket?,
+      ticketLockState: null == ticketLockState
+          ? _value.ticketLockState
+          : ticketLockState // ignore: cast_nullable_to_non_nullable
+              as TicketLockState,
+      ticketUnlockState: null == ticketUnlockState
+          ? _value.ticketUnlockState
+          : ticketUnlockState // ignore: cast_nullable_to_non_nullable
+              as TicketUnlockState,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1331,8 +1339,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       final List<Ticket> lockedTickets = const [],
       this.ticketFetchState = FetchState.initial,
       this.ticketPurchaseStatus = FormSubmissionStatus.initial,
-      this.ticketLockStatus = FormSubmissionStatus.initial,
-      this.ticketPendingForLock = null,
+      this.ticketLockState = const TicketLockState(),
+      this.ticketUnlockState = const TicketUnlockState(),
       this.errorMessage = null})
       : _tickets = tickets,
         _lockedTickets = lockedTickets;
@@ -1363,17 +1371,17 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   final FormSubmissionStatus ticketPurchaseStatus;
   @override
   @JsonKey()
-  final FormSubmissionStatus ticketLockStatus;
+  final TicketLockState ticketLockState;
   @override
   @JsonKey()
-  final Ticket? ticketPendingForLock;
+  final TicketUnlockState ticketUnlockState;
   @override
   @JsonKey()
   final String? errorMessage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameState(tickets: $tickets, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockStatus: $ticketLockStatus, ticketPendingForLock: $ticketPendingForLock, errorMessage: $errorMessage)';
+    return 'GameState(tickets: $tickets, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1385,8 +1393,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       ..add(DiagnosticsProperty('lockedTickets', lockedTickets))
       ..add(DiagnosticsProperty('ticketFetchState', ticketFetchState))
       ..add(DiagnosticsProperty('ticketPurchaseStatus', ticketPurchaseStatus))
-      ..add(DiagnosticsProperty('ticketLockStatus', ticketLockStatus))
-      ..add(DiagnosticsProperty('ticketPendingForLock', ticketPendingForLock))
+      ..add(DiagnosticsProperty('ticketLockState', ticketLockState))
+      ..add(DiagnosticsProperty('ticketUnlockState', ticketUnlockState))
       ..add(DiagnosticsProperty('errorMessage', errorMessage));
   }
 
@@ -1402,10 +1410,10 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
                 other.ticketFetchState == ticketFetchState) &&
             (identical(other.ticketPurchaseStatus, ticketPurchaseStatus) ||
                 other.ticketPurchaseStatus == ticketPurchaseStatus) &&
-            (identical(other.ticketLockStatus, ticketLockStatus) ||
-                other.ticketLockStatus == ticketLockStatus) &&
-            (identical(other.ticketPendingForLock, ticketPendingForLock) ||
-                other.ticketPendingForLock == ticketPendingForLock) &&
+            (identical(other.ticketLockState, ticketLockState) ||
+                other.ticketLockState == ticketLockState) &&
+            (identical(other.ticketUnlockState, ticketUnlockState) ||
+                other.ticketUnlockState == ticketUnlockState) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -1417,8 +1425,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       const DeepCollectionEquality().hash(_lockedTickets),
       ticketFetchState,
       ticketPurchaseStatus,
-      ticketLockStatus,
-      ticketPendingForLock,
+      ticketLockState,
+      ticketUnlockState,
       errorMessage);
 
   /// Create a copy of GameState
@@ -1436,8 +1444,8 @@ abstract class _GameState implements GameState {
       final List<Ticket> lockedTickets,
       final FetchState ticketFetchState,
       final FormSubmissionStatus ticketPurchaseStatus,
-      final FormSubmissionStatus ticketLockStatus,
-      final Ticket? ticketPendingForLock,
+      final TicketLockState ticketLockState,
+      final TicketUnlockState ticketUnlockState,
       final String? errorMessage}) = _$GameStateImpl;
 
   @override
@@ -1449,9 +1457,9 @@ abstract class _GameState implements GameState {
   @override
   FormSubmissionStatus get ticketPurchaseStatus;
   @override
-  FormSubmissionStatus get ticketLockStatus;
+  TicketLockState get ticketLockState;
   @override
-  Ticket? get ticketPendingForLock;
+  TicketUnlockState get ticketUnlockState;
   @override
   String? get errorMessage;
 
@@ -1460,5 +1468,371 @@ abstract class _GameState implements GameState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GameStateImplCopyWith<_$GameStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$TicketUnlockState {
+  FormSubmissionStatus get formSubmissionStatus =>
+      throw _privateConstructorUsedError;
+  Ticket? get ticket => throw _privateConstructorUsedError;
+
+  /// Create a copy of TicketUnlockState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $TicketUnlockStateCopyWith<TicketUnlockState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TicketUnlockStateCopyWith<$Res> {
+  factory $TicketUnlockStateCopyWith(
+          TicketUnlockState value, $Res Function(TicketUnlockState) then) =
+      _$TicketUnlockStateCopyWithImpl<$Res, TicketUnlockState>;
+  @useResult
+  $Res call({FormSubmissionStatus formSubmissionStatus, Ticket? ticket});
+
+  $TicketCopyWith<$Res>? get ticket;
+}
+
+/// @nodoc
+class _$TicketUnlockStateCopyWithImpl<$Res, $Val extends TicketUnlockState>
+    implements $TicketUnlockStateCopyWith<$Res> {
+  _$TicketUnlockStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of TicketUnlockState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formSubmissionStatus = null,
+    Object? ticket = freezed,
+  }) {
+    return _then(_value.copyWith(
+      formSubmissionStatus: null == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
+      ticket: freezed == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
+    ) as $Val);
+  }
+
+  /// Create a copy of TicketUnlockState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TicketCopyWith<$Res>? get ticket {
+    if (_value.ticket == null) {
+      return null;
+    }
+
+    return $TicketCopyWith<$Res>(_value.ticket!, (value) {
+      return _then(_value.copyWith(ticket: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$TicketUnlockStateImplCopyWith<$Res>
+    implements $TicketUnlockStateCopyWith<$Res> {
+  factory _$$TicketUnlockStateImplCopyWith(_$TicketUnlockStateImpl value,
+          $Res Function(_$TicketUnlockStateImpl) then) =
+      __$$TicketUnlockStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FormSubmissionStatus formSubmissionStatus, Ticket? ticket});
+
+  @override
+  $TicketCopyWith<$Res>? get ticket;
+}
+
+/// @nodoc
+class __$$TicketUnlockStateImplCopyWithImpl<$Res>
+    extends _$TicketUnlockStateCopyWithImpl<$Res, _$TicketUnlockStateImpl>
+    implements _$$TicketUnlockStateImplCopyWith<$Res> {
+  __$$TicketUnlockStateImplCopyWithImpl(_$TicketUnlockStateImpl _value,
+      $Res Function(_$TicketUnlockStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TicketUnlockState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formSubmissionStatus = null,
+    Object? ticket = freezed,
+  }) {
+    return _then(_$TicketUnlockStateImpl(
+      formSubmissionStatus: null == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
+      ticket: freezed == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TicketUnlockStateImpl
+    with DiagnosticableTreeMixin
+    implements _TicketUnlockState {
+  const _$TicketUnlockStateImpl(
+      {this.formSubmissionStatus = FormSubmissionStatus.initial,
+      this.ticket = null});
+
+  @override
+  @JsonKey()
+  final FormSubmissionStatus formSubmissionStatus;
+  @override
+  @JsonKey()
+  final Ticket? ticket;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TicketUnlockState(formSubmissionStatus: $formSubmissionStatus, ticket: $ticket)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TicketUnlockState'))
+      ..add(DiagnosticsProperty('formSubmissionStatus', formSubmissionStatus))
+      ..add(DiagnosticsProperty('ticket', ticket));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TicketUnlockStateImpl &&
+            (identical(other.formSubmissionStatus, formSubmissionStatus) ||
+                other.formSubmissionStatus == formSubmissionStatus) &&
+            (identical(other.ticket, ticket) || other.ticket == ticket));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, formSubmissionStatus, ticket);
+
+  /// Create a copy of TicketUnlockState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TicketUnlockStateImplCopyWith<_$TicketUnlockStateImpl> get copyWith =>
+      __$$TicketUnlockStateImplCopyWithImpl<_$TicketUnlockStateImpl>(
+          this, _$identity);
+}
+
+abstract class _TicketUnlockState implements TicketUnlockState {
+  const factory _TicketUnlockState(
+      {final FormSubmissionStatus formSubmissionStatus,
+      final Ticket? ticket}) = _$TicketUnlockStateImpl;
+
+  @override
+  FormSubmissionStatus get formSubmissionStatus;
+  @override
+  Ticket? get ticket;
+
+  /// Create a copy of TicketUnlockState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TicketUnlockStateImplCopyWith<_$TicketUnlockStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$TicketLockState {
+  FormSubmissionStatus get formSubmissionStatus =>
+      throw _privateConstructorUsedError;
+  Ticket? get ticket => throw _privateConstructorUsedError;
+
+  /// Create a copy of TicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $TicketLockStateCopyWith<TicketLockState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TicketLockStateCopyWith<$Res> {
+  factory $TicketLockStateCopyWith(
+          TicketLockState value, $Res Function(TicketLockState) then) =
+      _$TicketLockStateCopyWithImpl<$Res, TicketLockState>;
+  @useResult
+  $Res call({FormSubmissionStatus formSubmissionStatus, Ticket? ticket});
+
+  $TicketCopyWith<$Res>? get ticket;
+}
+
+/// @nodoc
+class _$TicketLockStateCopyWithImpl<$Res, $Val extends TicketLockState>
+    implements $TicketLockStateCopyWith<$Res> {
+  _$TicketLockStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of TicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formSubmissionStatus = null,
+    Object? ticket = freezed,
+  }) {
+    return _then(_value.copyWith(
+      formSubmissionStatus: null == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
+      ticket: freezed == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
+    ) as $Val);
+  }
+
+  /// Create a copy of TicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TicketCopyWith<$Res>? get ticket {
+    if (_value.ticket == null) {
+      return null;
+    }
+
+    return $TicketCopyWith<$Res>(_value.ticket!, (value) {
+      return _then(_value.copyWith(ticket: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$TicketLockStateImplCopyWith<$Res>
+    implements $TicketLockStateCopyWith<$Res> {
+  factory _$$TicketLockStateImplCopyWith(_$TicketLockStateImpl value,
+          $Res Function(_$TicketLockStateImpl) then) =
+      __$$TicketLockStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FormSubmissionStatus formSubmissionStatus, Ticket? ticket});
+
+  @override
+  $TicketCopyWith<$Res>? get ticket;
+}
+
+/// @nodoc
+class __$$TicketLockStateImplCopyWithImpl<$Res>
+    extends _$TicketLockStateCopyWithImpl<$Res, _$TicketLockStateImpl>
+    implements _$$TicketLockStateImplCopyWith<$Res> {
+  __$$TicketLockStateImplCopyWithImpl(
+      _$TicketLockStateImpl _value, $Res Function(_$TicketLockStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formSubmissionStatus = null,
+    Object? ticket = freezed,
+  }) {
+    return _then(_$TicketLockStateImpl(
+      formSubmissionStatus: null == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
+      ticket: freezed == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TicketLockStateImpl
+    with DiagnosticableTreeMixin
+    implements _TicketLockState {
+  const _$TicketLockStateImpl(
+      {this.formSubmissionStatus = FormSubmissionStatus.initial,
+      this.ticket = null});
+
+  @override
+  @JsonKey()
+  final FormSubmissionStatus formSubmissionStatus;
+  @override
+  @JsonKey()
+  final Ticket? ticket;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TicketLockState(formSubmissionStatus: $formSubmissionStatus, ticket: $ticket)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TicketLockState'))
+      ..add(DiagnosticsProperty('formSubmissionStatus', formSubmissionStatus))
+      ..add(DiagnosticsProperty('ticket', ticket));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TicketLockStateImpl &&
+            (identical(other.formSubmissionStatus, formSubmissionStatus) ||
+                other.formSubmissionStatus == formSubmissionStatus) &&
+            (identical(other.ticket, ticket) || other.ticket == ticket));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, formSubmissionStatus, ticket);
+
+  /// Create a copy of TicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TicketLockStateImplCopyWith<_$TicketLockStateImpl> get copyWith =>
+      __$$TicketLockStateImplCopyWithImpl<_$TicketLockStateImpl>(
+          this, _$identity);
+}
+
+abstract class _TicketLockState implements TicketLockState {
+  const factory _TicketLockState(
+      {final FormSubmissionStatus formSubmissionStatus,
+      final Ticket? ticket}) = _$TicketLockStateImpl;
+
+  @override
+  FormSubmissionStatus get formSubmissionStatus;
+  @override
+  Ticket? get ticket;
+
+  /// Create a copy of TicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TicketLockStateImplCopyWith<_$TicketLockStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

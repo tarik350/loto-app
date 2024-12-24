@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/widgets/tab_scale_animation_wrapper.dart';
+import 'package:mobile_app/src/shared/widgets/custom_circular_progress_indicator.dart';
 
 class GameButton1 extends StatelessWidget {
   final double width;
+  final double height;
   final Color bgGradientTopColor;
   final Color bgGradientBottomColor;
   final Color borderGradientTopColor;
@@ -12,15 +14,22 @@ class GameButton1 extends StatelessWidget {
   final Color shadowColor;
   final String title;
   final VoidCallback onPressed;
+  final bool isLoading;
+  final double topOffset;
+  final double leftOffset;
 
   const GameButton1(
       {super.key,
-      required this.width,
+      this.width = double.maxFinite,
       required this.bgGradientTopColor,
       required this.bgGradientBottomColor,
       required this.borderGradientTopColor,
       required this.borderGradientBottomColor,
       required this.shadowColor,
+      this.isLoading = false,
+      this.height = double.maxFinite,
+      this.topOffset = -70,
+      this.leftOffset = -45,
       required this.title,
       required this.onPressed});
 
@@ -31,7 +40,7 @@ class GameButton1 extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           margin: EdgeInsets.only(top: AppDimensions.spacingS),
-          height: double.maxFinite,
+          height: height,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(AppDimensions.radiusS),
             child: Stack(
@@ -69,27 +78,33 @@ class GameButton1 extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Center(
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: AppDimensions.fontM,
-                        shadows: [
-                          BoxShadow(
-                            offset: const Offset(0, 3),
-                            blurRadius: 5,
-                            color: Colors.black.withOpacity(.3),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  child: isLoading
+                      ? const Center(
+                          child: CustomCircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        )
+                      : Center(
+                          child: Text(
+                            title,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: AppDimensions.fontM,
+                              shadows: [
+                                BoxShadow(
+                                  offset: const Offset(0, 3),
+                                  blurRadius: 5,
+                                  color: Colors.black.withOpacity(.3),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                 ),
                 Positioned(
-                  top: -70,
-                  left: -45,
+                  top: topOffset,
+                  left: leftOffset,
                   child: Container(
                     alignment: Alignment.bottomCenter,
                     width: width + 90,

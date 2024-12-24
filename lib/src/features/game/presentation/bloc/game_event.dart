@@ -4,7 +4,7 @@ part of 'game_bloc.dart';
 class GameEvent with _$GameEvent {
   const factory GameEvent.fetchTickets(int gameId) = FetchGameTickets;
   const factory GameEvent.lockTicket(Ticket ticket) = LockTicketEvent;
-  const factory GameEvent.unlockTicket(Ticket ticket) = UnloadTicketEvent;
+  const factory GameEvent.unlockTicket(Ticket ticket) = UnlockTicketEvent;
   const factory GameEvent.searchTicket(int ticketNumber) = SearchTicketEvent;
   const factory GameEvent.filterTicket(
       {required TicketFilterTypeEnum filterType}) = FilterTicketEvent;

@@ -24,8 +24,9 @@ class GameRepoImpl extends AbstractGameRepo {
   }
 
   @override
-  Future<Either<AppFailure, Ticket>> releaseLockForTicket(Ticket ticket) {
-    // TODO: implement releaseLockForTicket
-    throw UnimplementedError();
+  Future<Either<AppFailure, Ticket>> releaseLockForTicket(Ticket ticket) async {
+    final response = await _gameApi.releaseLockForTicket(ticket);
+    return response.fold((exception) => mapExceptionToFailure(exception),
+        (res) => right(res.data as Ticket));
   }
 }

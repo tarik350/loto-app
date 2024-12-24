@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomePage> {
                     )),
               ),
             ),
-            if (currentIndex == 0) HomePageFilterAppBar(),
+            if (currentIndex == 0) const HomePageFilterAppBar(),
             if (currentIndex == 0) const CashGamesScreen(),
             if (currentIndex == 1) const GoodsHomePage()
           ],

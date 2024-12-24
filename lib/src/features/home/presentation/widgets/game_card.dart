@@ -141,18 +141,15 @@ class GameCard extends StatelessWidget {
                                         padding: EdgeInsets.only(
                                           left: AppDimensions.paddingXXS,
                                         ),
-                                        child: Expanded(
-                                          child: ConstrainedBox(
-                                            constraints:
-                                                BoxConstraints(maxWidth: 100.w),
-                                            child: Text(
-                                              gameName,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white,
-                                                  fontSize:
-                                                      AppDimensions.fontM),
-                                            ),
+                                        child: ConstrainedBox(
+                                          constraints:
+                                              BoxConstraints(maxWidth: 100.w),
+                                          child: Text(
+                                            gameName,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontSize: AppDimensions.fontM),
                                           ),
                                         ),
                                       ),

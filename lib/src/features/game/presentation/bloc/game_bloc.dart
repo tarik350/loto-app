@@ -23,28 +23,17 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         await _handleGameTicketFetch(emit, gameId);
         break;
       case LockTicketEvent(:final ticket):
-        emit(state.copyWith(
-            ticketPendingForLock: ticket,
-            ticketLockStatus: FormSubmissionStatus.inProgress));
-        final result = await _gameRepo.aquireLockForTicket(ticket);
-        result.fold(
-            (failure) => emit(state.copyWith(
-                errorMessage: failure.message,
-                ticketLockStatus: FormSubmissionStatus.failure)), (ticket) {
-          emit(state.copyWith(lockedTickets: [
-            ...state.lockedTickets,
-            ticket,
-          ], ticketLockStatus: FormSubmissionStatus.success));
-        });
+        await _handleTicketLock(emit, ticket);
         break;
-      case UnloadTicketEvent(:final ticket):
+      case UnlockTicketEvent(:final ticket):
+        await _handleTicketUnlock(emit, ticket);
         break;
-      case FilterTicketEvent(:final filterType):
-        break;
-      case SelectRandomTicket():
-        break;
-      case SearchTicketEvent(:final ticketNumber):
-        break;
+      // case FilterTicketEvent(:final filterType):
+      //   break;
+      // case SelectRandomTicket():
+      //   break;
+      // case SearchTicketEvent(:final ticketNumber):
+      //   break;
     }
   }
 
@@ -55,5 +44,47 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       emit(state.copyWith(
           ticketFetchState: FetchState.loaded, tickets: tickets));
     });
+  }
+
+  _handleTicketLock(Emitter<GameState> emit, Ticket ticket) async {
+    emit(state.copyWith(
+        ticketLockState: state.ticketLockState.copyWith(
+            ticket: ticket,
+            formSubmissionStatus: FormSubmissionStatus.inProgress)));
+    final result = await _gameRepo.aquireLockForTicket(ticket);
+    result.fold(
+        (failure) => emit(state.copyWith(
+            errorMessage: failure.message,
+            ticketLockState: state.ticketLockState
+                .copyWith(formSubmissionStatus: FormSubmissionStatus.failure))),
+        (ticket) {
+      emit(state.copyWith(
+          lockedTickets: [
+            ...state.lockedTickets,
+            ticket,
+          ],
+          ticketLockState: state.ticketLockState
+              .copyWith(formSubmissionStatus: FormSubmissionStatus.success)));
+    });
+  }
+
+  _handleTicketUnlock(Emitter<GameState> emit, Ticket ticket) async {
+    emit(state.copyWith(
+        ticketUnlockState: state.ticketUnlockState.copyWith(
+            formSubmissionStatus: FormSubmissionStatus.inProgress,
+            ticket: ticket)));
+    final result = await _gameRepo.releaseLockForTicket(ticket);
+    result.fold(
+        (failure) => emit(state.copyWith(
+            ticketUnlockState: state.ticketUnlockState
+                .copyWith(formSubmissionStatus: FormSubmissionStatus.failure),
+            errorMessage: failure.message)),
+        (ticket) => emit(state.copyWith(
+              ticketUnlockState: state.ticketUnlockState
+                  .copyWith(formSubmissionStatus: FormSubmissionStatus.success),
+              lockedTickets: state.lockedTickets
+                  .where((t) => t.ticketNumber != ticket.ticketNumber)
+                  .toList(),
+            )));
   }
 }

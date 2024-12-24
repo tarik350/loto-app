@@ -6,8 +6,9 @@ import 'package:mobile_app/src/core/router/app_route.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
-import 'package:mobile_app/src/features/login/presentation/bloc/login_bloc.dart';
-import 'package:mobile_app/src/features/register/presentation/bloc/register_bloc.dart';
+import 'package:mobile_app/src/features/auth/login/presentation/bloc/login_bloc.dart';
+import 'package:mobile_app/src/features/auth/register/presentation/bloc/register_bloc.dart';
+import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/cubit/auth_page_wrapper_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +40,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => sl<GameBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => AuthPageWrapperCubit(),
         )
       ],
       child: MaterialApp(

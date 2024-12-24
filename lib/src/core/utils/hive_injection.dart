@@ -1,6 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mobile_app/src/features/login/domain/models/user/user.dart';
-import 'package:mobile_app/src/features/login/domain/models/user/user_adapter.dart';
+import 'package:mobile_app/src/features/auth/login/domain/models/user/user.dart';
 
 initHive() async {
   await Hive.initFlutter();

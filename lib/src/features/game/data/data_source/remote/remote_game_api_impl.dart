@@ -33,7 +33,7 @@ class RemoteGameApiImpl extends AbstractRemoteGameApi {
       Ticket ticket) async {
     try {
       _dio.options.headers['Authorization'] = 'Bearer '
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzM0NzMzNTE5LCJleHAiOjE3MzQ3OTM1MTksIm5iZiI6MTczNDczMzUxOSwianRpIjoiUEcwZ3NxT1Z2TEU5WVR2WiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-0U5wjlmhq2zX8RF0he6dp2bYWvNbJMZNrwE8Y-ut7E';
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzM0ODUyNjk1LCJleHAiOjE3MzQ5MTI2OTUsIm5iZiI6MTczNDg1MjY5NSwianRpIjoieURkYzR5dm9vN1FpZTVOdyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.P9YtMlGoNeVaQOroSn0RV-m5ZvocW70y_4VDSv4oL4A';
 
       final response = await _dio.post('ticket/lock',
           data: {"ticketNumber": ticket.ticketNumber, "gameId": ticket.gameId});
@@ -48,8 +48,18 @@ class RemoteGameApiImpl extends AbstractRemoteGameApi {
 
   @override
   Future<Either<AppException, ApiResponse<Ticket>>> releaseLockForTicket(
-      Ticket ticket) {
-    // TODO: implement releaseLockForTicket
-    throw UnimplementedError();
+      Ticket ticket) async {
+    try {
+      _dio.options.headers['Authorization'] = 'Bearer '
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzM0ODUyNjk1LCJleHAiOjE3MzQ5MTI2OTUsIm5iZiI6MTczNDg1MjY5NSwianRpIjoieURkYzR5dm9vN1FpZTVOdyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.P9YtMlGoNeVaQOroSn0RV-m5ZvocW70y_4VDSv4oL4A';
+      final response = await _dio.post('ticket/release-lock/${ticket.id}',
+          data: {"gameId": ticket.gameId});
+      return Helper.handleSuccessResponse(response, 200,
+          fromTJson: (json) => Ticket.fromJson(json as Map<String, dynamic>));
+    } on DioException catch (e) {
+      return left(handleDioException(e));
+    } catch (e) {
+      return left(UnexpectedException(error: e));
+    }
   }
 }

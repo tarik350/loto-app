@@ -8,9 +8,24 @@ class GameState with _$GameState {
     @Default(FetchState.initial) FetchState ticketFetchState,
     @Default(FormSubmissionStatus.initial)
     FormSubmissionStatus ticketPurchaseStatus,
-    @Default(FormSubmissionStatus.initial)
-    FormSubmissionStatus ticketLockStatus,
-    @Default(null) Ticket? ticketPendingForLock,
+    @Default(TicketLockState()) TicketLockState ticketLockState,
+    @Default(TicketUnlockState()) TicketUnlockState ticketUnlockState,
     @Default(null) String? errorMessage,
   }) = _GameState;
+}
+
+@freezed
+class TicketUnlockState with _$TicketUnlockState {
+  const factory TicketUnlockState(
+      {@Default(FormSubmissionStatus.initial)
+      FormSubmissionStatus formSubmissionStatus,
+      @Default(null) Ticket? ticket}) = _TicketUnlockState;
+}
+
+@freezed
+class TicketLockState with _$TicketLockState {
+  const factory TicketLockState(
+      {@Default(FormSubmissionStatus.initial)
+      FormSubmissionStatus formSubmissionStatus,
+      @Default(null) Ticket? ticket}) = _TicketLockState;
 }
