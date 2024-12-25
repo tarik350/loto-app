@@ -118,7 +118,8 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void _fetchAllLockedTicketsForUser(Emitter<GameState> emit) async {
     final result = await _gameRepo.getAllLockedTicket();
-    result.fold((failure) => emit(state.copyWith()),
+    result.fold(
+        (failure) => emit(state.copyWith(errorMessage: failure.message)),
         (tickets) => emit(state.copyWith(lockedTickets: tickets)));
   }
 
