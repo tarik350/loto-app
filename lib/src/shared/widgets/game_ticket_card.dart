@@ -10,9 +10,13 @@ class GameTicketCard extends StatelessWidget {
   final bool isLoading;
   final TicketStatus ticketStatus;
   final VoidCallback callback;
+  final Color backgroundColor;
+  final Color foregroundColor;
 
   const GameTicketCard(
       {super.key,
+      required this.foregroundColor,
+      required this.backgroundColor,
       required this.ticket,
       required this.ticketStatus,
       required this.callback,
@@ -26,11 +30,7 @@ class GameTicketCard extends StatelessWidget {
         height: AppDimensions.iconL,
         width: AppDimensions.iconL,
         decoration: BoxDecoration(
-            color: ticketStatus == TicketStatus.free
-                ? AppColors.availableColor
-                : ticketStatus == TicketStatus.locked
-                    ? AppColors.lockedColor
-                    : AppColors.reservedColor,
+            color: backgroundColor,
             borderRadius: BorderRadius.circular(AppDimensions.radiusXS),
             boxShadow: [
               BoxShadow(
@@ -54,9 +54,7 @@ class GameTicketCard extends StatelessWidget {
                   style: TextStyle(
                       fontSize: AppDimensions.fontS,
                       fontWeight: FontWeight.bold,
-                      color: ticketStatus == TicketStatus.free
-                          ? Colors.black
-                          : Colors.white),
+                      color: foregroundColor),
                 ),
               ),
       ),

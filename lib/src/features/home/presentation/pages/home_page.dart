@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
+import 'package:mobile_app/src/core/utils/injections.dart';
+import 'package:mobile_app/src/features/auth/login/data/data_source/local/abstract_local_login_api.dart';
 import 'package:mobile_app/src/features/home/presentation/widgets/cash_home_page.dart';
 import 'package:mobile_app/src/features/home/presentation/widgets/goods_home_page.dart';
 import 'package:mobile_app/src/features/home/presentation/widgets/home_page_filter_appbar.dart';
@@ -135,17 +137,19 @@ class _HomeScreenState extends State<HomePage> {
                                 ),
                               ],
                             ),
-                            Positioned(
-                              right: 0, // Align the icon to the far right
-                              child: GestureDetector(
-                                child: Container(
-                                    margin: EdgeInsets.only(
-                                        right: AppDimensions.spacingM),
-                                    child: SizedBox(
-                                        width: AppDimensions.iconXS,
-                                        child: AppImages.notificationIcon)),
+                            if (sl<AbstractLocalLoginApi>()
+                                .isUserAuthenticated())
+                              Positioned(
+                                right: 0, // Align the icon to the far right
+                                child: GestureDetector(
+                                  child: Container(
+                                      margin: EdgeInsets.only(
+                                          right: AppDimensions.spacingM),
+                                      child: SizedBox(
+                                          width: AppDimensions.iconXS,
+                                          child: AppImages.notificationIcon)),
+                                ),
                               ),
-                            ),
                             Positioned(
                               left: 0, // Align the icon to the far right
                               child: GestureDetector(

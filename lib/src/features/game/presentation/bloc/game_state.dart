@@ -4,6 +4,7 @@ part of 'game_bloc.dart';
 class GameState with _$GameState {
   const factory GameState({
     @Default([]) List<Ticket> tickets,
+    @Default(null) int? gameId,
     @Default([]) List<Ticket> lockedTickets,
     @Default(FetchState.initial) FetchState ticketFetchState,
     @Default(FormSubmissionStatus.initial)

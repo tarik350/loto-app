@@ -8,4 +8,9 @@ abstract class AbstractGameRepo {
   Future<Either<AppFailure, Ticket>> aquireLockForTicket(Ticket ticket);
 
   Future<Either<AppFailure, Ticket>> releaseLockForTicket(Ticket ticket);
+
+  //get random ticket
+  Future<Either<AppFailure, Ticket>> getRandomTicketForGame();
+  //fetch all locked tickets for user
+  Future<Either<AppFailure, List<Ticket>>> getAllLockedTicket();
 }

@@ -18,30 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GameEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
@@ -50,9 +59,13 @@ mixin _$GameEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) =>
@@ -60,9 +73,13 @@ mixin _$GameEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) =>
@@ -70,9 +87,13 @@ mixin _$GameEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -105,8 +126,6 @@ abstract class _$$FetchGameTicketsImplCopyWith<$Res> {
   factory _$$FetchGameTicketsImplCopyWith(_$FetchGameTicketsImpl value,
           $Res Function(_$FetchGameTicketsImpl) then) =
       __$$FetchGameTicketsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int gameId});
 }
 
 /// @nodoc
@@ -119,18 +138,6 @@ class __$$FetchGameTicketsImplCopyWithImpl<$Res>
 
   /// Create a copy of GameEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? gameId = null,
-  }) {
-    return _then(_$FetchGameTicketsImpl(
-      null == gameId
-          ? _value.gameId
-          : gameId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
@@ -138,83 +145,76 @@ class __$$FetchGameTicketsImplCopyWithImpl<$Res>
 class _$FetchGameTicketsImpl
     with DiagnosticableTreeMixin
     implements FetchGameTickets {
-  const _$FetchGameTicketsImpl(this.gameId);
-
-  @override
-  final int gameId;
+  const _$FetchGameTicketsImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameEvent.fetchTickets(gameId: $gameId)';
+    return 'GameEvent.fetchTickets()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GameEvent.fetchTickets'))
-      ..add(DiagnosticsProperty('gameId', gameId));
+    properties.add(DiagnosticsProperty('type', 'GameEvent.fetchTickets'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchGameTicketsImpl &&
-            (identical(other.gameId, gameId) || other.gameId == gameId));
+        (other.runtimeType == runtimeType && other is _$FetchGameTicketsImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, gameId);
-
-  /// Create a copy of GameEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchGameTicketsImplCopyWith<_$FetchGameTicketsImpl> get copyWith =>
-      __$$FetchGameTicketsImplCopyWithImpl<_$FetchGameTicketsImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) {
-    return fetchTickets(gameId);
+    return fetchTickets();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) {
-    return fetchTickets?.call(gameId);
+    return fetchTickets?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
     if (fetchTickets != null) {
-      return fetchTickets(gameId);
+      return fetchTickets();
     }
     return orElse();
   }
@@ -223,9 +223,13 @@ class _$FetchGameTicketsImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
@@ -236,9 +240,13 @@ class _$FetchGameTicketsImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
@@ -249,9 +257,13 @@ class _$FetchGameTicketsImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -264,15 +276,358 @@ class _$FetchGameTicketsImpl
 }
 
 abstract class FetchGameTickets implements GameEvent {
-  const factory FetchGameTickets(final int gameId) = _$FetchGameTicketsImpl;
+  const factory FetchGameTickets() = _$FetchGameTicketsImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateGameIdImplCopyWith<$Res> {
+  factory _$$UpdateGameIdImplCopyWith(
+          _$UpdateGameIdImpl value, $Res Function(_$UpdateGameIdImpl) then) =
+      __$$UpdateGameIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int gameId});
+}
+
+/// @nodoc
+class __$$UpdateGameIdImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$UpdateGameIdImpl>
+    implements _$$UpdateGameIdImplCopyWith<$Res> {
+  __$$UpdateGameIdImplCopyWithImpl(
+      _$UpdateGameIdImpl _value, $Res Function(_$UpdateGameIdImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameId = null,
+  }) {
+    return _then(_$UpdateGameIdImpl(
+      null == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
+  const _$UpdateGameIdImpl(this.gameId);
+
+  @override
+  final int gameId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'GameEvent.updateGameId(gameId: $gameId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'GameEvent.updateGameId'))
+      ..add(DiagnosticsProperty('gameId', gameId));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateGameIdImpl &&
+            (identical(other.gameId, gameId) || other.gameId == gameId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, gameId);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateGameIdImplCopyWith<_$UpdateGameIdImpl> get copyWith =>
+      __$$UpdateGameIdImplCopyWithImpl<_$UpdateGameIdImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
+    required TResult Function(Ticket ticket) lockTicket,
+    required TResult Function(Ticket ticket) unlockTicket,
+    required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
+    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() selectRandomTicket,
+  }) {
+    return updateGameId(gameId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
+    TResult? Function(Ticket ticket)? lockTicket,
+    TResult? Function(Ticket ticket)? unlockTicket,
+    TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
+    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? selectRandomTicket,
+  }) {
+    return updateGameId?.call(gameId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
+    TResult Function(Ticket ticket)? lockTicket,
+    TResult Function(Ticket ticket)? unlockTicket,
+    TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
+    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (updateGameId != null) {
+      return updateGameId(gameId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
+    required TResult Function(LockTicketEvent value) lockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
+    required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
+    required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(SelectRandomTicket value) selectRandomTicket,
+  }) {
+    return updateGameId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
+    TResult? Function(LockTicketEvent value)? lockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
+    TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(SelectRandomTicket value)? selectRandomTicket,
+  }) {
+    return updateGameId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
+    TResult Function(LockTicketEvent value)? lockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
+    TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(SelectRandomTicket value)? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (updateGameId != null) {
+      return updateGameId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateGameId implements GameEvent {
+  const factory UpdateGameId(final int gameId) = _$UpdateGameIdImpl;
 
   int get gameId;
 
   /// Create a copy of GameEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchGameTicketsImplCopyWith<_$FetchGameTicketsImpl> get copyWith =>
+  _$$UpdateGameIdImplCopyWith<_$UpdateGameIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetGameStateImplCopyWith<$Res> {
+  factory _$$ResetGameStateImplCopyWith(_$ResetGameStateImpl value,
+          $Res Function(_$ResetGameStateImpl) then) =
+      __$$ResetGameStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetGameStateImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$ResetGameStateImpl>
+    implements _$$ResetGameStateImplCopyWith<$Res> {
+  __$$ResetGameStateImplCopyWithImpl(
+      _$ResetGameStateImpl _value, $Res Function(_$ResetGameStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetGameStateImpl
+    with DiagnosticableTreeMixin
+    implements ResetGameState {
+  const _$ResetGameStateImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'GameEvent.resetState()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'GameEvent.resetState'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ResetGameStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
+    required TResult Function(Ticket ticket) lockTicket,
+    required TResult Function(Ticket ticket) unlockTicket,
+    required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
+    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() selectRandomTicket,
+  }) {
+    return resetState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
+    TResult? Function(Ticket ticket)? lockTicket,
+    TResult? Function(Ticket ticket)? unlockTicket,
+    TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
+    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? selectRandomTicket,
+  }) {
+    return resetState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
+    TResult Function(Ticket ticket)? lockTicket,
+    TResult Function(Ticket ticket)? unlockTicket,
+    TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
+    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
+    required TResult Function(LockTicketEvent value) lockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
+    required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
+    required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(SelectRandomTicket value) selectRandomTicket,
+  }) {
+    return resetState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
+    TResult? Function(LockTicketEvent value)? lockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
+    TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(SelectRandomTicket value)? selectRandomTicket,
+  }) {
+    return resetState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
+    TResult Function(LockTicketEvent value)? lockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
+    TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(SelectRandomTicket value)? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (resetState != null) {
+      return resetState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetGameState implements GameEvent {
+  const factory ResetGameState() = _$ResetGameStateImpl;
 }
 
 /// @nodoc
@@ -366,10 +721,13 @@ class _$LockTicketEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) {
@@ -379,10 +737,13 @@ class _$LockTicketEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) {
@@ -392,10 +753,13 @@ class _$LockTicketEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
@@ -410,9 +774,13 @@ class _$LockTicketEventImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
@@ -423,9 +791,13 @@ class _$LockTicketEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
@@ -436,9 +808,13 @@ class _$LockTicketEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -553,10 +929,13 @@ class _$UnlockTicketEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) {
@@ -566,10 +945,13 @@ class _$UnlockTicketEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) {
@@ -579,10 +961,13 @@ class _$UnlockTicketEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
@@ -597,9 +982,13 @@ class _$UnlockTicketEventImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
@@ -610,9 +999,13 @@ class _$UnlockTicketEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
@@ -623,9 +1016,13 @@ class _$UnlockTicketEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -730,10 +1127,13 @@ class _$SearchTicketEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) {
@@ -743,10 +1143,13 @@ class _$SearchTicketEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) {
@@ -756,10 +1159,13 @@ class _$SearchTicketEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
@@ -774,9 +1180,13 @@ class _$SearchTicketEventImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
@@ -787,9 +1197,13 @@ class _$SearchTicketEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
@@ -800,9 +1214,13 @@ class _$SearchTicketEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -825,6 +1243,168 @@ abstract class SearchTicketEvent implements GameEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchTicketEventImplCopyWith<_$SearchTicketEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchAllLockedUserTicketsImplCopyWith<$Res> {
+  factory _$$FetchAllLockedUserTicketsImplCopyWith(
+          _$FetchAllLockedUserTicketsImpl value,
+          $Res Function(_$FetchAllLockedUserTicketsImpl) then) =
+      __$$FetchAllLockedUserTicketsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchAllLockedUserTicketsImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$FetchAllLockedUserTicketsImpl>
+    implements _$$FetchAllLockedUserTicketsImplCopyWith<$Res> {
+  __$$FetchAllLockedUserTicketsImplCopyWithImpl(
+      _$FetchAllLockedUserTicketsImpl _value,
+      $Res Function(_$FetchAllLockedUserTicketsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FetchAllLockedUserTicketsImpl
+    with DiagnosticableTreeMixin
+    implements FetchAllLockedUserTickets {
+  const _$FetchAllLockedUserTicketsImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'GameEvent.fetchAllLockedUserTickets()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'GameEvent.fetchAllLockedUserTickets'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchAllLockedUserTicketsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
+    required TResult Function(Ticket ticket) lockTicket,
+    required TResult Function(Ticket ticket) unlockTicket,
+    required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
+    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() selectRandomTicket,
+  }) {
+    return fetchAllLockedUserTickets();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
+    TResult? Function(Ticket ticket)? lockTicket,
+    TResult? Function(Ticket ticket)? unlockTicket,
+    TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
+    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? selectRandomTicket,
+  }) {
+    return fetchAllLockedUserTickets?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
+    TResult Function(Ticket ticket)? lockTicket,
+    TResult Function(Ticket ticket)? unlockTicket,
+    TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
+    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (fetchAllLockedUserTickets != null) {
+      return fetchAllLockedUserTickets();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
+    required TResult Function(LockTicketEvent value) lockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
+    required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
+    required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(SelectRandomTicket value) selectRandomTicket,
+  }) {
+    return fetchAllLockedUserTickets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
+    TResult? Function(LockTicketEvent value)? lockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
+    TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(SelectRandomTicket value)? selectRandomTicket,
+  }) {
+    return fetchAllLockedUserTickets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
+    TResult Function(LockTicketEvent value)? lockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
+    TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(SelectRandomTicket value)? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (fetchAllLockedUserTickets != null) {
+      return fetchAllLockedUserTickets(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchAllLockedUserTickets implements GameEvent {
+  const factory FetchAllLockedUserTickets() = _$FetchAllLockedUserTicketsImpl;
 }
 
 /// @nodoc
@@ -907,10 +1487,13 @@ class _$FilterTicketEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) {
@@ -920,10 +1503,13 @@ class _$FilterTicketEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) {
@@ -933,10 +1519,13 @@ class _$FilterTicketEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
@@ -951,9 +1540,13 @@ class _$FilterTicketEventImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
@@ -964,9 +1557,13 @@ class _$FilterTicketEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
@@ -977,9 +1574,13 @@ class _$FilterTicketEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -1054,10 +1655,13 @@ class _$SelectRandomTicketImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int gameId) fetchTickets,
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
     required TResult Function(Ticket ticket) lockTicket,
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
     required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
     required TResult Function() selectRandomTicket,
   }) {
@@ -1067,10 +1671,13 @@ class _$SelectRandomTicketImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int gameId)? fetchTickets,
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
     TResult? Function(Ticket ticket)? lockTicket,
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
     TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult? Function()? selectRandomTicket,
   }) {
@@ -1080,10 +1687,13 @@ class _$SelectRandomTicketImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int gameId)? fetchTickets,
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
     TResult Function(Ticket ticket)? lockTicket,
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
     TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
@@ -1098,9 +1708,13 @@ class _$SelectRandomTicketImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
     required TResult Function(LockTicketEvent value) lockTicket,
     required TResult Function(UnlockTicketEvent value) unlockTicket,
     required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
@@ -1111,9 +1725,13 @@ class _$SelectRandomTicketImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
     TResult? Function(LockTicketEvent value)? lockTicket,
     TResult? Function(UnlockTicketEvent value)? unlockTicket,
     TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
@@ -1124,9 +1742,13 @@ class _$SelectRandomTicketImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
     TResult Function(LockTicketEvent value)? lockTicket,
     TResult Function(UnlockTicketEvent value)? unlockTicket,
     TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
@@ -1145,6 +1767,7 @@ abstract class SelectRandomTicket implements GameEvent {
 /// @nodoc
 mixin _$GameState {
   List<Ticket> get tickets => throw _privateConstructorUsedError;
+  int? get gameId => throw _privateConstructorUsedError;
   List<Ticket> get lockedTickets => throw _privateConstructorUsedError;
   FetchState get ticketFetchState => throw _privateConstructorUsedError;
   FormSubmissionStatus get ticketPurchaseStatus =>
@@ -1167,6 +1790,7 @@ abstract class $GameStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Ticket> tickets,
+      int? gameId,
       List<Ticket> lockedTickets,
       FetchState ticketFetchState,
       FormSubmissionStatus ticketPurchaseStatus,
@@ -1194,6 +1818,7 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
   @override
   $Res call({
     Object? tickets = null,
+    Object? gameId = freezed,
     Object? lockedTickets = null,
     Object? ticketFetchState = null,
     Object? ticketPurchaseStatus = null,
@@ -1206,6 +1831,10 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
           ? _value.tickets
           : tickets // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
+      gameId: freezed == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int?,
       lockedTickets: null == lockedTickets
           ? _value.lockedTickets
           : lockedTickets // ignore: cast_nullable_to_non_nullable
@@ -1264,6 +1893,7 @@ abstract class _$$GameStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<Ticket> tickets,
+      int? gameId,
       List<Ticket> lockedTickets,
       FetchState ticketFetchState,
       FormSubmissionStatus ticketPurchaseStatus,
@@ -1291,6 +1921,7 @@ class __$$GameStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tickets = null,
+    Object? gameId = freezed,
     Object? lockedTickets = null,
     Object? ticketFetchState = null,
     Object? ticketPurchaseStatus = null,
@@ -1303,6 +1934,10 @@ class __$$GameStateImplCopyWithImpl<$Res>
           ? _value._tickets
           : tickets // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
+      gameId: freezed == gameId
+          ? _value.gameId
+          : gameId // ignore: cast_nullable_to_non_nullable
+              as int?,
       lockedTickets: null == lockedTickets
           ? _value._lockedTickets
           : lockedTickets // ignore: cast_nullable_to_non_nullable
@@ -1336,6 +1971,7 @@ class __$$GameStateImplCopyWithImpl<$Res>
 class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   const _$GameStateImpl(
       {final List<Ticket> tickets = const [],
+      this.gameId = null,
       final List<Ticket> lockedTickets = const [],
       this.ticketFetchState = FetchState.initial,
       this.ticketPurchaseStatus = FormSubmissionStatus.initial,
@@ -1354,6 +1990,9 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
     return EqualUnmodifiableListView(_tickets);
   }
 
+  @override
+  @JsonKey()
+  final int? gameId;
   final List<Ticket> _lockedTickets;
   @override
   @JsonKey()
@@ -1381,7 +2020,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameState(tickets: $tickets, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage)';
+    return 'GameState(tickets: $tickets, gameId: $gameId, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1390,6 +2029,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
     properties
       ..add(DiagnosticsProperty('type', 'GameState'))
       ..add(DiagnosticsProperty('tickets', tickets))
+      ..add(DiagnosticsProperty('gameId', gameId))
       ..add(DiagnosticsProperty('lockedTickets', lockedTickets))
       ..add(DiagnosticsProperty('ticketFetchState', ticketFetchState))
       ..add(DiagnosticsProperty('ticketPurchaseStatus', ticketPurchaseStatus))
@@ -1404,6 +2044,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
         (other.runtimeType == runtimeType &&
             other is _$GameStateImpl &&
             const DeepCollectionEquality().equals(other._tickets, _tickets) &&
+            (identical(other.gameId, gameId) || other.gameId == gameId) &&
             const DeepCollectionEquality()
                 .equals(other._lockedTickets, _lockedTickets) &&
             (identical(other.ticketFetchState, ticketFetchState) ||
@@ -1422,6 +2063,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_tickets),
+      gameId,
       const DeepCollectionEquality().hash(_lockedTickets),
       ticketFetchState,
       ticketPurchaseStatus,
@@ -1441,6 +2083,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
 abstract class _GameState implements GameState {
   const factory _GameState(
       {final List<Ticket> tickets,
+      final int? gameId,
       final List<Ticket> lockedTickets,
       final FetchState ticketFetchState,
       final FormSubmissionStatus ticketPurchaseStatus,
@@ -1450,6 +2093,8 @@ abstract class _GameState implements GameState {
 
   @override
   List<Ticket> get tickets;
+  @override
+  int? get gameId;
   @override
   List<Ticket> get lockedTickets;
   @override

@@ -53,6 +53,7 @@ AppException handleServerException(
     try {
       return ValidationException.fromJson(response?.data);
     } catch (e) {
+      //TODO REMOVE THIS DEBUGGER FROM HERE IN PROD
       debugger();
     }
   }

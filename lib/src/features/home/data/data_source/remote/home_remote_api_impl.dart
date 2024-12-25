@@ -13,10 +13,8 @@ import 'package:mobile_app/src/shared/models/paginated_response/paginated_respon
 
 class HomeRemoteApiImpl extends AbstractHomeRemoteApi {
   final Dio publicApi;
-  final Dio privateApi;
 
   HomeRemoteApiImpl({
-    required this.privateApi,
     required this.publicApi,
   });
   @override

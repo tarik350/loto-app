@@ -8,8 +8,9 @@ import 'package:mobile_app/src/core/router/app_route.gr.dart';
 import 'package:mobile_app/src/core/utils/helper/fetch_state.dart';
 import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/core/widgets/tab_scale_animation_wrapper.dart';
-import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/features/auth/login/data/data_source/local/abstract_local_login_api.dart';
+import 'package:mobile_app/src/features/game/domain/model/ticket/ticket_status.dart';
+import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/shared/widgets/game_ticket_card.dart';
 import 'package:mobile_app/src/shared/widgets/slide_in_toast.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -61,6 +62,8 @@ class GameTicketsGrid extends StatelessWidget {
                                   ),
                                   message: state.errorMessage ??
                                       "Error while trying to aquire a lock");
+                              context.read<GameBloc>().add(
+                                  const GameEvent.fetchAllLockedUserTickets());
                             }
                             if (status == FormSubmissionStatus.success) {
                               ToastManager.show(
@@ -72,6 +75,9 @@ class GameTicketsGrid extends StatelessWidget {
                                   ),
                                   message:
                                       "Lock successfully aquired on ticket ${state.ticketLockState.ticket?.ticketNumber}");
+                              context
+                                  .read<GameBloc>()
+                                  .add(const GameEvent.fetchTickets());
                             }
                           },
                           child: PageView.builder(
@@ -103,14 +109,34 @@ class GameTicketsGrid extends StatelessWidget {
                                             ticket == ticketLockState.ticket,
                                         ticketStatus: ticket.status,
                                         ticket: ticket,
-                                        callback: () {
+                                        foregroundColor:
+                                            ticket.status == TicketStatus.free
+                                                ? Colors.black
+                                                : Colors.white,
+                                        backgroundColor:
+                                            ticket.status == TicketStatus.free
+                                                ? AppColors.availableColor
+                                                : ticket.status ==
+                                                        TicketStatus.locked
+                                                    ? AppColors.lockedColor
+                                                    : AppColors.reservedColor,
+                                        callback: () async {
                                           if (sl<AbstractLocalLoginApi>()
                                               .isUserAuthenticated()) {
                                             context.read<GameBloc>().add(
                                                 GameEvent.lockTicket(ticket));
                                           } else {
-                                            context.router
+                                            final authResult = await context
+                                                .router
                                                 .push(const AuthRouteWrapper());
+                                            if (authResult != null &&
+                                                context.mounted) {
+                                              context.read<GameBloc>().add(
+                                                  GameEvent.lockTicket(ticket));
+                                              context.read<GameBloc>().add(
+                                                  const GameEvent
+                                                      .fetchAllLockedUserTickets());
+                                            }
                                           }
                                         },
                                       );

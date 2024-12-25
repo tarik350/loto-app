@@ -7,8 +7,9 @@ import 'package:mobile_app/src/features/game/domain/repository/abstract_game_rep
 import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 
 initGameInjections() {
-  sl.registerSingleton<AbstractRemoteGameApi>(
-      RemoteGameApiImpl(dio: sl<DioFactory>().getInstance()));
+  sl.registerSingleton<AbstractRemoteGameApi>(RemoteGameApiImpl(
+    dio: sl<DioFactory>().getInstance(),
+  ));
   sl.registerSingleton<AbstractGameRepo>(
       GameRepoImpl(gameApi: sl<AbstractRemoteGameApi>()));
   sl.registerSingleton<GameBloc>(GameBloc(gameRepo: sl<AbstractGameRepo>()));

@@ -10,6 +10,7 @@ import 'package:mobile_app/src/core/widgets/custom_text_field.dart';
 import 'package:mobile_app/src/core/widgets/game_button1.dart';
 import 'package:mobile_app/src/features/auth/login/presentation/bloc/login_bloc.dart';
 import 'package:mobile_app/src/features/auth/login/presentation/utils/login_validator.dart';
+import 'package:mobile_app/src/shared/widgets/slide_in_toast.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -76,25 +77,27 @@ class LoginPage extends StatelessWidget {
                 listener: (context, state) {
                   if (state.formSubmissionStatus ==
                       FormSubmissionStatus.success) {
-                    Fluttertoast.showToast(
-                        msg: "login successfully as ${state.user?.fullName}",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.green,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
+                    ToastManager.show(
+                        icon: Icon(
+                          Icons.check_circle,
+                          color: AppColors.strongGreen,
+                          size: AppDimensions.iconM,
+                        ),
+                        context: context,
+                        message: "Login successfully");
+                    Navigator.pop(context, true);
                   }
                   if (state.formSubmissionStatus ==
                       FormSubmissionStatus.failure) {
-                    Fluttertoast.showToast(
-                        msg: "error logging in ${state.errorMessage}",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.red,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
+                    ToastManager.show(
+                        context: context,
+                        icon: Icon(
+                          Icons.error,
+                          color: AppColors.strongRed,
+                          size: AppDimensions.iconM,
+                        ),
+                        message: state.errorMessage ??
+                            "Unknown error occurred while trying to login please try again");
                   }
                 },
                 builder: (context, state) {

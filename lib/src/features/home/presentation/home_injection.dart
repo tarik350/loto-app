@@ -7,9 +7,8 @@ import 'package:mobile_app/src/features/home/domain/repositories/abstract_home_r
 import 'package:mobile_app/src/features/home/presentation/bloc/home_bloc.dart';
 
 initHomeInjection() async {
-  sl.registerSingleton<AbstractHomeRemoteApi>(HomeRemoteApiImpl(
-      privateApi: sl<DioFactory>().getInstance(true),
-      publicApi: sl<DioFactory>().getInstance()));
+  sl.registerSingleton<AbstractHomeRemoteApi>(
+      HomeRemoteApiImpl(publicApi: sl<DioFactory>().getInstance()));
   sl.registerSingleton<AbstractHomeRepository>(HomeRepoImpl(sl()));
   sl.registerSingleton<HomeBloc>(HomeBloc(sl<AbstractHomeRepository>()));
 }

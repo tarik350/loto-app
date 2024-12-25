@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/core/constants/app_images.dart';
 import 'package:mobile_app/src/core/router/app_route.gr.dart';
 import 'package:mobile_app/src/core/widgets/game_button1.dart';
+import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
 
 class GameCard extends StatelessWidget {
@@ -169,6 +171,9 @@ class GameCard extends StatelessWidget {
                                 shadowColor: AppColors.darkBlueShade,
                                 title: 'Play Now',
                                 onPressed: () {
+                                  context
+                                      .read<GameBloc>()
+                                      .add(GameEvent.updateGameId(gameId));
                                   context.router.push(GameRoute(
                                       category: category!, gameId: gameId));
                                 })

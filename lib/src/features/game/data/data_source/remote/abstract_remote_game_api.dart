@@ -12,4 +12,9 @@ abstract class AbstractRemoteGameApi {
 
   Future<Either<AppException, ApiResponse<Ticket>>> releaseLockForTicket(
       Ticket ticket);
+
+  //get random ticket
+  Future<Either<AppException, ApiResponse<Ticket>>> getRandomTicketForGame();
+  //fetch all locked tickets for user
+  Future<Either<AppException, ApiResponse<List<Ticket>>>> getAllLockedTicket();
 }

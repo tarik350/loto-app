@@ -11,6 +11,10 @@
 import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
 import 'package:mobile_app/app.dart' as _i1;
+import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/help_center/presentation/page/help_center_page.dart'
+    as _i5;
+import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/pages/auth_page_wrapper.dart'
+    as _i2;
 import 'package:mobile_app/src/features/edit_profile/presentation/pages/edit_profile_page.dart'
     as _i3;
 import 'package:mobile_app/src/features/game/presentation/page/game_page.dart'
@@ -23,10 +27,6 @@ import 'package:mobile_app/src/features/my_tickets/presentation/page/my_ticket_p
     as _i7;
 import 'package:mobile_app/src/features/my_wallet/presentation/page/my_wallet_page.dart'
     as _i8;
-import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/help_center/presentation/page/help_center_page.dart'
-    as _i5;
-import 'package:mobile_app/src/features/auth/auth_page_wrapper/presentation/pages/auth_page_wrapper.dart'
-    as _i2;
 
 /// generated route for
 /// [_i1.AppScreen]

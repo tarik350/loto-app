@@ -29,4 +29,18 @@ class GameRepoImpl extends AbstractGameRepo {
     return response.fold((exception) => mapExceptionToFailure(exception),
         (res) => right(res.data as Ticket));
   }
+
+  @override
+  Future<Either<AppFailure, List<Ticket>>> getAllLockedTicket() async {
+    final response = await _gameApi.getAllLockedTicket();
+    return response.fold((exception) => mapExceptionToFailure(exception),
+        (tickets) => right(tickets.data as List<Ticket>));
+  }
+
+  @override
+  Future<Either<AppFailure, Ticket>> getRandomTicketForGame() async {
+    final response = await _gameApi.getRandomTicketForGame();
+    return response.fold((exception) => mapExceptionToFailure(exception),
+        (ticket) => right(ticket.data as Ticket));
+  }
 }

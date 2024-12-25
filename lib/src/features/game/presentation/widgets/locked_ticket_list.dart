@@ -69,83 +69,88 @@ class LockedTicketList extends StatelessWidget {
           }
 
           if (lockedTickets.isNotEmpty) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(lockedTickets.length, (index) {
-                final ticket = lockedTickets[index];
-                return Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: AppDimensions.spacingXS),
-                  child: GameTicketCard(
-                    ticket: ticket,
-                    callback: () {
-                      DialogManager.showCustomDialog(
-                          context,
-                          CustomDialog(
-                            title: "Release Lock for Ticket",
-                            actions: [
-                              Expanded(
-                                child: GameButton1(
-                                  width: double.maxFinite,
-                                  height: AppDimensions.buttonL,
-                                  bgGradientTopColor: AppColors.lightSkyBlue,
-                                  bgGradientBottomColor:
-                                      AppColors.darkBlueShade,
-                                  borderGradientTopColor:
-                                      AppColors.lightSkyBlue.withAlpha(10),
-                                  borderGradientBottomColor:
-                                      AppColors.lightSkyBlue,
-                                  shadowColor: AppColors.darkBlueShade,
-                                  title: 'Release',
-                                  isLoading: status ==
-                                          FormSubmissionStatus.inProgress &&
-                                      ticket ==
-                                          sl<GameBloc>()
-                                              .state
-                                              .ticketUnlockState
-                                              .ticket,
-                                  onPressed: () {
-                                    context
-                                        .read<GameBloc>()
-                                        .add(GameEvent.unlockTicket(ticket));
-                                  },
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(lockedTickets.length, (index) {
+                  final ticket = lockedTickets[index];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppDimensions.spacingXS),
+                    child: GameTicketCard(
+                      backgroundColor: AppColors.lockedColor,
+                      foregroundColor: Colors.white,
+                      ticket: ticket,
+                      callback: () {
+                        DialogManager.showCustomDialog(
+                            context,
+                            CustomDialog(
+                              title: "Release Lock for Ticket",
+                              actions: [
+                                Expanded(
+                                  child: GameButton1(
+                                    width: double.maxFinite,
+                                    height: AppDimensions.buttonL,
+                                    bgGradientTopColor: AppColors.lightSkyBlue,
+                                    bgGradientBottomColor:
+                                        AppColors.darkBlueShade,
+                                    borderGradientTopColor:
+                                        AppColors.lightSkyBlue.withAlpha(10),
+                                    borderGradientBottomColor:
+                                        AppColors.lightSkyBlue,
+                                    shadowColor: AppColors.darkBlueShade,
+                                    title: 'Release',
+                                    isLoading: status ==
+                                            FormSubmissionStatus.inProgress &&
+                                        ticket ==
+                                            sl<GameBloc>()
+                                                .state
+                                                .ticketUnlockState
+                                                .ticket,
+                                    onPressed: () {
+                                      context
+                                          .read<GameBloc>()
+                                          .add(GameEvent.unlockTicket(ticket));
+                                    },
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: AppDimensions.spacingM,
-                              ),
-                              Expanded(
-                                child: GameButton1(
-                                  width: double.maxFinite,
-                                  height: AppDimensions.buttonL,
-                                  bgGradientTopColor: AppColors.lightPink,
-                                  bgGradientBottomColor: AppColors.darkPink,
-                                  borderGradientTopColor:
-                                      AppColors.lightPink.withAlpha(100),
-                                  borderGradientBottomColor:
-                                      AppColors.darkCrimson.withOpacity(.5),
-                                  shadowColor: AppColors.darkCrimson,
-                                  title: 'cancel',
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
+                                SizedBox(
+                                  width: AppDimensions.spacingM,
                                 ),
-                              )
-                            ],
-                            child: Text(
-                              "Are you sure you want to relase lock for ticket number ${ticket.ticketNumber}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.grey.shade700,
-                                  fontSize: AppDimensions.fontM,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ));
-                    },
-                    ticketStatus: ticket.status,
-                  ),
-                );
-              }),
+                                Expanded(
+                                  child: GameButton1(
+                                    width: double.maxFinite,
+                                    height: AppDimensions.buttonL,
+                                    bgGradientTopColor: AppColors.lightPink,
+                                    bgGradientBottomColor: AppColors.darkPink,
+                                    borderGradientTopColor:
+                                        AppColors.lightPink.withAlpha(100),
+                                    borderGradientBottomColor:
+                                        AppColors.darkCrimson.withOpacity(.5),
+                                    shadowColor: AppColors.darkCrimson,
+                                    title: 'cancel',
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                )
+                              ],
+                              child: Text(
+                                "Are you sure you want to relase lock for ticket number ${ticket.ticketNumber}",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.grey.shade700,
+                                    fontSize: AppDimensions.fontM,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ));
+                      },
+                      ticketStatus: ticket.status,
+                    ),
+                  );
+                }),
+              ),
             );
           }
           return Center(
