@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
 import 'package:mobile_app/src/features/game/domain/model/ticket/ticket.dart';
 import 'package:mobile_app/src/features/game/domain/model/ticket/ticket_status.dart';

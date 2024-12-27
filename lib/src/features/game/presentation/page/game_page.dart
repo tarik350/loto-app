@@ -4,7 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/src/core/constants/app_%20colors.dart';
 import 'package:mobile_app/src/core/constants/app_dimensions.dart';
+import 'package:mobile_app/src/core/router/app_route.gr.dart';
+import 'package:mobile_app/src/core/utils/helper/fetch_state.dart';
+import 'package:mobile_app/src/core/utils/injections.dart';
 import 'package:mobile_app/src/core/widgets/game_button1.dart';
+import 'package:mobile_app/src/features/auth/login/data/data_source/local/abstract_local_login_api.dart';
 import 'package:mobile_app/src/features/game/presentation/bloc/game_bloc.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/expandable_search.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/filter_dropdown.dart';
@@ -13,6 +17,7 @@ import 'package:mobile_app/src/features/game/presentation/widgets/game_tickets_g
 import 'package:mobile_app/src/features/game/presentation/widgets/locked_ticket_list.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/ticket_status_indicator.dart';
 import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
+import 'package:mobile_app/src/shared/widgets/slide_in_toast.dart';
 
 @RoutePage()
 class GameScreen extends StatelessWidget {
@@ -22,7 +27,7 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<GameBloc>().add(const GameEvent.resetState());
+    // context.read<GameBloc>().add(const GameEvent.resetState());
     context.read<GameBloc>().add(const GameEvent.fetchTickets());
 
     return Scaffold(
@@ -65,18 +70,78 @@ class GameScreen extends StatelessWidget {
                       children: [
                         SizedBox(
                           height: 32.h,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: AppDimensions.paddingM),
-                                foregroundColor: AppColors.secondaryColor,
-                                textStyle: const TextStyle(
-                                    fontWeight: FontWeight.w600),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(100)),
-                              ),
-                              onPressed: () {},
-                              child: const Text('ቁጥር ገምት')),
+                          child: BlocConsumer<GameBloc, GameState>(
+                            listenWhen: (previous, current) =>
+                                previous.randomTicketLockState !=
+                                current.randomTicketLockState,
+                            listener: (context, state) {
+                              if (state.randomTicketLockState
+                                      .formSubmissionStatus ==
+                                  FormSubmissionStatus.failure) {}
+                              ToastManager.show(
+                                  context: context,
+                                  icon: Icon(
+                                    Icons.error,
+                                    color: AppColors.strongRed,
+                                    size: AppDimensions.iconM,
+                                  ),
+                                  message: state.errorMessage ??
+                                      "Error while trying to aquire a lock");
+                              if (state.randomTicketLockState
+                                      .formSubmissionStatus ==
+                                  FormSubmissionStatus.success) {
+                                ToastManager.show(
+                                    context: context,
+                                    icon: Icon(
+                                      Icons.check_circle,
+                                      color: AppColors.strongGreen,
+                                      size: AppDimensions.iconM,
+                                    ),
+                                    message:
+                                        "Lock successfully aquired on ticket ${state.randomTicketLockState.ticket?.ticketNumber}");
+                                context
+                                    .read<GameBloc>()
+                                    .add(const GameEvent.fetchTickets());
+                              }
+                            },
+                            buildWhen: (previous, current) =>
+                                previous.randomTicketLockState !=
+                                current.randomTicketLockState,
+                            builder: (context, state) {
+                              return ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: AppDimensions.paddingM),
+                                    foregroundColor: AppColors.secondaryColor,
+                                    textStyle: const TextStyle(
+                                        fontWeight: FontWeight.w600),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100)),
+                                  ),
+                                  onPressed: () async {
+                                    if (sl<AbstractLocalLoginApi>()
+                                        .isUserAuthenticated()) {
+                                      context.read<GameBloc>().add(
+                                          const GameEvent.selectRandomTicket());
+                                    } else {
+                                      final authResult = await context.router
+                                          .push(const AuthRouteWrapper());
+                                      if (authResult != null &&
+                                          context.mounted) {
+                                        context.read<GameBloc>().add(
+                                            const GameEvent
+                                                .selectRandomTicket());
+                                      }
+                                    }
+                                  },
+                                  child: Text(state.randomTicketLockState
+                                              .formSubmissionStatus ==
+                                          FormSubmissionStatus.inProgress
+                                      ? 'loading'
+                                      : 'Random'));
+                            },
+                          ),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,8 +196,6 @@ class GameScreen extends StatelessWidget {
                               )
                             ],
                           ),
-                          // const ShadeButton()
-                          // const ShadeButton2()
                           GameButton1(
                             width: 120.w,
                             bgGradientTopColor: AppColors.lightSkyBlue,
@@ -151,75 +214,6 @@ class GameScreen extends StatelessWidget {
                               //OTHER WISE SHOW A DIALOG FOR USER TO ENTER THIER PASSWORD
 
                               //ON PASSSWORD OR BIOMETRIC SUCCESS MAKE A REQUEST TO INITIATE TICKET PURCHASE
-
-                              // ToastManager.show(
-                              //     context: context,
-                              //     icon: Icon(
-                              //       Icons.check_circle,
-                              //       color: Colors.green,
-                              //       size: AppDimensions.iconS,
-                              //     ),
-                              //     message:
-                              //         "This is a very long message for the toast to observe its behavior. this is even more logner text to really toast to see how it really look on a very large text");
-                              // DialogManager.showCustomDialog(
-                              //     context,
-                              //     CustomDialog(
-                              //       title: "Release Lock for Ticket",
-                              //       actions: [
-                              //         Expanded(
-                              //           child: GameButton1(
-                              //             width: double.maxFinite,
-                              //             height: AppDimensions.buttonL,
-                              //             bgGradientTopColor:
-                              //                 AppColors.lightSkyBlue,
-                              //             bgGradientBottomColor:
-                              //                 AppColors.darkBlueShade,
-                              //             borderGradientTopColor: AppColors
-                              //                 .lightSkyBlue
-                              //                 .withAlpha(10),
-                              //             borderGradientBottomColor:
-                              //                 AppColors.lightSkyBlue,
-                              //             shadowColor: AppColors.darkBlueShade,
-                              //             title: 'Release',
-                              //             onPressed: () {
-                              //               //todo make a request to release lock for a given ticket number
-                              //             },
-                              //           ),
-                              //         ),
-                              //         SizedBox(
-                              //           width: AppDimensions.spacingM,
-                              //         ),
-                              //         Expanded(
-                              //           child: GameButton1(
-                              //             width: double.maxFinite,
-                              //             height: AppDimensions.buttonL,
-                              //             bgGradientTopColor:
-                              //                 AppColors.lightPink,
-                              //             bgGradientBottomColor:
-                              //                 AppColors.darkPink,
-                              //             borderGradientTopColor: AppColors
-                              //                 .lightPink
-                              //                 .withAlpha(100),
-                              //             borderGradientBottomColor: AppColors
-                              //                 .darkCrimson
-                              //                 .withOpacity(.5),
-                              //             shadowColor: AppColors.darkCrimson,
-                              //             title: 'cancel',
-                              //             onPressed: () {
-                              //               Navigator.pop(context);
-                              //             },
-                              //           ),
-                              //         )
-                              //       ],
-                              //       child: Text(
-                              //         "Are you sure you want to relase lock for ticket number 12?",
-                              //         textAlign: TextAlign.center,
-                              //         style: TextStyle(
-                              //             color: Colors.grey.shade700,
-                              //             fontSize: AppDimensions.fontM,
-                              //             fontWeight: FontWeight.w600),
-                              //       ),
-                              //     ));
                             },
                           )
                         ],

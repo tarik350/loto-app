@@ -10,7 +10,9 @@ class GameEvent with _$GameEvent {
   const factory GameEvent.searchTicket(int ticketNumber) = SearchTicketEvent;
   const factory GameEvent.fetchAllLockedUserTickets() =
       FetchAllLockedUserTickets;
-  const factory GameEvent.filterTicket(
-      {required TicketFilterTypeEnum filterType}) = FilterTicketEvent;
+  const factory GameEvent.filterTicket() = FilterTicketEvent;
+
+  const factory GameEvent.updateSelectedFilterType(
+      {required TicketFilterType filterType}) = UpdateSelectedTicketFilterType;
   const factory GameEvent.selectRandomTicket() = SelectRandomTicket;
 }

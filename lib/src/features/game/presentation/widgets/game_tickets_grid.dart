@@ -27,9 +27,13 @@ class GameTicketsGrid extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: BlocSelector<GameBloc, GameState, FetchState>(
-            selector: (state) => state.ticketFetchState,
-            builder: (context, fetchState) {
+          child: BlocBuilder<GameBloc, GameState>(
+            buildWhen: (previous, current) =>
+                previous.ticketFetchState != current.ticketFetchState ||
+                previous.tickets != current.tickets,
+            builder: (context, state) {
+              final fetchState = state.ticketFetchState;
+
               switch (fetchState) {
                 case FetchState.loaded:
                   final tickets = sl<GameBloc>().state.tickets;
@@ -62,6 +66,8 @@ class GameTicketsGrid extends StatelessWidget {
                                   ),
                                   message: state.errorMessage ??
                                       "Error while trying to aquire a lock");
+
+                              //if error locking ticket fetch previously locked tickets if any
                               context.read<GameBloc>().add(
                                   const GameEvent.fetchAllLockedUserTickets());
                             }
@@ -133,9 +139,9 @@ class GameTicketsGrid extends StatelessWidget {
                                                 context.mounted) {
                                               context.read<GameBloc>().add(
                                                   GameEvent.lockTicket(ticket));
-                                              context.read<GameBloc>().add(
-                                                  const GameEvent
-                                                      .fetchAllLockedUserTickets());
+                                              // context.read<GameBloc>().add(
+                                              //     const GameEvent
+                                              //         .fetchAllLockedUserTickets());
                                             }
                                           }
                                         },

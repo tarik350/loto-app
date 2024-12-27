@@ -25,7 +25,9 @@ mixin _$GameEvent {
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,7 +40,8 @@ mixin _$GameEvent {
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) =>
       throw _privateConstructorUsedError;
@@ -51,7 +54,8 @@ mixin _$GameEvent {
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) =>
@@ -67,6 +71,8 @@ mixin _$GameEvent {
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) =>
       throw _privateConstructorUsedError;
@@ -81,6 +87,8 @@ mixin _$GameEvent {
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) =>
       throw _privateConstructorUsedError;
@@ -95,6 +103,8 @@ mixin _$GameEvent {
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) =>
@@ -177,7 +187,9 @@ class _$FetchGameTicketsImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return fetchTickets();
@@ -193,7 +205,8 @@ class _$FetchGameTicketsImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return fetchTickets?.call();
@@ -209,7 +222,8 @@ class _$FetchGameTicketsImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -231,6 +245,8 @@ class _$FetchGameTicketsImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return fetchTickets(this);
@@ -248,6 +264,8 @@ class _$FetchGameTicketsImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return fetchTickets?.call(this);
@@ -265,6 +283,8 @@ class _$FetchGameTicketsImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -362,7 +382,9 @@ class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return updateGameId(gameId);
@@ -378,7 +400,8 @@ class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return updateGameId?.call(gameId);
@@ -394,7 +417,8 @@ class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -416,6 +440,8 @@ class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return updateGameId(this);
@@ -433,6 +459,8 @@ class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return updateGameId?.call(this);
@@ -450,6 +478,8 @@ class _$UpdateGameIdImpl with DiagnosticableTreeMixin implements UpdateGameId {
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -528,7 +558,9 @@ class _$ResetGameStateImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return resetState();
@@ -544,7 +576,8 @@ class _$ResetGameStateImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return resetState?.call();
@@ -560,7 +593,8 @@ class _$ResetGameStateImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -582,6 +616,8 @@ class _$ResetGameStateImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return resetState(this);
@@ -599,6 +635,8 @@ class _$ResetGameStateImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return resetState?.call(this);
@@ -616,6 +654,8 @@ class _$ResetGameStateImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -728,7 +768,9 @@ class _$LockTicketEventImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return lockTicket(ticket);
@@ -744,7 +786,8 @@ class _$LockTicketEventImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return lockTicket?.call(ticket);
@@ -760,7 +803,8 @@ class _$LockTicketEventImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -782,6 +826,8 @@ class _$LockTicketEventImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return lockTicket(this);
@@ -799,6 +845,8 @@ class _$LockTicketEventImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return lockTicket?.call(this);
@@ -816,6 +864,8 @@ class _$LockTicketEventImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -936,7 +986,9 @@ class _$UnlockTicketEventImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return unlockTicket(ticket);
@@ -952,7 +1004,8 @@ class _$UnlockTicketEventImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return unlockTicket?.call(ticket);
@@ -968,7 +1021,8 @@ class _$UnlockTicketEventImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -990,6 +1044,8 @@ class _$UnlockTicketEventImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return unlockTicket(this);
@@ -1007,6 +1063,8 @@ class _$UnlockTicketEventImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return unlockTicket?.call(this);
@@ -1024,6 +1082,8 @@ class _$UnlockTicketEventImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1134,7 +1194,9 @@ class _$SearchTicketEventImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return searchTicket(ticketNumber);
@@ -1150,7 +1212,8 @@ class _$SearchTicketEventImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return searchTicket?.call(ticketNumber);
@@ -1166,7 +1229,8 @@ class _$SearchTicketEventImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1188,6 +1252,8 @@ class _$SearchTicketEventImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return searchTicket(this);
@@ -1205,6 +1271,8 @@ class _$SearchTicketEventImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return searchTicket?.call(this);
@@ -1222,6 +1290,8 @@ class _$SearchTicketEventImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1305,7 +1375,9 @@ class _$FetchAllLockedUserTicketsImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return fetchAllLockedUserTickets();
@@ -1321,7 +1393,8 @@ class _$FetchAllLockedUserTicketsImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return fetchAllLockedUserTickets?.call();
@@ -1337,7 +1410,8 @@ class _$FetchAllLockedUserTicketsImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1359,6 +1433,8 @@ class _$FetchAllLockedUserTicketsImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return fetchAllLockedUserTickets(this);
@@ -1376,6 +1452,8 @@ class _$FetchAllLockedUserTicketsImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return fetchAllLockedUserTickets?.call(this);
@@ -1393,6 +1471,8 @@ class _$FetchAllLockedUserTicketsImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1412,8 +1492,6 @@ abstract class _$$FilterTicketEventImplCopyWith<$Res> {
   factory _$$FilterTicketEventImplCopyWith(_$FilterTicketEventImpl value,
           $Res Function(_$FilterTicketEventImpl) then) =
       __$$FilterTicketEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({TicketFilterTypeEnum filterType});
 }
 
 /// @nodoc
@@ -1426,18 +1504,6 @@ class __$$FilterTicketEventImplCopyWithImpl<$Res>
 
   /// Create a copy of GameEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? filterType = null,
-  }) {
-    return _then(_$FilterTicketEventImpl(
-      filterType: null == filterType
-          ? _value.filterType
-          : filterType // ignore: cast_nullable_to_non_nullable
-              as TicketFilterTypeEnum,
-    ));
-  }
 }
 
 /// @nodoc
@@ -1445,44 +1511,27 @@ class __$$FilterTicketEventImplCopyWithImpl<$Res>
 class _$FilterTicketEventImpl
     with DiagnosticableTreeMixin
     implements FilterTicketEvent {
-  const _$FilterTicketEventImpl({required this.filterType});
-
-  @override
-  final TicketFilterTypeEnum filterType;
+  const _$FilterTicketEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameEvent.filterTicket(filterType: $filterType)';
+    return 'GameEvent.filterTicket()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GameEvent.filterTicket'))
-      ..add(DiagnosticsProperty('filterType', filterType));
+    properties.add(DiagnosticsProperty('type', 'GameEvent.filterTicket'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FilterTicketEventImpl &&
-            (identical(other.filterType, filterType) ||
-                other.filterType == filterType));
+        (other.runtimeType == runtimeType && other is _$FilterTicketEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, filterType);
-
-  /// Create a copy of GameEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FilterTicketEventImplCopyWith<_$FilterTicketEventImpl> get copyWith =>
-      __$$FilterTicketEventImplCopyWithImpl<_$FilterTicketEventImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -1494,10 +1543,12 @@ class _$FilterTicketEventImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
-    return filterTicket(filterType);
+    return filterTicket();
   }
 
   @override
@@ -1510,10 +1561,11 @@ class _$FilterTicketEventImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
-    return filterTicket?.call(filterType);
+    return filterTicket?.call();
   }
 
   @override
@@ -1526,12 +1578,13 @@ class _$FilterTicketEventImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
     if (filterTicket != null) {
-      return filterTicket(filterType);
+      return filterTicket();
     }
     return orElse();
   }
@@ -1548,6 +1601,8 @@ class _$FilterTicketEventImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return filterTicket(this);
@@ -1565,6 +1620,8 @@ class _$FilterTicketEventImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return filterTicket?.call(this);
@@ -1582,6 +1639,8 @@ class _$FilterTicketEventImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1593,17 +1652,220 @@ class _$FilterTicketEventImpl
 }
 
 abstract class FilterTicketEvent implements GameEvent {
-  const factory FilterTicketEvent(
-          {required final TicketFilterTypeEnum filterType}) =
-      _$FilterTicketEventImpl;
+  const factory FilterTicketEvent() = _$FilterTicketEventImpl;
+}
 
-  TicketFilterTypeEnum get filterType;
+/// @nodoc
+abstract class _$$UpdateSelectedTicketFilterTypeImplCopyWith<$Res> {
+  factory _$$UpdateSelectedTicketFilterTypeImplCopyWith(
+          _$UpdateSelectedTicketFilterTypeImpl value,
+          $Res Function(_$UpdateSelectedTicketFilterTypeImpl) then) =
+      __$$UpdateSelectedTicketFilterTypeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TicketFilterType filterType});
+}
+
+/// @nodoc
+class __$$UpdateSelectedTicketFilterTypeImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$UpdateSelectedTicketFilterTypeImpl>
+    implements _$$UpdateSelectedTicketFilterTypeImplCopyWith<$Res> {
+  __$$UpdateSelectedTicketFilterTypeImplCopyWithImpl(
+      _$UpdateSelectedTicketFilterTypeImpl _value,
+      $Res Function(_$UpdateSelectedTicketFilterTypeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filterType = null,
+  }) {
+    return _then(_$UpdateSelectedTicketFilterTypeImpl(
+      filterType: null == filterType
+          ? _value.filterType
+          : filterType // ignore: cast_nullable_to_non_nullable
+              as TicketFilterType,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSelectedTicketFilterTypeImpl
+    with DiagnosticableTreeMixin
+    implements UpdateSelectedTicketFilterType {
+  const _$UpdateSelectedTicketFilterTypeImpl({required this.filterType});
+
+  @override
+  final TicketFilterType filterType;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'GameEvent.updateSelectedFilterType(filterType: $filterType)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'GameEvent.updateSelectedFilterType'))
+      ..add(DiagnosticsProperty('filterType', filterType));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSelectedTicketFilterTypeImpl &&
+            (identical(other.filterType, filterType) ||
+                other.filterType == filterType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, filterType);
 
   /// Create a copy of GameEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FilterTicketEventImplCopyWith<_$FilterTicketEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSelectedTicketFilterTypeImplCopyWith<
+          _$UpdateSelectedTicketFilterTypeImpl>
+      get copyWith => __$$UpdateSelectedTicketFilterTypeImplCopyWithImpl<
+          _$UpdateSelectedTicketFilterTypeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchTickets,
+    required TResult Function(int gameId) updateGameId,
+    required TResult Function() resetState,
+    required TResult Function(Ticket ticket) lockTicket,
+    required TResult Function(Ticket ticket) unlockTicket,
+    required TResult Function(int ticketNumber) searchTicket,
+    required TResult Function() fetchAllLockedUserTickets,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
+    required TResult Function() selectRandomTicket,
+  }) {
+    return updateSelectedFilterType(filterType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchTickets,
+    TResult? Function(int gameId)? updateGameId,
+    TResult? Function()? resetState,
+    TResult? Function(Ticket ticket)? lockTicket,
+    TResult? Function(Ticket ticket)? unlockTicket,
+    TResult? Function(int ticketNumber)? searchTicket,
+    TResult? Function()? fetchAllLockedUserTickets,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
+    TResult? Function()? selectRandomTicket,
+  }) {
+    return updateSelectedFilterType?.call(filterType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchTickets,
+    TResult Function(int gameId)? updateGameId,
+    TResult Function()? resetState,
+    TResult Function(Ticket ticket)? lockTicket,
+    TResult Function(Ticket ticket)? unlockTicket,
+    TResult Function(int ticketNumber)? searchTicket,
+    TResult Function()? fetchAllLockedUserTickets,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
+    TResult Function()? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedFilterType != null) {
+      return updateSelectedFilterType(filterType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchGameTickets value) fetchTickets,
+    required TResult Function(UpdateGameId value) updateGameId,
+    required TResult Function(ResetGameState value) resetState,
+    required TResult Function(LockTicketEvent value) lockTicket,
+    required TResult Function(UnlockTicketEvent value) unlockTicket,
+    required TResult Function(SearchTicketEvent value) searchTicket,
+    required TResult Function(FetchAllLockedUserTickets value)
+        fetchAllLockedUserTickets,
+    required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
+    required TResult Function(SelectRandomTicket value) selectRandomTicket,
+  }) {
+    return updateSelectedFilterType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchGameTickets value)? fetchTickets,
+    TResult? Function(UpdateGameId value)? updateGameId,
+    TResult? Function(ResetGameState value)? resetState,
+    TResult? Function(LockTicketEvent value)? lockTicket,
+    TResult? Function(UnlockTicketEvent value)? unlockTicket,
+    TResult? Function(SearchTicketEvent value)? searchTicket,
+    TResult? Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
+    TResult? Function(SelectRandomTicket value)? selectRandomTicket,
+  }) {
+    return updateSelectedFilterType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchGameTickets value)? fetchTickets,
+    TResult Function(UpdateGameId value)? updateGameId,
+    TResult Function(ResetGameState value)? resetState,
+    TResult Function(LockTicketEvent value)? lockTicket,
+    TResult Function(UnlockTicketEvent value)? unlockTicket,
+    TResult Function(SearchTicketEvent value)? searchTicket,
+    TResult Function(FetchAllLockedUserTickets value)?
+        fetchAllLockedUserTickets,
+    TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
+    TResult Function(SelectRandomTicket value)? selectRandomTicket,
+    required TResult orElse(),
+  }) {
+    if (updateSelectedFilterType != null) {
+      return updateSelectedFilterType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSelectedTicketFilterType implements GameEvent {
+  const factory UpdateSelectedTicketFilterType(
+          {required final TicketFilterType filterType}) =
+      _$UpdateSelectedTicketFilterTypeImpl;
+
+  TicketFilterType get filterType;
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSelectedTicketFilterTypeImplCopyWith<
+          _$UpdateSelectedTicketFilterTypeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1662,7 +1924,9 @@ class _$SelectRandomTicketImpl
     required TResult Function(Ticket ticket) unlockTicket,
     required TResult Function(int ticketNumber) searchTicket,
     required TResult Function() fetchAllLockedUserTickets,
-    required TResult Function(TicketFilterTypeEnum filterType) filterTicket,
+    required TResult Function() filterTicket,
+    required TResult Function(TicketFilterType filterType)
+        updateSelectedFilterType,
     required TResult Function() selectRandomTicket,
   }) {
     return selectRandomTicket();
@@ -1678,7 +1942,8 @@ class _$SelectRandomTicketImpl
     TResult? Function(Ticket ticket)? unlockTicket,
     TResult? Function(int ticketNumber)? searchTicket,
     TResult? Function()? fetchAllLockedUserTickets,
-    TResult? Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult? Function()? filterTicket,
+    TResult? Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult? Function()? selectRandomTicket,
   }) {
     return selectRandomTicket?.call();
@@ -1694,7 +1959,8 @@ class _$SelectRandomTicketImpl
     TResult Function(Ticket ticket)? unlockTicket,
     TResult Function(int ticketNumber)? searchTicket,
     TResult Function()? fetchAllLockedUserTickets,
-    TResult Function(TicketFilterTypeEnum filterType)? filterTicket,
+    TResult Function()? filterTicket,
+    TResult Function(TicketFilterType filterType)? updateSelectedFilterType,
     TResult Function()? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1716,6 +1982,8 @@ class _$SelectRandomTicketImpl
     required TResult Function(FetchAllLockedUserTickets value)
         fetchAllLockedUserTickets,
     required TResult Function(FilterTicketEvent value) filterTicket,
+    required TResult Function(UpdateSelectedTicketFilterType value)
+        updateSelectedFilterType,
     required TResult Function(SelectRandomTicket value) selectRandomTicket,
   }) {
     return selectRandomTicket(this);
@@ -1733,6 +2001,8 @@ class _$SelectRandomTicketImpl
     TResult? Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult? Function(FilterTicketEvent value)? filterTicket,
+    TResult? Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult? Function(SelectRandomTicket value)? selectRandomTicket,
   }) {
     return selectRandomTicket?.call(this);
@@ -1750,6 +2020,8 @@ class _$SelectRandomTicketImpl
     TResult Function(FetchAllLockedUserTickets value)?
         fetchAllLockedUserTickets,
     TResult Function(FilterTicketEvent value)? filterTicket,
+    TResult Function(UpdateSelectedTicketFilterType value)?
+        updateSelectedFilterType,
     TResult Function(SelectRandomTicket value)? selectRandomTicket,
     required TResult orElse(),
   }) {
@@ -1766,15 +2038,25 @@ abstract class SelectRandomTicket implements GameEvent {
 
 /// @nodoc
 mixin _$GameState {
+//for filter we need to have a copy of the tickets
+  int get quarterSize => throw _privateConstructorUsedError;
+  List<Ticket> get tempTickets => throw _privateConstructorUsedError;
   List<Ticket> get tickets => throw _privateConstructorUsedError;
   int? get gameId => throw _privateConstructorUsedError;
   List<Ticket> get lockedTickets => throw _privateConstructorUsedError;
   FetchState get ticketFetchState => throw _privateConstructorUsedError;
+  FetchState get lockedTicketFetchState => throw _privateConstructorUsedError;
   FormSubmissionStatus get ticketPurchaseStatus =>
       throw _privateConstructorUsedError;
   TicketLockState get ticketLockState => throw _privateConstructorUsedError;
   TicketUnlockState get ticketUnlockState => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  RandomTicketLockState get randomTicketLockState =>
+      throw _privateConstructorUsedError;
+  List<TicketFilterType> get ticketFilterType =>
+      throw _privateConstructorUsedError;
+  TicketFilterType? get selectedFilterType =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of GameState
   /// with the given fields replaced by the non-null parameter values.
@@ -1789,17 +2071,24 @@ abstract class $GameStateCopyWith<$Res> {
       _$GameStateCopyWithImpl<$Res, GameState>;
   @useResult
   $Res call(
-      {List<Ticket> tickets,
+      {int quarterSize,
+      List<Ticket> tempTickets,
+      List<Ticket> tickets,
       int? gameId,
       List<Ticket> lockedTickets,
       FetchState ticketFetchState,
+      FetchState lockedTicketFetchState,
       FormSubmissionStatus ticketPurchaseStatus,
       TicketLockState ticketLockState,
       TicketUnlockState ticketUnlockState,
-      String? errorMessage});
+      String? errorMessage,
+      RandomTicketLockState randomTicketLockState,
+      List<TicketFilterType> ticketFilterType,
+      TicketFilterType? selectedFilterType});
 
   $TicketLockStateCopyWith<$Res> get ticketLockState;
   $TicketUnlockStateCopyWith<$Res> get ticketUnlockState;
+  $RandomTicketLockStateCopyWith<$Res> get randomTicketLockState;
 }
 
 /// @nodoc
@@ -1817,16 +2106,30 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? quarterSize = null,
+    Object? tempTickets = null,
     Object? tickets = null,
     Object? gameId = freezed,
     Object? lockedTickets = null,
     Object? ticketFetchState = null,
+    Object? lockedTicketFetchState = null,
     Object? ticketPurchaseStatus = null,
     Object? ticketLockState = null,
     Object? ticketUnlockState = null,
     Object? errorMessage = freezed,
+    Object? randomTicketLockState = null,
+    Object? ticketFilterType = null,
+    Object? selectedFilterType = freezed,
   }) {
     return _then(_value.copyWith(
+      quarterSize: null == quarterSize
+          ? _value.quarterSize
+          : quarterSize // ignore: cast_nullable_to_non_nullable
+              as int,
+      tempTickets: null == tempTickets
+          ? _value.tempTickets
+          : tempTickets // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
       tickets: null == tickets
           ? _value.tickets
           : tickets // ignore: cast_nullable_to_non_nullable
@@ -1842,6 +2145,10 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
       ticketFetchState: null == ticketFetchState
           ? _value.ticketFetchState
           : ticketFetchState // ignore: cast_nullable_to_non_nullable
+              as FetchState,
+      lockedTicketFetchState: null == lockedTicketFetchState
+          ? _value.lockedTicketFetchState
+          : lockedTicketFetchState // ignore: cast_nullable_to_non_nullable
               as FetchState,
       ticketPurchaseStatus: null == ticketPurchaseStatus
           ? _value.ticketPurchaseStatus
@@ -1859,6 +2166,18 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      randomTicketLockState: null == randomTicketLockState
+          ? _value.randomTicketLockState
+          : randomTicketLockState // ignore: cast_nullable_to_non_nullable
+              as RandomTicketLockState,
+      ticketFilterType: null == ticketFilterType
+          ? _value.ticketFilterType
+          : ticketFilterType // ignore: cast_nullable_to_non_nullable
+              as List<TicketFilterType>,
+      selectedFilterType: freezed == selectedFilterType
+          ? _value.selectedFilterType
+          : selectedFilterType // ignore: cast_nullable_to_non_nullable
+              as TicketFilterType?,
     ) as $Val);
   }
 
@@ -1881,6 +2200,17 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
       return _then(_value.copyWith(ticketUnlockState: value) as $Val);
     });
   }
+
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $RandomTicketLockStateCopyWith<$Res> get randomTicketLockState {
+    return $RandomTicketLockStateCopyWith<$Res>(_value.randomTicketLockState,
+        (value) {
+      return _then(_value.copyWith(randomTicketLockState: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -1892,19 +2222,27 @@ abstract class _$$GameStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Ticket> tickets,
+      {int quarterSize,
+      List<Ticket> tempTickets,
+      List<Ticket> tickets,
       int? gameId,
       List<Ticket> lockedTickets,
       FetchState ticketFetchState,
+      FetchState lockedTicketFetchState,
       FormSubmissionStatus ticketPurchaseStatus,
       TicketLockState ticketLockState,
       TicketUnlockState ticketUnlockState,
-      String? errorMessage});
+      String? errorMessage,
+      RandomTicketLockState randomTicketLockState,
+      List<TicketFilterType> ticketFilterType,
+      TicketFilterType? selectedFilterType});
 
   @override
   $TicketLockStateCopyWith<$Res> get ticketLockState;
   @override
   $TicketUnlockStateCopyWith<$Res> get ticketUnlockState;
+  @override
+  $RandomTicketLockStateCopyWith<$Res> get randomTicketLockState;
 }
 
 /// @nodoc
@@ -1920,16 +2258,30 @@ class __$$GameStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? quarterSize = null,
+    Object? tempTickets = null,
     Object? tickets = null,
     Object? gameId = freezed,
     Object? lockedTickets = null,
     Object? ticketFetchState = null,
+    Object? lockedTicketFetchState = null,
     Object? ticketPurchaseStatus = null,
     Object? ticketLockState = null,
     Object? ticketUnlockState = null,
     Object? errorMessage = freezed,
+    Object? randomTicketLockState = null,
+    Object? ticketFilterType = null,
+    Object? selectedFilterType = freezed,
   }) {
     return _then(_$GameStateImpl(
+      quarterSize: null == quarterSize
+          ? _value.quarterSize
+          : quarterSize // ignore: cast_nullable_to_non_nullable
+              as int,
+      tempTickets: null == tempTickets
+          ? _value._tempTickets
+          : tempTickets // ignore: cast_nullable_to_non_nullable
+              as List<Ticket>,
       tickets: null == tickets
           ? _value._tickets
           : tickets // ignore: cast_nullable_to_non_nullable
@@ -1945,6 +2297,10 @@ class __$$GameStateImplCopyWithImpl<$Res>
       ticketFetchState: null == ticketFetchState
           ? _value.ticketFetchState
           : ticketFetchState // ignore: cast_nullable_to_non_nullable
+              as FetchState,
+      lockedTicketFetchState: null == lockedTicketFetchState
+          ? _value.lockedTicketFetchState
+          : lockedTicketFetchState // ignore: cast_nullable_to_non_nullable
               as FetchState,
       ticketPurchaseStatus: null == ticketPurchaseStatus
           ? _value.ticketPurchaseStatus
@@ -1962,6 +2318,18 @@ class __$$GameStateImplCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      randomTicketLockState: null == randomTicketLockState
+          ? _value.randomTicketLockState
+          : randomTicketLockState // ignore: cast_nullable_to_non_nullable
+              as RandomTicketLockState,
+      ticketFilterType: null == ticketFilterType
+          ? _value._ticketFilterType
+          : ticketFilterType // ignore: cast_nullable_to_non_nullable
+              as List<TicketFilterType>,
+      selectedFilterType: freezed == selectedFilterType
+          ? _value.selectedFilterType
+          : selectedFilterType // ignore: cast_nullable_to_non_nullable
+              as TicketFilterType?,
     ));
   }
 }
@@ -1970,16 +2338,37 @@ class __$$GameStateImplCopyWithImpl<$Res>
 
 class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   const _$GameStateImpl(
-      {final List<Ticket> tickets = const [],
+      {this.quarterSize = 0,
+      final List<Ticket> tempTickets = const [],
+      final List<Ticket> tickets = const [],
       this.gameId = null,
       final List<Ticket> lockedTickets = const [],
       this.ticketFetchState = FetchState.initial,
+      this.lockedTicketFetchState = FetchState.initial,
       this.ticketPurchaseStatus = FormSubmissionStatus.initial,
       this.ticketLockState = const TicketLockState(),
       this.ticketUnlockState = const TicketUnlockState(),
-      this.errorMessage = null})
-      : _tickets = tickets,
-        _lockedTickets = lockedTickets;
+      this.errorMessage = null,
+      this.randomTicketLockState = const RandomTicketLockState(),
+      final List<TicketFilterType> ticketFilterType = const [],
+      this.selectedFilterType = null})
+      : _tempTickets = tempTickets,
+        _tickets = tickets,
+        _lockedTickets = lockedTickets,
+        _ticketFilterType = ticketFilterType;
+
+//for filter we need to have a copy of the tickets
+  @override
+  @JsonKey()
+  final int quarterSize;
+  final List<Ticket> _tempTickets;
+  @override
+  @JsonKey()
+  List<Ticket> get tempTickets {
+    if (_tempTickets is EqualUnmodifiableListView) return _tempTickets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tempTickets);
+  }
 
   final List<Ticket> _tickets;
   @override
@@ -2007,6 +2396,9 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   final FetchState ticketFetchState;
   @override
   @JsonKey()
+  final FetchState lockedTicketFetchState;
+  @override
+  @JsonKey()
   final FormSubmissionStatus ticketPurchaseStatus;
   @override
   @JsonKey()
@@ -2017,10 +2409,26 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   @override
   @JsonKey()
   final String? errorMessage;
+  @override
+  @JsonKey()
+  final RandomTicketLockState randomTicketLockState;
+  final List<TicketFilterType> _ticketFilterType;
+  @override
+  @JsonKey()
+  List<TicketFilterType> get ticketFilterType {
+    if (_ticketFilterType is EqualUnmodifiableListView)
+      return _ticketFilterType;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ticketFilterType);
+  }
+
+  @override
+  @JsonKey()
+  final TicketFilterType? selectedFilterType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameState(tickets: $tickets, gameId: $gameId, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage)';
+    return 'GameState(quarterSize: $quarterSize, tempTickets: $tempTickets, tickets: $tickets, gameId: $gameId, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, lockedTicketFetchState: $lockedTicketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage, randomTicketLockState: $randomTicketLockState, ticketFilterType: $ticketFilterType, selectedFilterType: $selectedFilterType)';
   }
 
   @override
@@ -2028,14 +2436,21 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'GameState'))
+      ..add(DiagnosticsProperty('quarterSize', quarterSize))
+      ..add(DiagnosticsProperty('tempTickets', tempTickets))
       ..add(DiagnosticsProperty('tickets', tickets))
       ..add(DiagnosticsProperty('gameId', gameId))
       ..add(DiagnosticsProperty('lockedTickets', lockedTickets))
       ..add(DiagnosticsProperty('ticketFetchState', ticketFetchState))
+      ..add(
+          DiagnosticsProperty('lockedTicketFetchState', lockedTicketFetchState))
       ..add(DiagnosticsProperty('ticketPurchaseStatus', ticketPurchaseStatus))
       ..add(DiagnosticsProperty('ticketLockState', ticketLockState))
       ..add(DiagnosticsProperty('ticketUnlockState', ticketUnlockState))
-      ..add(DiagnosticsProperty('errorMessage', errorMessage));
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
+      ..add(DiagnosticsProperty('randomTicketLockState', randomTicketLockState))
+      ..add(DiagnosticsProperty('ticketFilterType', ticketFilterType))
+      ..add(DiagnosticsProperty('selectedFilterType', selectedFilterType));
   }
 
   @override
@@ -2043,12 +2458,18 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GameStateImpl &&
+            (identical(other.quarterSize, quarterSize) ||
+                other.quarterSize == quarterSize) &&
+            const DeepCollectionEquality()
+                .equals(other._tempTickets, _tempTickets) &&
             const DeepCollectionEquality().equals(other._tickets, _tickets) &&
             (identical(other.gameId, gameId) || other.gameId == gameId) &&
             const DeepCollectionEquality()
                 .equals(other._lockedTickets, _lockedTickets) &&
             (identical(other.ticketFetchState, ticketFetchState) ||
                 other.ticketFetchState == ticketFetchState) &&
+            (identical(other.lockedTicketFetchState, lockedTicketFetchState) ||
+                other.lockedTicketFetchState == lockedTicketFetchState) &&
             (identical(other.ticketPurchaseStatus, ticketPurchaseStatus) ||
                 other.ticketPurchaseStatus == ticketPurchaseStatus) &&
             (identical(other.ticketLockState, ticketLockState) ||
@@ -2056,20 +2477,32 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
             (identical(other.ticketUnlockState, ticketUnlockState) ||
                 other.ticketUnlockState == ticketUnlockState) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+                other.errorMessage == errorMessage) &&
+            (identical(other.randomTicketLockState, randomTicketLockState) ||
+                other.randomTicketLockState == randomTicketLockState) &&
+            const DeepCollectionEquality()
+                .equals(other._ticketFilterType, _ticketFilterType) &&
+            (identical(other.selectedFilterType, selectedFilterType) ||
+                other.selectedFilterType == selectedFilterType));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      quarterSize,
+      const DeepCollectionEquality().hash(_tempTickets),
       const DeepCollectionEquality().hash(_tickets),
       gameId,
       const DeepCollectionEquality().hash(_lockedTickets),
       ticketFetchState,
+      lockedTicketFetchState,
       ticketPurchaseStatus,
       ticketLockState,
       ticketUnlockState,
-      errorMessage);
+      errorMessage,
+      randomTicketLockState,
+      const DeepCollectionEquality().hash(_ticketFilterType),
+      selectedFilterType);
 
   /// Create a copy of GameState
   /// with the given fields replaced by the non-null parameter values.
@@ -2082,15 +2515,26 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
 
 abstract class _GameState implements GameState {
   const factory _GameState(
-      {final List<Ticket> tickets,
+      {final int quarterSize,
+      final List<Ticket> tempTickets,
+      final List<Ticket> tickets,
       final int? gameId,
       final List<Ticket> lockedTickets,
       final FetchState ticketFetchState,
+      final FetchState lockedTicketFetchState,
       final FormSubmissionStatus ticketPurchaseStatus,
       final TicketLockState ticketLockState,
       final TicketUnlockState ticketUnlockState,
-      final String? errorMessage}) = _$GameStateImpl;
+      final String? errorMessage,
+      final RandomTicketLockState randomTicketLockState,
+      final List<TicketFilterType> ticketFilterType,
+      final TicketFilterType? selectedFilterType}) = _$GameStateImpl;
 
+//for filter we need to have a copy of the tickets
+  @override
+  int get quarterSize;
+  @override
+  List<Ticket> get tempTickets;
   @override
   List<Ticket> get tickets;
   @override
@@ -2100,6 +2544,8 @@ abstract class _GameState implements GameState {
   @override
   FetchState get ticketFetchState;
   @override
+  FetchState get lockedTicketFetchState;
+  @override
   FormSubmissionStatus get ticketPurchaseStatus;
   @override
   TicketLockState get ticketLockState;
@@ -2107,6 +2553,12 @@ abstract class _GameState implements GameState {
   TicketUnlockState get ticketUnlockState;
   @override
   String? get errorMessage;
+  @override
+  RandomTicketLockState get randomTicketLockState;
+  @override
+  List<TicketFilterType> get ticketFilterType;
+  @override
+  TicketFilterType? get selectedFilterType;
 
   /// Create a copy of GameState
   /// with the given fields replaced by the non-null parameter values.
@@ -2480,4 +2932,190 @@ abstract class _TicketLockState implements TicketLockState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TicketLockStateImplCopyWith<_$TicketLockStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$RandomTicketLockState {
+  FormSubmissionStatus get formSubmissionStatus =>
+      throw _privateConstructorUsedError;
+  Ticket? get ticket => throw _privateConstructorUsedError;
+
+  /// Create a copy of RandomTicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $RandomTicketLockStateCopyWith<RandomTicketLockState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RandomTicketLockStateCopyWith<$Res> {
+  factory $RandomTicketLockStateCopyWith(RandomTicketLockState value,
+          $Res Function(RandomTicketLockState) then) =
+      _$RandomTicketLockStateCopyWithImpl<$Res, RandomTicketLockState>;
+  @useResult
+  $Res call({FormSubmissionStatus formSubmissionStatus, Ticket? ticket});
+
+  $TicketCopyWith<$Res>? get ticket;
+}
+
+/// @nodoc
+class _$RandomTicketLockStateCopyWithImpl<$Res,
+        $Val extends RandomTicketLockState>
+    implements $RandomTicketLockStateCopyWith<$Res> {
+  _$RandomTicketLockStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RandomTicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formSubmissionStatus = null,
+    Object? ticket = freezed,
+  }) {
+    return _then(_value.copyWith(
+      formSubmissionStatus: null == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
+      ticket: freezed == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
+    ) as $Val);
+  }
+
+  /// Create a copy of RandomTicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TicketCopyWith<$Res>? get ticket {
+    if (_value.ticket == null) {
+      return null;
+    }
+
+    return $TicketCopyWith<$Res>(_value.ticket!, (value) {
+      return _then(_value.copyWith(ticket: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$RandomTicketLockStateImplCopyWith<$Res>
+    implements $RandomTicketLockStateCopyWith<$Res> {
+  factory _$$RandomTicketLockStateImplCopyWith(
+          _$RandomTicketLockStateImpl value,
+          $Res Function(_$RandomTicketLockStateImpl) then) =
+      __$$RandomTicketLockStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({FormSubmissionStatus formSubmissionStatus, Ticket? ticket});
+
+  @override
+  $TicketCopyWith<$Res>? get ticket;
+}
+
+/// @nodoc
+class __$$RandomTicketLockStateImplCopyWithImpl<$Res>
+    extends _$RandomTicketLockStateCopyWithImpl<$Res,
+        _$RandomTicketLockStateImpl>
+    implements _$$RandomTicketLockStateImplCopyWith<$Res> {
+  __$$RandomTicketLockStateImplCopyWithImpl(_$RandomTicketLockStateImpl _value,
+      $Res Function(_$RandomTicketLockStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RandomTicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? formSubmissionStatus = null,
+    Object? ticket = freezed,
+  }) {
+    return _then(_$RandomTicketLockStateImpl(
+      formSubmissionStatus: null == formSubmissionStatus
+          ? _value.formSubmissionStatus
+          : formSubmissionStatus // ignore: cast_nullable_to_non_nullable
+              as FormSubmissionStatus,
+      ticket: freezed == ticket
+          ? _value.ticket
+          : ticket // ignore: cast_nullable_to_non_nullable
+              as Ticket?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RandomTicketLockStateImpl
+    with DiagnosticableTreeMixin
+    implements _RandomTicketLockState {
+  const _$RandomTicketLockStateImpl(
+      {this.formSubmissionStatus = FormSubmissionStatus.initial,
+      this.ticket = null});
+
+  @override
+  @JsonKey()
+  final FormSubmissionStatus formSubmissionStatus;
+  @override
+  @JsonKey()
+  final Ticket? ticket;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RandomTicketLockState(formSubmissionStatus: $formSubmissionStatus, ticket: $ticket)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RandomTicketLockState'))
+      ..add(DiagnosticsProperty('formSubmissionStatus', formSubmissionStatus))
+      ..add(DiagnosticsProperty('ticket', ticket));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RandomTicketLockStateImpl &&
+            (identical(other.formSubmissionStatus, formSubmissionStatus) ||
+                other.formSubmissionStatus == formSubmissionStatus) &&
+            (identical(other.ticket, ticket) || other.ticket == ticket));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, formSubmissionStatus, ticket);
+
+  /// Create a copy of RandomTicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RandomTicketLockStateImplCopyWith<_$RandomTicketLockStateImpl>
+      get copyWith => __$$RandomTicketLockStateImplCopyWithImpl<
+          _$RandomTicketLockStateImpl>(this, _$identity);
+}
+
+abstract class _RandomTicketLockState implements RandomTicketLockState {
+  const factory _RandomTicketLockState(
+      {final FormSubmissionStatus formSubmissionStatus,
+      final Ticket? ticket}) = _$RandomTicketLockStateImpl;
+
+  @override
+  FormSubmissionStatus get formSubmissionStatus;
+  @override
+  Ticket? get ticket;
+
+  /// Create a copy of RandomTicketLockState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RandomTicketLockStateImplCopyWith<_$RandomTicketLockStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
