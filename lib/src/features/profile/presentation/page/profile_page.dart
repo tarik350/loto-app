@@ -36,7 +36,7 @@ class ProfilePage extends StatelessWidget {
                       context.router.push(const EditProfileRoute())),
               ProfileCardContentDto(
                   icon: AppImages.myOrderIcon,
-                  title: "My Orders",
+                  title: "My Tickets",
                   isVisible: isAuthenticated,
                   onAction: (context) {
                     context.router.push(const MyTicketRoute());

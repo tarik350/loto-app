@@ -9,10 +9,7 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page, path: '/home'),
-        AutoRoute(
-          page: AppRoute.page,
-          path: '/app',
-        ),
+        AutoRoute(page: AppRoute.page, path: '/app', initial: true),
         AutoRoute(page: GameRoute.page, path: '/game'),
         CustomRoute(
           page: AuthRouteWrapper.page,
@@ -33,7 +30,10 @@ class AppRouter extends RootStackRouter {
           },
           durationInMilliseconds: 400,
         ),
-        AutoRoute(page: MyWalletRoute.page, path: '/wallet', initial: true),
+        AutoRoute(
+          page: MyWalletRoute.page,
+          path: '/wallet',
+        ),
         AutoRoute(
           page: MyTicketRoute.page,
           path: '/ticket',

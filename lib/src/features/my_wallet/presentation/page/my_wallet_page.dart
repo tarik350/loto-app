@@ -91,90 +91,12 @@ class MyWalletPage extends StatelessWidget {
               title: CustomPageAppBar(title: 'My Wallet'),
             ),
           ),
-          SliverAppBar(
-            primary: false,
-            snap: false,
-            stretch: false,
-            toolbarHeight: 80.h,
-            pinned: true,
-            leading: Container(),
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: EdgeInsets.zero,
-              title: Container(
-                margin: EdgeInsets.only(
-                  left: AppDimensions.spacingS,
-                  right: AppDimensions.spacingS,
-                  bottom: AppDimensions.spacingS,
-                  top: AppDimensions.spacingXL,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusS),
-                  border: const GradientBoxBorder(
-                    gradient: AppColors.secondaryGradient,
-                  ),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(7.r),
-                  child: BlocSelector<WalletBloc, WalletState, int>(
-                    selector: (state) => state.selectedTab,
-                    builder: (context, tab) {
-                      return Row(
-                        children: [
-                          TabSelectorButton(
-                            icon: SvgPicture.asset(
-                              AppImages.paymentHistoryIcon,
-                              colorFilter: ColorFilter.mode(
-                                tab == 0 ? Colors.white : Colors.black,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                            isSelected: tab == 0,
-                            onTap: () => context
-                                .read<WalletBloc>()
-                                .add(const WalletEvent.selectTab(0)),
-                            title: "History",
-                          ),
-                          TabSelectorButton(
-                            icon: SvgPicture.asset(
-                              AppImages.topupIcon,
-                              colorFilter: ColorFilter.mode(
-                                tab == 1 ? Colors.white : Colors.black,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                            isSelected: tab == 1,
-                            onTap: () => context
-                                .read<WalletBloc>()
-                                .add(const WalletEvent.selectTab(1)),
-                            title: "Top UP",
-                          ),
-                          TabSelectorButton(
-                            icon: SvgPicture.asset(
-                              AppImages.withdrawalIcon,
-                              colorFilter: ColorFilter.mode(
-                                tab == 2 ? Colors.white : Colors.black,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                            isSelected: tab == 2,
-                            onTap: () => context
-                                .read<WalletBloc>()
-                                .add(const WalletEvent.selectTab(2)),
-                            title: "Withdraw",
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-          ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: AppDimensions.spacingS,
-                  horizontal: AppDimensions.spacingS),
+              padding: EdgeInsets.only(
+                  right: AppDimensions.spacingS,
+                  left: AppDimensions.spacingS,
+                  top: AppDimensions.spacingM),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,6 +136,85 @@ class MyWalletPage extends StatelessWidget {
               ),
             ),
           ),
+          SliverAppBar(
+            primary: false,
+            snap: false,
+            stretch: false,
+            toolbarHeight: 80.h,
+            pinned: true,
+            leading: Container(),
+            flexibleSpace: FlexibleSpaceBar(
+              titlePadding: EdgeInsets.zero,
+              title: Container(
+                margin: EdgeInsets.only(
+                  left: AppDimensions.spacingS,
+                  right: AppDimensions.spacingS,
+                  bottom: AppDimensions.spacingS,
+                  top: AppDimensions.spacingXL,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(AppDimensions.radiusS),
+                  border: const GradientBoxBorder(
+                    gradient: AppColors.secondaryGradient,
+                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(7.r),
+                  child: BlocSelector<WalletBloc, WalletState, int>(
+                    selector: (state) => state.selectedTab,
+                    builder: (context, tab) {
+                      return Row(
+                        children: [
+                          TabSelectorButton(
+                            icon: SvgPicture.asset(
+                              AppImages.topupIcon,
+                              colorFilter: ColorFilter.mode(
+                                tab == 0 ? Colors.white : Colors.black,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                            isSelected: tab == 0,
+                            onTap: () => context
+                                .read<WalletBloc>()
+                                .add(const WalletEvent.selectTab(0)),
+                            title: "Top UP",
+                          ),
+                          TabSelectorButton(
+                            icon: SvgPicture.asset(
+                              AppImages.withdrawalIcon,
+                              colorFilter: ColorFilter.mode(
+                                tab == 1 ? Colors.white : Colors.black,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                            isSelected: tab == 1,
+                            onTap: () => context
+                                .read<WalletBloc>()
+                                .add(const WalletEvent.selectTab(1)),
+                            title: "Withdraw",
+                          ),
+                          TabSelectorButton(
+                            icon: SvgPicture.asset(
+                              AppImages.paymentHistoryIcon,
+                              colorFilter: ColorFilter.mode(
+                                tab == 2 ? Colors.white : Colors.black,
+                                BlendMode.srcIn,
+                              ),
+                            ),
+                            isSelected: tab == 2,
+                            onTap: () => context
+                                .read<WalletBloc>()
+                                .add(const WalletEvent.selectTab(2)),
+                            title: "History",
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ),
           SliverList(
               delegate: SliverChildListDelegate(
             [
@@ -226,19 +227,20 @@ class MyWalletPage extends StatelessWidget {
                           beginOffset: const Offset(-.5, 0),
                           endOffset: const Offset(0, 0),
                           slideCurve: Curves.linearToEaseOut,
-                          child: const TransactionHistoryView());
+                          child: const TopUpView());
                     case 1:
                       return FadedSlideAnimation(
                           beginOffset: const Offset(-.5, 0),
                           endOffset: const Offset(0, 0),
                           slideCurve: Curves.linearToEaseOut,
-                          child: const TopUpView());
+                          child: const WithdrawView());
                     case 2:
                       return FadedSlideAnimation(
                           beginOffset: const Offset(-.5, 0),
                           endOffset: const Offset(0, 0),
                           slideCurve: Curves.linearToEaseOut,
-                          child: const WithdrawView());
+                          child: const TransactionHistoryView());
+
                     default:
                       return Container();
                   }
