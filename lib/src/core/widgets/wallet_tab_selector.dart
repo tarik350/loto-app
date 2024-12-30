@@ -71,24 +71,34 @@
 //   ),
 // ),
 
-// Widget fadedSeprater() {
-//   return ShaderMask(
-//     shaderCallback: (Rect bounds) {
-//       return const LinearGradient(
-//         begin: Alignment.topCenter,
-//         end: Alignment.bottomCenter,
-//         colors: [Colors.transparent, Colors.white, Colors.transparent],
-//         stops: [0.0, 0.5, 1.0],
-//       ).createShader(bounds);
-//     },
-//     blendMode: BlendMode.dstIn,
-//     child: Container(
-//       decoration: BoxDecoration(
-//         color: Colors.white.withOpacity(.5),
-//         borderRadius: BorderRadius.circular(AppDimensions.appBarHeight),
-//       ),
-//       height: 40.h,
-//       width: 2.w,
-//     ),
-//   );
-// }
+  // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   children: [
+        //     const Text(
+        //       "Latest Transactions",
+        //       style: TextStyle(fontWeight: FontWeight.bold),
+        //     ),
+        //     GestureDetector(
+        //       onTap: () {},
+        //       child: Row(
+        //         children: [
+        //           Text(
+        //             'see all',
+        //             style: TextStyle(
+        //                 color: AppColors.foregroundGreen,
+        //                 fontWeight: FontWeight.bold,
+        //                 fontSize: AppDimensions.fontS),
+        //           ),
+        //           SizedBox(
+        //             width: AppDimensions.spacingS,
+        //           ),
+        //           Icon(
+        //             Icons.arrow_forward,
+        //             size: AppDimensions.iconXS,
+        //             color: AppColors.foregroundGreen,
+        //           )
+        //         ],
+        //       ),
+        //     )
+        //   ],
+        // ),

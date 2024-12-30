@@ -266,37 +266,6 @@ class TransactionHistoryView extends StatelessWidget {
       margin: EdgeInsets.symmetric(
           vertical: AppDimensions.spacingS, horizontal: AppDimensions.spacingS),
       child: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Latest Transactions",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Row(
-                children: [
-                  Text(
-                    'see all',
-                    style: TextStyle(
-                        color: AppColors.foregroundGreen,
-                        fontWeight: FontWeight.bold,
-                        fontSize: AppDimensions.fontS),
-                  ),
-                  SizedBox(
-                    width: AppDimensions.spacingS,
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: AppDimensions.iconXS,
-                    color: AppColors.foregroundGreen,
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
         ...List.generate(
           transactions.length,
           (index) {

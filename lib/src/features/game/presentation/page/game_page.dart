@@ -76,16 +76,18 @@ class GameScreen extends StatelessWidget {
                             listener: (context, state) {
                               if (state.randomTicketLockState
                                       .formSubmissionStatus ==
-                                  FormSubmissionStatus.failure) {}
-                              ToastManager.show(
-                                  context: context,
-                                  icon: Icon(
-                                    Icons.error,
-                                    color: AppColors.strongRed,
-                                    size: AppDimensions.iconM,
-                                  ),
-                                  message: state.errorMessage ??
-                                      "Error while trying to aquire a lock");
+                                  FormSubmissionStatus.failure) {
+                                ToastManager.show(
+                                    context: context,
+                                    icon: Icon(
+                                      Icons.error,
+                                      color: AppColors.strongRed,
+                                      size: AppDimensions.iconM,
+                                    ),
+                                    message: state.errorMessage ??
+                                        "Error while trying to aquire a lock");
+                              }
+
                               if (state.randomTicketLockState
                                       .formSubmissionStatus ==
                                   FormSubmissionStatus.success) {
