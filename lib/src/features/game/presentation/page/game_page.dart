@@ -27,7 +27,6 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // context.read<GameBloc>().add(const GameEvent.resetState());
     context.read<GameBloc>().add(const GameEvent.fetchTickets());
 
     return Scaffold(

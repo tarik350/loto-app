@@ -2038,9 +2038,13 @@ abstract class SelectRandomTicket implements GameEvent {
 
 /// @nodoc
 mixin _$GameState {
-//for filter we need to have a copy of the tickets
+//filter state
   int get quarterSize => throw _privateConstructorUsedError;
   List<Ticket> get tempTickets => throw _privateConstructorUsedError;
+  List<TicketFilterType> get ticketFilterType =>
+      throw _privateConstructorUsedError;
+  TicketFilterType? get selectedFilterType =>
+      throw _privateConstructorUsedError; //ticket and game state
   List<Ticket> get tickets => throw _privateConstructorUsedError;
   int? get gameId => throw _privateConstructorUsedError;
   List<Ticket> get lockedTickets => throw _privateConstructorUsedError;
@@ -2052,10 +2056,6 @@ mixin _$GameState {
   TicketUnlockState get ticketUnlockState => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   RandomTicketLockState get randomTicketLockState =>
-      throw _privateConstructorUsedError;
-  List<TicketFilterType> get ticketFilterType =>
-      throw _privateConstructorUsedError;
-  TicketFilterType? get selectedFilterType =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of GameState
@@ -2073,6 +2073,8 @@ abstract class $GameStateCopyWith<$Res> {
   $Res call(
       {int quarterSize,
       List<Ticket> tempTickets,
+      List<TicketFilterType> ticketFilterType,
+      TicketFilterType? selectedFilterType,
       List<Ticket> tickets,
       int? gameId,
       List<Ticket> lockedTickets,
@@ -2082,9 +2084,7 @@ abstract class $GameStateCopyWith<$Res> {
       TicketLockState ticketLockState,
       TicketUnlockState ticketUnlockState,
       String? errorMessage,
-      RandomTicketLockState randomTicketLockState,
-      List<TicketFilterType> ticketFilterType,
-      TicketFilterType? selectedFilterType});
+      RandomTicketLockState randomTicketLockState});
 
   $TicketLockStateCopyWith<$Res> get ticketLockState;
   $TicketUnlockStateCopyWith<$Res> get ticketUnlockState;
@@ -2108,6 +2108,8 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
   $Res call({
     Object? quarterSize = null,
     Object? tempTickets = null,
+    Object? ticketFilterType = null,
+    Object? selectedFilterType = freezed,
     Object? tickets = null,
     Object? gameId = freezed,
     Object? lockedTickets = null,
@@ -2118,8 +2120,6 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
     Object? ticketUnlockState = null,
     Object? errorMessage = freezed,
     Object? randomTicketLockState = null,
-    Object? ticketFilterType = null,
-    Object? selectedFilterType = freezed,
   }) {
     return _then(_value.copyWith(
       quarterSize: null == quarterSize
@@ -2130,6 +2130,14 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
           ? _value.tempTickets
           : tempTickets // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
+      ticketFilterType: null == ticketFilterType
+          ? _value.ticketFilterType
+          : ticketFilterType // ignore: cast_nullable_to_non_nullable
+              as List<TicketFilterType>,
+      selectedFilterType: freezed == selectedFilterType
+          ? _value.selectedFilterType
+          : selectedFilterType // ignore: cast_nullable_to_non_nullable
+              as TicketFilterType?,
       tickets: null == tickets
           ? _value.tickets
           : tickets // ignore: cast_nullable_to_non_nullable
@@ -2170,14 +2178,6 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
           ? _value.randomTicketLockState
           : randomTicketLockState // ignore: cast_nullable_to_non_nullable
               as RandomTicketLockState,
-      ticketFilterType: null == ticketFilterType
-          ? _value.ticketFilterType
-          : ticketFilterType // ignore: cast_nullable_to_non_nullable
-              as List<TicketFilterType>,
-      selectedFilterType: freezed == selectedFilterType
-          ? _value.selectedFilterType
-          : selectedFilterType // ignore: cast_nullable_to_non_nullable
-              as TicketFilterType?,
     ) as $Val);
   }
 
@@ -2224,6 +2224,8 @@ abstract class _$$GameStateImplCopyWith<$Res>
   $Res call(
       {int quarterSize,
       List<Ticket> tempTickets,
+      List<TicketFilterType> ticketFilterType,
+      TicketFilterType? selectedFilterType,
       List<Ticket> tickets,
       int? gameId,
       List<Ticket> lockedTickets,
@@ -2233,9 +2235,7 @@ abstract class _$$GameStateImplCopyWith<$Res>
       TicketLockState ticketLockState,
       TicketUnlockState ticketUnlockState,
       String? errorMessage,
-      RandomTicketLockState randomTicketLockState,
-      List<TicketFilterType> ticketFilterType,
-      TicketFilterType? selectedFilterType});
+      RandomTicketLockState randomTicketLockState});
 
   @override
   $TicketLockStateCopyWith<$Res> get ticketLockState;
@@ -2260,6 +2260,8 @@ class __$$GameStateImplCopyWithImpl<$Res>
   $Res call({
     Object? quarterSize = null,
     Object? tempTickets = null,
+    Object? ticketFilterType = null,
+    Object? selectedFilterType = freezed,
     Object? tickets = null,
     Object? gameId = freezed,
     Object? lockedTickets = null,
@@ -2270,8 +2272,6 @@ class __$$GameStateImplCopyWithImpl<$Res>
     Object? ticketUnlockState = null,
     Object? errorMessage = freezed,
     Object? randomTicketLockState = null,
-    Object? ticketFilterType = null,
-    Object? selectedFilterType = freezed,
   }) {
     return _then(_$GameStateImpl(
       quarterSize: null == quarterSize
@@ -2282,6 +2282,14 @@ class __$$GameStateImplCopyWithImpl<$Res>
           ? _value._tempTickets
           : tempTickets // ignore: cast_nullable_to_non_nullable
               as List<Ticket>,
+      ticketFilterType: null == ticketFilterType
+          ? _value._ticketFilterType
+          : ticketFilterType // ignore: cast_nullable_to_non_nullable
+              as List<TicketFilterType>,
+      selectedFilterType: freezed == selectedFilterType
+          ? _value.selectedFilterType
+          : selectedFilterType // ignore: cast_nullable_to_non_nullable
+              as TicketFilterType?,
       tickets: null == tickets
           ? _value._tickets
           : tickets // ignore: cast_nullable_to_non_nullable
@@ -2322,14 +2330,6 @@ class __$$GameStateImplCopyWithImpl<$Res>
           ? _value.randomTicketLockState
           : randomTicketLockState // ignore: cast_nullable_to_non_nullable
               as RandomTicketLockState,
-      ticketFilterType: null == ticketFilterType
-          ? _value._ticketFilterType
-          : ticketFilterType // ignore: cast_nullable_to_non_nullable
-              as List<TicketFilterType>,
-      selectedFilterType: freezed == selectedFilterType
-          ? _value.selectedFilterType
-          : selectedFilterType // ignore: cast_nullable_to_non_nullable
-              as TicketFilterType?,
     ));
   }
 }
@@ -2340,6 +2340,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   const _$GameStateImpl(
       {this.quarterSize = 0,
       final List<Ticket> tempTickets = const [],
+      final List<TicketFilterType> ticketFilterType = const [],
+      this.selectedFilterType = null,
       final List<Ticket> tickets = const [],
       this.gameId = null,
       final List<Ticket> lockedTickets = const [],
@@ -2349,15 +2351,13 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       this.ticketLockState = const TicketLockState(),
       this.ticketUnlockState = const TicketUnlockState(),
       this.errorMessage = null,
-      this.randomTicketLockState = const RandomTicketLockState(),
-      final List<TicketFilterType> ticketFilterType = const [],
-      this.selectedFilterType = null})
+      this.randomTicketLockState = const RandomTicketLockState()})
       : _tempTickets = tempTickets,
+        _ticketFilterType = ticketFilterType,
         _tickets = tickets,
-        _lockedTickets = lockedTickets,
-        _ticketFilterType = ticketFilterType;
+        _lockedTickets = lockedTickets;
 
-//for filter we need to have a copy of the tickets
+//filter state
   @override
   @JsonKey()
   final int quarterSize;
@@ -2370,7 +2370,22 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
     return EqualUnmodifiableListView(_tempTickets);
   }
 
+  final List<TicketFilterType> _ticketFilterType;
+  @override
+  @JsonKey()
+  List<TicketFilterType> get ticketFilterType {
+    if (_ticketFilterType is EqualUnmodifiableListView)
+      return _ticketFilterType;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ticketFilterType);
+  }
+
+  @override
+  @JsonKey()
+  final TicketFilterType? selectedFilterType;
+//ticket and game state
   final List<Ticket> _tickets;
+//ticket and game state
   @override
   @JsonKey()
   List<Ticket> get tickets {
@@ -2412,23 +2427,10 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
   @override
   @JsonKey()
   final RandomTicketLockState randomTicketLockState;
-  final List<TicketFilterType> _ticketFilterType;
-  @override
-  @JsonKey()
-  List<TicketFilterType> get ticketFilterType {
-    if (_ticketFilterType is EqualUnmodifiableListView)
-      return _ticketFilterType;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_ticketFilterType);
-  }
-
-  @override
-  @JsonKey()
-  final TicketFilterType? selectedFilterType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GameState(quarterSize: $quarterSize, tempTickets: $tempTickets, tickets: $tickets, gameId: $gameId, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, lockedTicketFetchState: $lockedTicketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage, randomTicketLockState: $randomTicketLockState, ticketFilterType: $ticketFilterType, selectedFilterType: $selectedFilterType)';
+    return 'GameState(quarterSize: $quarterSize, tempTickets: $tempTickets, ticketFilterType: $ticketFilterType, selectedFilterType: $selectedFilterType, tickets: $tickets, gameId: $gameId, lockedTickets: $lockedTickets, ticketFetchState: $ticketFetchState, lockedTicketFetchState: $lockedTicketFetchState, ticketPurchaseStatus: $ticketPurchaseStatus, ticketLockState: $ticketLockState, ticketUnlockState: $ticketUnlockState, errorMessage: $errorMessage, randomTicketLockState: $randomTicketLockState)';
   }
 
   @override
@@ -2438,6 +2440,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       ..add(DiagnosticsProperty('type', 'GameState'))
       ..add(DiagnosticsProperty('quarterSize', quarterSize))
       ..add(DiagnosticsProperty('tempTickets', tempTickets))
+      ..add(DiagnosticsProperty('ticketFilterType', ticketFilterType))
+      ..add(DiagnosticsProperty('selectedFilterType', selectedFilterType))
       ..add(DiagnosticsProperty('tickets', tickets))
       ..add(DiagnosticsProperty('gameId', gameId))
       ..add(DiagnosticsProperty('lockedTickets', lockedTickets))
@@ -2448,9 +2452,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       ..add(DiagnosticsProperty('ticketLockState', ticketLockState))
       ..add(DiagnosticsProperty('ticketUnlockState', ticketUnlockState))
       ..add(DiagnosticsProperty('errorMessage', errorMessage))
-      ..add(DiagnosticsProperty('randomTicketLockState', randomTicketLockState))
-      ..add(DiagnosticsProperty('ticketFilterType', ticketFilterType))
-      ..add(DiagnosticsProperty('selectedFilterType', selectedFilterType));
+      ..add(
+          DiagnosticsProperty('randomTicketLockState', randomTicketLockState));
   }
 
   @override
@@ -2462,6 +2465,10 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
                 other.quarterSize == quarterSize) &&
             const DeepCollectionEquality()
                 .equals(other._tempTickets, _tempTickets) &&
+            const DeepCollectionEquality()
+                .equals(other._ticketFilterType, _ticketFilterType) &&
+            (identical(other.selectedFilterType, selectedFilterType) ||
+                other.selectedFilterType == selectedFilterType) &&
             const DeepCollectionEquality().equals(other._tickets, _tickets) &&
             (identical(other.gameId, gameId) || other.gameId == gameId) &&
             const DeepCollectionEquality()
@@ -2479,11 +2486,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.randomTicketLockState, randomTicketLockState) ||
-                other.randomTicketLockState == randomTicketLockState) &&
-            const DeepCollectionEquality()
-                .equals(other._ticketFilterType, _ticketFilterType) &&
-            (identical(other.selectedFilterType, selectedFilterType) ||
-                other.selectedFilterType == selectedFilterType));
+                other.randomTicketLockState == randomTicketLockState));
   }
 
   @override
@@ -2491,6 +2494,8 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       runtimeType,
       quarterSize,
       const DeepCollectionEquality().hash(_tempTickets),
+      const DeepCollectionEquality().hash(_ticketFilterType),
+      selectedFilterType,
       const DeepCollectionEquality().hash(_tickets),
       gameId,
       const DeepCollectionEquality().hash(_lockedTickets),
@@ -2500,9 +2505,7 @@ class _$GameStateImpl with DiagnosticableTreeMixin implements _GameState {
       ticketLockState,
       ticketUnlockState,
       errorMessage,
-      randomTicketLockState,
-      const DeepCollectionEquality().hash(_ticketFilterType),
-      selectedFilterType);
+      randomTicketLockState);
 
   /// Create a copy of GameState
   /// with the given fields replaced by the non-null parameter values.
@@ -2517,6 +2520,8 @@ abstract class _GameState implements GameState {
   const factory _GameState(
       {final int quarterSize,
       final List<Ticket> tempTickets,
+      final List<TicketFilterType> ticketFilterType,
+      final TicketFilterType? selectedFilterType,
       final List<Ticket> tickets,
       final int? gameId,
       final List<Ticket> lockedTickets,
@@ -2526,15 +2531,17 @@ abstract class _GameState implements GameState {
       final TicketLockState ticketLockState,
       final TicketUnlockState ticketUnlockState,
       final String? errorMessage,
-      final RandomTicketLockState randomTicketLockState,
-      final List<TicketFilterType> ticketFilterType,
-      final TicketFilterType? selectedFilterType}) = _$GameStateImpl;
+      final RandomTicketLockState randomTicketLockState}) = _$GameStateImpl;
 
-//for filter we need to have a copy of the tickets
+//filter state
   @override
   int get quarterSize;
   @override
   List<Ticket> get tempTickets;
+  @override
+  List<TicketFilterType> get ticketFilterType;
+  @override
+  TicketFilterType? get selectedFilterType; //ticket and game state
   @override
   List<Ticket> get tickets;
   @override
@@ -2555,10 +2562,6 @@ abstract class _GameState implements GameState {
   String? get errorMessage;
   @override
   RandomTicketLockState get randomTicketLockState;
-  @override
-  List<TicketFilterType> get ticketFilterType;
-  @override
-  TicketFilterType? get selectedFilterType;
 
   /// Create a copy of GameState
   /// with the given fields replaced by the non-null parameter values.

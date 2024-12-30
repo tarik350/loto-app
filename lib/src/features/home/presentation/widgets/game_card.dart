@@ -290,8 +290,7 @@ class GameCard extends StatelessWidget {
                                 ),
                                 // Progress container
                                 Container(
-                                  width:
-                                      progressWidth, // Dynamic progress width
+                                  width: progressWidth,
                                   height: AppDimensions.spacingM,
                                   decoration: BoxDecoration(
                                     color: AppColors

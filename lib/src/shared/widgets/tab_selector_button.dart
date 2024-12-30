@@ -6,9 +6,11 @@ class TabSelectorButton extends StatelessWidget {
   final bool isSelected;
   final String title;
   final VoidCallback onTap;
+  final Widget? icon;
   const TabSelectorButton(
       {super.key,
       required this.isSelected,
+      this.icon,
       required this.onTap,
       required this.title});
 
@@ -18,7 +20,7 @@ class TabSelectorButton extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: AnimatedContainer(
-          alignment: Alignment.center,
+          // alignment: Alignment.center,
           duration: const Duration(milliseconds: 300),
           decoration: BoxDecoration(
             gradient: isSelected
@@ -34,12 +36,24 @@ class TabSelectorButton extends StatelessWidget {
                     colors: [Colors.white, Colors.white],
                   ),
           ),
-          child: Text(
-            title,
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                color: isSelected ? Colors.white : Colors.black,
-                fontSize: AppDimensions.fontM),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(width: AppDimensions.iconS, child: icon ?? Container()),
+              icon != null
+                  ? SizedBox(
+                      width: AppDimensions.spacingS,
+                    )
+                  : const SizedBox.shrink(),
+              Text(
+                title,
+                style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: isSelected ? Colors.white : Colors.black,
+                    fontSize: AppDimensions.fontM),
+              ),
+            ],
           ),
         ),
       ),
