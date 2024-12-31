@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                   }),
               ProfileCardContentDto(
                   icon: AppImages.creditCardIcon,
-                  title: "Wallet",
+                  title: "My Wallet",
                   isVisible: isAuthenticated,
                   onAction: (context) {
                     context.router.push(const MyWalletRoute());
