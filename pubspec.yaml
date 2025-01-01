@@ -58,6 +58,7 @@ dependencies:
   gradient_borders: ^1.0.1
   carousel_slider: ^5.0.0
   animate_do: ^3.3.4
+  local_auth: ^2.3.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1

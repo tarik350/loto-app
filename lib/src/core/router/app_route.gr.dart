@@ -107,14 +107,14 @@ class GameRoute extends _i9.PageRouteInfo<GameRouteArgs> {
   GameRoute({
     _i10.Key? key,
     required _i11.GameCategory category,
-    required int gameId,
+    required String gameName,
     List<_i9.PageRouteInfo>? children,
   }) : super(
           GameRoute.name,
           args: GameRouteArgs(
             key: key,
             category: category,
-            gameId: gameId,
+            gameName: gameName,
           ),
           initialChildren: children,
         );
@@ -128,7 +128,7 @@ class GameRoute extends _i9.PageRouteInfo<GameRouteArgs> {
       return _i4.GameScreen(
         key: args.key,
         category: args.category,
-        gameId: args.gameId,
+        gameName: args.gameName,
       );
     },
   );
@@ -138,18 +138,18 @@ class GameRouteArgs {
   const GameRouteArgs({
     this.key,
     required this.category,
-    required this.gameId,
+    required this.gameName,
   });
 
   final _i10.Key? key;
 
   final _i11.GameCategory category;
 
-  final int gameId;
+  final String gameName;
 
   @override
   String toString() {
-    return 'GameRouteArgs{key: $key, category: $category, gameId: $gameId}';
+    return 'GameRouteArgs{key: $key, category: $category, gameName: $gameName}';
   }
 }
 

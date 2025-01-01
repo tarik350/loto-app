@@ -6,10 +6,15 @@ class CustomDialog extends StatelessWidget {
   final String title;
   final Widget child;
   final List<Widget> actions;
+  final EdgeInsets contentPadding;
+  final EdgeInsets? insetPadding;
 
   const CustomDialog({
     required this.title,
     required this.child,
+    this.insetPadding,
+    this.contentPadding =
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
     this.actions = const [],
     Key? key,
   }) : super(key: key);
@@ -19,12 +24,12 @@ class CustomDialog extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       alignment: Alignment.center,
+      insetPadding: insetPadding,
       insetAnimationCurve: Curves.slowMiddle,
       insetAnimationDuration: const Duration(milliseconds: 100),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Title
           Container(
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             decoration: BoxDecoration(
@@ -57,9 +62,7 @@ class CustomDialog extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(AppDimensions.radiusL),
                     bottomRight: Radius.circular(AppDimensions.radiusL))),
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimensions.paddingL,
-                vertical: AppDimensions.paddingM),
+            padding: contentPadding,
             child: Column(
               children: [
                 child,
@@ -85,31 +88,37 @@ class DialogManager {
     Navigator.of(context).push(
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (_, __, ___) => dialog,
+        pageBuilder: (context, animation, secondaryAnimation) => Stack(
+          children: [
+            GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
+              child: Container(
+                color: Colors.black.withOpacity(0.8),
+              ),
+            ),
+            Center(
+              child: ScaleTransition(
+                scale: TweenSequence<double>([
+                  TweenSequenceItem(
+                      tween: Tween(begin: 0.0, end: 1.2),
+                      weight: 30), // Scale up slightly
+                  TweenSequenceItem(
+                      tween: Tween(begin: 1.2, end: 0.8),
+                      weight: 40), // Scale down slightly more
+                  TweenSequenceItem(
+                      tween: Tween(begin: 0.8, end: 1.0),
+                      weight: 30), // Settle to full size
+                ]).chain(CurveTween(curve: Curves.easeOut)).animate(animation),
+                child: dialog,
+              ),
+            ),
+          ],
+        ),
         transitionsBuilder: (_, animation, secondaryAnimation, child) {
-          // Use a TweenSequence for a slower, more graceful bounce or wiggle effect for opening
-          var bounceTween = TweenSequence<double>([
-            TweenSequenceItem(
-                tween: Tween(begin: 0.0, end: 1.2),
-                weight: 30), // Scale up slightly
-            TweenSequenceItem(
-                tween: Tween(begin: 1.2, end: 0.8),
-                weight: 40), // Scale down slightly more
-            TweenSequenceItem(
-                tween: Tween(begin: 0.8, end: 1.0),
-                weight: 30), // Settle to full size
-          ]).chain(
-              CurveTween(curve: Curves.easeOut)); // Smooth easing for opening
-
-          var scaleAnimation = animation.drive(bounceTween);
-
-          return ScaleTransition(
-            scale: scaleAnimation,
-            child: child,
-          );
+          return child;
         },
-        transitionDuration: const Duration(milliseconds: 600),
-        reverseTransitionDuration: const Duration(milliseconds: 600),
+        transitionDuration: const Duration(milliseconds: 800),
+        reverseTransitionDuration: const Duration(milliseconds: 1000),
       ),
     );
   }

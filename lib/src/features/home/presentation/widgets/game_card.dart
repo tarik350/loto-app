@@ -175,7 +175,7 @@ class GameCard extends StatelessWidget {
                                       .read<GameBloc>()
                                       .add(GameEvent.updateGameId(gameId));
                                   context.router.push(GameRoute(
-                                      category: category!, gameId: gameId));
+                                      category: category!, gameName: gameName));
                                 })
                           ],
                         ),

@@ -7,8 +7,10 @@ import 'package:mobile_app/src/features/home/domain/models/game_category/game_ca
 
 class GameTicketPageheading extends StatelessWidget {
   final GameCategory category;
+  final String title;
 
-  const GameTicketPageheading({super.key, required this.category});
+  const GameTicketPageheading(
+      {super.key, required this.category, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +51,14 @@ class GameTicketPageheading extends StatelessWidget {
                       )),
                 ),
               ),
-              SizedBox(width: 45.w),
+              SizedBox(
+                width: AppDimensions.spacingM,
+              ),
               Stack(
                 children: <Widget>[
                   // Stroked text as border.
                   Text(
-                    'Asbeza01',
+                    title,
                     style: TextStyle(
                       fontSize: AppDimensions.fontXXL,
                       shadows: [
@@ -79,7 +83,7 @@ class GameTicketPageheading extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Asbeza01',
+                    title,
                     style: TextStyle(
                       // letterSpacing: 0,
                       fontSize: AppDimensions.fontXXL,

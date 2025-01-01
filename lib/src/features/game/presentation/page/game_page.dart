@@ -15,15 +15,21 @@ import 'package:mobile_app/src/features/game/presentation/widgets/filter_dropdow
 import 'package:mobile_app/src/features/game/presentation/widgets/game_ticket_page_heading.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/game_tickets_grid.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/locked_ticket_list.dart';
+import 'package:mobile_app/src/features/game/presentation/widgets/purchase_dialog.dart';
 import 'package:mobile_app/src/features/game/presentation/widgets/ticket_status_indicator.dart';
 import 'package:mobile_app/src/features/home/domain/models/game_category/game_category.dart';
+import 'package:mobile_app/src/shared/widgets/custome_dialogue.dart';
 import 'package:mobile_app/src/shared/widgets/slide_in_toast.dart';
 
 @RoutePage()
 class GameScreen extends StatelessWidget {
   final GameCategory category;
-  final int gameId;
-  const GameScreen({super.key, required this.category, required this.gameId});
+  final String gameName;
+  const GameScreen({
+    super.key,
+    required this.category,
+    required this.gameName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,10 @@ class GameScreen extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            GameTicketPageheading(category: category),
+            GameTicketPageheading(
+              category: category,
+              title: gameName,
+            ),
             Expanded(
                 child: Container(
               decoration: BoxDecoration(
@@ -207,14 +216,11 @@ class GameScreen extends StatelessWidget {
                             shadowColor: AppColors.darkBlueShade,
                             title: 'ትኬት ግዛ',
                             onPressed: () {
-                              //TODO:
-                              //CHECK IF USER HAS AUTHENTICATED
-
-                              //IF AUTHENTICATED CHECK IF USER PHONE SUPPORTS BIOMETRIC AUTHENTICATED
-                              //IF IT SUPPORTS PROMPT USER TO PROVIDE THIER BIOMETRIC
-                              //OTHER WISE SHOW A DIALOG FOR USER TO ENTER THIER PASSWORD
-
-                              //ON PASSSWORD OR BIOMETRIC SUCCESS MAKE A REQUEST TO INITIATE TICKET PURCHASE
+                              //todo check if the user has authenticated if not navigate to login page
+                              //todo check if the user has any tickets locked if so show purchase dialog
+                              //todo show error toast if he does not have any locked tickets
+                              DialogManager.showCustomDialog(
+                                  context, const PurchaseDialog());
                             },
                           )
                         ],

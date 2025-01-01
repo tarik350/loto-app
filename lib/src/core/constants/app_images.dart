@@ -10,6 +10,8 @@ class AppImages {
   static final SvgPicture cardSvg = SvgPicture.asset(
     '$_basePath/cards.svg',
   );
+  static final SvgPicture fingerprint =
+      SvgPicture.asset('$_basePath/fingerprint.svg');
   static final SvgPicture icon1 = SvgPicture.asset('$_basePath/icon1.svg');
   static final SvgPicture icon2 = SvgPicture.asset('$_basePath/icon2.svg');
   static final SvgPicture icon3 = SvgPicture.asset('$_basePath/icon3.svg');
